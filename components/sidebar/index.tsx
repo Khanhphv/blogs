@@ -28,10 +28,15 @@ const Sidebar = () => {
       sidebarRef!.current!.style!.display = "";
     }
   };
+
+  const onMenuItemClick = () => {
+    toggleMenu();
+  };
+
   return (
     <>
       <button className="pe-3" onClick={toggleMenu}>
-        <Bars3Icon width={24} />
+        <Bars3Icon className="dark:text-white" width={24} />
       </button>
 
       <div
@@ -40,19 +45,21 @@ const Sidebar = () => {
       >
         {MENU &&
           MENU!.map((menu) => (
-            <div
-              className="pt-3 pb-3 dark:hover:bg-pink-400 text-center"
+            <Link
+              href={menu.href}
               key={menu.href}
+              onClick={onMenuItemClick}
+              className="pt-3 pb-3 dark:text-white dark:hover:bg-pink-400 text-center"
             >
-              <Link href={menu.href}>{menu.title}</Link>
-            </div>
+              {menu.title}
+            </Link>
           ))}
         <LightDarkSwitch />
         <div
           onClick={toggleMenu}
           className="absolute bottom-10 w-screen flex justify-center"
         >
-          <XCircleIcon width={30} />
+          <XCircleIcon className="dark:text-white" width={30} />
         </div>
       </div>
     </>

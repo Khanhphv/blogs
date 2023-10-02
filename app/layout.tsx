@@ -2,6 +2,7 @@ import { Sidebar } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} dark:bg-black`}>
         <div className="justify-between flex pt-2 pb-2 ps-2 pe-2">
           <p className="dark:text-white text-black font-bold">Khamphamviet</p>
           <Sidebar />
         </div>
+        {children}
       </body>
     </html>
   );
