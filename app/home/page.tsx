@@ -1,3 +1,4 @@
+"use client";
 import { PostCard, LightDarkSwitch, Pagination } from "@/components";
 
 export default function Home() {
@@ -13,7 +14,7 @@ export default function Home() {
             <PostCard key={index} />
           ))}
       </div> */}
-      <Pagination total={10} />
+      <Pagination onChange={(page) => console.log(page)} total={20} />
     </>
   );
 }
