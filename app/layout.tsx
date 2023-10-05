@@ -1,4 +1,4 @@
-import { Sidebar } from "@/components";
+import { Header, Sidebar } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -19,11 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} dark:bg-black`}>
-        <div className="justify-between flex pt-2 pb-2 ps-2 pe-2">
+        <div className="container mx-auto justify-between flex pt-6 pb-6">
           <p className="dark:text-white text-black font-bold">Khamphamviet</p>
-          <Sidebar />
+          <Sidebar className="lg:hidden" />
+          <Header className="hidden lg:flex" />
         </div>
-        {children}
+        <div className="container mx-auto">{children}</div>
       </body>
     </html>
   );

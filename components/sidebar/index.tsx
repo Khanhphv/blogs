@@ -2,24 +2,12 @@
 import { Bars3Icon, XCircleIcon } from "@heroicons/react/24/outline";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { HTMLAttributes, useRef } from "react";
 import { LightDarkSwitch } from "../dark-mode";
+import { MENU } from "@/app/config";
+interface SidebarProps extends HTMLAttributes<HTMLDivElement> {}
 
-const Sidebar = () => {
-  const MENU = [
-    {
-      title: "Home",
-      href: "home",
-    },
-    {
-      title: "Blog",
-      href: "blog",
-    },
-    {
-      title: "Contact",
-      href: "contact",
-    },
-  ];
+const Sidebar = (props: SidebarProps) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const toggleMenu = () => {
     if (sidebarRef?.current?.style.display == "") {
@@ -34,7 +22,7 @@ const Sidebar = () => {
   };
 
   return (
-    <>
+    <div className={props.className}>
       <button className="pe-3" onClick={toggleMenu}>
         <Bars3Icon className="dark:text-white" width={24} />
       </button>
@@ -54,7 +42,7 @@ const Sidebar = () => {
               {menu.title}
             </Link>
           ))}
-        <LightDarkSwitch />
+        <LightDarkSwitch size={50} />
         <div
           onClick={toggleMenu}
           className="absolute bottom-10 w-screen flex justify-center"
@@ -62,7 +50,7 @@ const Sidebar = () => {
           <XCircleIcon className="dark:text-white" width={30} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

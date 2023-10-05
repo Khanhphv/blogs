@@ -1,9 +1,14 @@
 "use client";
 
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
-import { useLayoutEffect, useState } from "react";
+import { HTMLAttributes, useLayoutEffect } from "react";
 
-export const LightDarkSwitch = () => {
+export interface LightDarkSwitchProps extends HTMLAttributes<HTMLDivElement> {
+  size: number;
+}
+
+export const LightDarkSwitch = (props: LightDarkSwitchProps) => {
+  const { size = 50, className } = props;
   const onChangeDarkMode = (mode: Boolean) => {
     if (mode) {
       document.documentElement.classList.add("dark");
@@ -19,17 +24,17 @@ export const LightDarkSwitch = () => {
   }, []);
 
   return (
-    <div className="flex justify-center mt-2">
+    <div className={`flex justify-center ${className}`}>
       <div onClick={() => onChangeDarkMode(false)}>
         <SunIcon
-          className="dark:text-white dark:hover:bg-pink-400 bg-pink-400 dark:bg-black rounded-full p-2"
-          width={50}
+          className="dark:text-white dark:hover:bg-pink-400 bg-pink-400 dark:bg-black rounded-full"
+          width={size}
         />
       </div>
       <div onClick={() => onChangeDarkMode(true)}>
         <MoonIcon
-          className="ms-3 dark:text-white dark:bg-pink-400 hover:bg-pink-400 rounded-full p-2"
-          width={50}
+          className="ms-3 dark:text-white dark:bg-pink-400 hover:bg-pink-400 rounded-full"
+          width={size}
         />
       </div>
     </div>
