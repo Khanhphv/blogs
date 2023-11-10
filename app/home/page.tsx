@@ -1,20 +1,41 @@
+/* eslint-disable @next/next/no-async-client-component */
 "use client";
 import { PostCard, LightDarkSwitch, Pagination } from "@/components";
+import { IProduct, productsGraphql } from "@/graphql";
+import moment from "moment";
 
-export default function Home() {
+export default async function Home() {
+  const products = await productsGraphql.getAll();
   return (
     <>
-      {/* <div>
-        <PostCard widthImage={500} horizontal />
-      </div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-3 xl:grid-cols-5 gap-4 ">
-        {Array(10)
-          .fill(10)
-          .map((e, index) => (
-            <PostCard key={index} />
-          ))}
-      </div> */}
-      <Pagination onChange={(page) => console.log(page)} total={20} />
+      {products.map((product: IProduct, index: number) => {
+        if (index === 0) {
+          return (
+            <PostCard
+              key={`product-home-${index}`}
+              title={product.title}
+              subTitle={product.sub_title}
+              publishAt={moment(product.created_at).format(
+                "MMMM Do YYYY, h:mm"
+              )}
+              className="sm:flex-row flex-col mb-5"
+              href={`blog/${product.id}`}
+            />
+          );
+        } else {
+          return (
+            <PostCard
+              title={product.title}
+              subTitle={product.sub_title}
+              publishAt={moment(product.created_at).format(
+                "MMMM Do YYYY, h:mm"
+              )}
+              href={`blog/${product.id}`}
+              key={index}
+            />
+          );
+        }
+      })}
     </>
   );
 }
