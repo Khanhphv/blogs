@@ -11,12 +11,17 @@
   "dependencies": {
     "@apollo/client": "^3.8.5",
     "@heroicons/react": "^2.0.18",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "graphql": "^16.8.1",
+    "lucide-react": "^0.292.0",
     "moment": "^2.29.4",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-hook-form": "^7.46.2"
+    "react-hook-form": "^7.46.2",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "latest",

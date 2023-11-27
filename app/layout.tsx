@@ -2,7 +2,7 @@ import { Header, Sidebar } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { useRouter } from "next/router";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} dark:bg-black`}>
         <div className="container mx-auto justify-between flex pt-6 pb-6">
-          <p className="dark:text-white text-black font-bold">Khamphamviet</p>
-          <Sidebar className="lg:hidden" />
-          <Header className="hidden lg:flex" />
+          <Image alt="logo" src="/logo.png" height={100} width={300} />
         </div>
         <div className="container mx-auto">{children}</div>
       </body>
