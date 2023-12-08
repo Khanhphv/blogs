@@ -1,4 +1,4 @@
-import { MENU } from "@/app/config";
+import { MENU } from "@/app/[lang]/config";
 import Link from "next/link";
 import { HTMLAttributes } from "react";
 

@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function Login() {
           <Label>Password</Label>
           <Input type="password" placeholder="Password" />
         </div>
+        <Button>Login</Button>
       </form>
     </main>
   );

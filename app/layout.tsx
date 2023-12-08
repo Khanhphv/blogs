@@ -9,13 +9,19 @@ import { Suspense } from "react";
 import Loading from "./loading";
 const inter = Inter({ subsets: ["latin"] });
 
+export async function generateStaticParams() {
+  return [{ lang: "en-US" }, { lang: "de" }];
+}
+
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: any;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={params.lang} suppressHydrationWarning>
       <body>
         <ThemeProvider
           attribute="class"
