@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col p-2">
       <div className="container">
-        <p className="text-3xl">Hi</p>
+        <p className="text-3xl">Hi, Khanh</p>
       </div>
     </main>
   );

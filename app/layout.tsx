@@ -1,17 +1,19 @@
+"use client";
 import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Image from "next/image";
+import { Inter, Roboto_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/header";
 import Logo from "@/components/logo";
 import { Suspense } from "react";
 import Loading from "./loading";
-const inter = Inter({ subsets: ["latin"] });
+import { SessionProvider } from "next-auth/react";
 
-export async function generateStaticParams() {
-  return [{ lang: "en-US" }, { lang: "de" }];
-}
+const roboto_mono = Roboto_Mono({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono",
+});
 
 export default function RootLayout({
   children,
@@ -21,19 +23,25 @@ export default function RootLayout({
   params: any;
 }) {
   return (
-    <html lang={params.lang} suppressHydrationWarning>
+    <html
+      lang={params.lang}
+      suppressHydrationWarning
+      className={`${roboto_mono.variable}`}
+    >
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Logo />
-          <Suspense fallback={<Loading />}>
-            <div className="container mx-auto">{children}</div>
-          </Suspense>
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Logo />
+            <Suspense fallback={<Loading />}>
+              <div className="container mx-auto">{children}</div>
+            </Suspense>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );
