@@ -1,22 +1,38 @@
-import { MENU } from "@/app/[lang]/config";
-import Link from "next/link";
+"use client";
 import { HTMLAttributes } from "react";
+import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import { useSession, signOut } from "next-auth/react";
+import { Popover, PopoverTrigger } from "../ui/popover";
+import { PopoverContent } from "@radix-ui/react-popover";
 
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
 export default function Header(props: HeaderProps) {
-  const { className } = props;
-  return (
-    <div className={`flex justify-between ${className}`}>
-      {MENU.map((item) => (
-        <Link
-          className="dark:text-white ps-3 pe-3"
-          key={item.href}
-          href={item.href}
-        >
-          {item.title}
-        </Link>
-      ))}
-    </div>
-  );
+  const { data } = useSession();
+  if (data) {
+    return (
+      <Popover>
+        <PopoverTrigger>
+          <Avatar>
+            <AvatarImage src={data?.user?.image || ""} />
+            <AvatarFallback>{data?.user?.name}</AvatarFallback>
+          </Avatar>
+        </PopoverTrigger>
+        <PopoverContent className="w-40 border rounded-md p-4 bg-popover shadow-md">
+          <div className="grid gap-4">
+            <div className="text-center">
+              <button
+                className="font-medium leading-none"
+                onClick={() => signOut()}
+              >
+                Sign out
+              </button>
+            </div>
+          </div>
+        </PopoverContent>
+      </Popover>
+    );
+  } else {
+    <>Sign In</>;
+  }
 }

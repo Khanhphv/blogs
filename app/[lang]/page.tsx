@@ -1,14 +1,11 @@
-import { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Khanh's page",
-  description: "Hi everyone",
-};
+"use client";
+import { useSession } from "next-auth/react";
 export default function Home() {
+  const { data } = useSession();
+  console.log(data);
   return (
     <main className="flex min-h-screen flex-col p-2">
-      <div className="container">
-        <p className="text-3xl">Hi, Khanh</p>
-      </div>
+      <div className="container"></div>
     </main>
   );
 }
