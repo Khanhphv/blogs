@@ -2,9 +2,15 @@
 import { HTMLAttributes } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { useSession, signOut } from "next-auth/react";
-import { Popover, PopoverTrigger } from "../ui/popover";
-import { PopoverContent } from "@radix-ui/react-popover";
 import { usePathname } from "next/navigation";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import Link from "next/link";
+import { buttonVariants } from "../ui/button";
 
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -17,35 +23,33 @@ export default function Header(props: HeaderProps) {
 
   if (data) {
     return (
-      <Popover>
-        <PopoverTrigger>
+      <DropdownMenu>
+        <DropdownMenuTrigger>
           <Avatar>
             <AvatarImage src={data?.user?.image || ""} />
             <AvatarFallback>{data?.user?.name}</AvatarFallback>
           </Avatar>
-        </PopoverTrigger>
-        <PopoverContent className="w-40 border rounded-md p-4 bg-popover shadow-md">
-          <div className="grid gap-4">
-            <div className="text-center">
-              <button
-                className="font-medium leading-none"
-                onClick={() => logout()}
-              >
-                Sign out
-              </button>
-            </div>
-          </div>
-        </PopoverContent>
-      </Popover>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-40 border rounded-md bg-popover shadow-md">
+          <DropdownMenuItem className="text-center">
+            <button
+              className="font-medium leading-none"
+              onClick={() => logout()}
+            >
+              Sign out
+            </button>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     );
   } else {
     if (status === "loading" || pathName.includes("login")) {
       return <></>;
     } else if (status === "unauthenticated") {
       return (
-        <a href="/login" className="p-4">
+        <Link href="/login" className={buttonVariants({ variant: "ghost" })}>
           <div className="font-medium leading-none">Sign In</div>
-        </a>
+        </Link>
       );
     }
   }
