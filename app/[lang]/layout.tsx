@@ -3,7 +3,7 @@ import { Roboto_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Logo from "@/components/logo";
 import { Suspense } from "react";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 import Header from "@/components/header";
 import Loading from "@/components/loading";
 
@@ -22,7 +22,6 @@ export default function RootLayout({
   children: React.ReactNode;
   params: any;
 }) {
-  console.log("render layout", params);
   return (
     <SessionProvider>
       <ThemeProvider
@@ -32,8 +31,8 @@ export default function RootLayout({
         disableTransitionOnChange
       >
         <Suspense fallback={<Loading />}>
-          <div className="container">
-            <div className="flex justify-between">
+          <div className="bg-slate-300">
+            <div className="container flex justify-between items-center">
               <Logo />
               <Header />
             </div>

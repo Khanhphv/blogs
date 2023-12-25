@@ -3,6 +3,7 @@ import Negotiator from "negotiator";
 import { NextRequest } from "next/server";
 import { i18n } from "./i18n-config";
 
+const PUBLIC_ROUTES = ["/login"];
 function getLocale(request: NextRequest) {
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
@@ -21,18 +22,26 @@ function getLocale(request: NextRequest) {
 }
 
 export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
-
+  const locale = getLocale(request);
+  console.log("equest.nextUrl.pathname", request.nextUrl.pathname);
+  const isAuthenticated = request.cookies.get("next-auth.session-token");
+  if (
+    !isAuthenticated &&
+    PUBLIC_ROUTES.every(
+      (route) => `/${locale}${route}` !== request.nextUrl.pathname
+    )
+  ) {
+    return Response.redirect(new URL(`/${locale}/login`, request.url));
+  }
   const { pathname } = request.nextUrl;
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
-  // console.log("pathnameHasLocale", pathnameHasLocale);
+  console.log("pathnameHasLocale", pathnameIsMissingLocale);
 
   if (!pathnameIsMissingLocale) return;
 
   // Redirect if there is no locale
-  const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;
   // e.g. incoming request is /products
   // The new URL is now /en-US/products
@@ -44,12 +53,14 @@ export function middleware(request: NextRequest) {
   );
 }
 
+export { default } from "next-auth/middleware";
+
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
     // "/((?!_next).*)",
     // Optional: only run on root (/) URL
-    // "/",
+    // "/((?!_next).*)",
     "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
 };
