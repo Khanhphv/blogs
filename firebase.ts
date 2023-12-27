@@ -1,19 +1,26 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 export const firebaseConfig = {
-  apiKey: "AIzaSyB4gblFUD7QyI_xAzoNf_uD6_mnHOSW4tE",
-  authDomain: "app-chat-2deee.firebaseapp.com",
-  projectId: "app-chat-2deee",
-  storageBucket: "app-chat-2deee.appspot.com",
-  messagingSenderId: "1063528263836",
-  appId: "1:1063528263836:web:2e1131b9125820c437fd59",
+  apiKey: "AIzaSyDWIliMpkCtorkNxcr3GD10R4BOtBmdcDE",
+  authDomain: "khanh-s-blog.firebaseapp.com",
+  projectId: "khanh-s-blog",
+  storageBucket: "khanh-s-blog.appspot.com",
+  messagingSenderId: "140255046031",
+  appId: "1:140255046031:web:cbd1ff9d6d61cbbea603fa",
+  measurementId: "G-KYMS1GQE1J",
+  databaseURL:
+    "https://khanh-s-blog-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export default app;
+const database = getDatabase(app);
+
+export { database };
