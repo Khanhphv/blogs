@@ -1,24 +1,19 @@
 "use client";
 import CreatePost from "@/components/k-create-post";
 import { Button } from "@/components/ui/button";
+import { createPost } from "@/firebase/post";
 import { FormEvent } from "react";
 
 export default function Blog() {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-
-    debugger;
-    const result = await fetch("/api/post/add", {
-      method: "POST",
-      body: JSON.stringify({
-        post: {
-          title: formData.get("title"),
-          content: formData.get("content"),
-        },
-      }),
-    });
-    console.log(result);
+    if (formData.get("title") && formData.get("content")) {
+      const result = await createPost({
+        title: formData.get("title") as string,
+        content: formData.get("content") as string,
+      });
+    }
   };
   return (
     <section className="flex min-h-screen flex-col p-2">

@@ -1,17 +1,11 @@
 import CreatePost from "@/components/k-create-post";
 import KPost from "@/components/k-post";
+import { getPost } from "@/firebase/post";
 import { Post } from "@/types/post";
-import { headers } from "next/headers";
 
 export default async function Home() {
-  const headersList = headers();
-  const host = headersList.get("host");
-  console.log(host);
   const getDetails = async () => {
-    const res = fetch(`https://${host}/api/getDocs`, {
-      cache: "no-store",
-    });
-    const data = await (await res).json();
+    const data = await getPost();
     return data;
   };
   const { data } = await getDetails();

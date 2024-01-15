@@ -30,7 +30,7 @@ export default function Login() {
   } else if (status === "unauthenticated") {
     return (
       <Suspense fallback={"Loading"}>
-        <main className="mt-10">
+        <main>
           <form>
             <div className="grid gap-1 py-2">
               <Label>Username</Label>
