@@ -1,9 +1,31 @@
+import CreatePost from "@/components/k-create-post";
+import KPost from "@/components/k-post";
+import { Post } from "@/types/post";
+
 export default async function Home() {
   const getDetails = async () => {
-    const res = fetch("http://localhost:3000/api/getDocs");
+    const res = fetch(`${process.env.domain}/api/getDocs`, {
+      cache: "no-store",
+    });
     const data = await (await res).json();
     return data;
   };
-  const message = await getDetails();
-  return <section className="flex min-h-screen flex-col p-2"></section>;
+  const { data } = await getDetails();
+  const posts: Post[] = Object.values(data) || [];
+
+  return (
+    <section className="flex min-h-screen flex-col p-2">
+      {posts?.map((post, key) => {
+        return (
+          <KPost
+            key={key}
+            title={post.title}
+            tag={"xxx"}
+            created_at="xxx"
+            content="xxx"
+          />
+        );
+      })}
+    </section>
+  );
 }

@@ -1,22 +1,31 @@
 "use client";
+import CreatePost from "@/components/k-create-post";
 import { Button } from "@/components/ui/button";
+import { FormEvent } from "react";
 
 export default function Blog() {
-  const addPost = async () => {
-    await fetch("/api/post/add", {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    debugger;
+    const result = await fetch("/api/post/add", {
       method: "POST",
       body: JSON.stringify({
         post: {
-          title: "Hello",
-          content: "xxx",
+          title: formData.get("title"),
+          content: formData.get("content"),
         },
       }),
     });
+    console.log(result);
   };
   return (
-    <main className="dark:text-white pt-2 pb-2">
-      <h1 className="border-y pt-6 pb-6 text-8xl font-bold">The Blogs</h1>
-      <Button onClick={addPost}>Submit</Button>
-    </main>
+    <section className="flex min-h-screen flex-col p-2">
+      <form onSubmit={onSubmit}>
+        <CreatePost />
+        <Button type="submit">Submit</Button>
+      </form>
+    </section>
   );
 }

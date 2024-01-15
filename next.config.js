@@ -1,10 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    serverActions: true,
+  },
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
   reactStrictMode: true,
+  env: {
+    domain: process.env.NEXTAUTH_URL
+  },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>

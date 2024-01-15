@@ -31,13 +31,13 @@ export default function RootLayout({
         disableTransitionOnChange
       >
         <Suspense fallback={<Loading />}>
-          <div className="bg-slate-300">
+          <div className="">
             <div className="container flex justify-between items-center">
               <Logo />
               <Header />
             </div>
           </div>
-          <div className="container mx-auto">{children}</div>
+          <div className="mx-auto main">{children}</div>
         </Suspense>
       </ThemeProvider>
     </SessionProvider>

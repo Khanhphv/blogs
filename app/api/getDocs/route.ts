@@ -8,6 +8,7 @@ export async function GET(req: Request) {
     const snapshot = await getFirebaseData(completedTasksRef);
 
     if (snapshot.exists()) {
+      console.log("snapshot", snapshot.val());
       return NextResponse.json({
         data: snapshot.val(),
       });
