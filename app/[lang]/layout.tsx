@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <Suspense fallback={<Loading />}>
           <div className="">
-            <div className="container flex justify-between items-center">
+            <div className="flex justify-between items-center">
               <Logo />
               <Header />
             </div>

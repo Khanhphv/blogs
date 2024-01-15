@@ -23,16 +23,15 @@ function getLocale(request: NextRequest) {
 
 export function middleware(request: NextRequest) {
   const locale = getLocale(request);
-  console.log("equest.nextUrl.pathname", request.nextUrl.pathname);
   const isAuthenticated = request.cookies.get("next-auth.session-token");
-  if (
-    !isAuthenticated &&
-    PUBLIC_ROUTES.every(
-      (route) => `/${locale}${route}` !== request.nextUrl.pathname
-    )
-  ) {
-    return Response.redirect(new URL(`/${locale}/login`, request.url));
-  }
+  // if (
+  //   !isAuthenticated &&
+  //   PUBLIC_ROUTES.every(
+  //     (route) => `/${locale}${route}` !== request.nextUrl.pathname
+  //   )
+  // ) {
+  //   return Response.redirect(new URL(`/${locale}/login`, request.url));
+  // }
   const { pathname } = request.nextUrl;
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
