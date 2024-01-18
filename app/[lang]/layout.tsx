@@ -3,8 +3,6 @@ import { Roboto_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Logo from "@/components/logo";
 import { Suspense } from "react";
-import { SessionProvider, useSession } from "next-auth/react";
-import Header from "@/components/header";
 import Loading from "@/components/loading";
 
 const roboto_mono = Roboto_Mono({
@@ -23,23 +21,21 @@ export default function RootLayout({
   params: any;
 }) {
   return (
-    <SessionProvider>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <Suspense fallback={<Loading />}>
-          <div className="">
-            <div className="flex justify-between items-center">
-              <Logo />
-              <Header />
-            </div>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <Suspense fallback={<Loading />}>
+        <div className="">
+          <div className="flex justify-between items-center">
+            <Logo />
+            {/* <Header /> */}
           </div>
-          <div className="mx-auto main">{children}</div>
-        </Suspense>
-      </ThemeProvider>
-    </SessionProvider>
+        </div>
+        <div className="mx-auto main">{children}</div>
+      </Suspense>
+    </ThemeProvider>
   );
 }

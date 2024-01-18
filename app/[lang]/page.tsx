@@ -3,7 +3,18 @@ import KPost from "@/components/k-post";
 import { getPost } from "@/firebase/post";
 import { Post } from "@/types/post";
 
-export default async function Home() {
+export function generateStaticParams() {
+  return [
+    {
+      lang: "vi",
+    },
+    {
+      lang: "en",
+    },
+  ];
+}
+export default async function Home({ params }: any) {
+  console.log("paramsxxx", params.lang);
   const getDetails = async () => {
     const data = await getPost();
     return data;
