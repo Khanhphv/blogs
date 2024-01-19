@@ -1,4 +1,8 @@
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
+import { Suspense } from "react";
+import Loading from "@/components/loading";
+import Logo from "@/components/logo";
 export default function RootLayout({
   children,
   params,
@@ -8,8 +12,22 @@ export default function RootLayout({
 }) {
   console.log("params", params);
   return (
-    <html lang={params.lang || "en"}>
-      <body suppressHydrationWarning>{children}</body>
+    <html>
+      <body suppressHydrationWarning>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Suspense fallback={<Loading />}>
+            <div className="">
+              <div className="flex justify-between items-center"></div>
+            </div>
+            <div className="mx-auto main">{children}</div>
+          </Suspense>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

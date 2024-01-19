@@ -1,9 +1,5 @@
 "use client";
 import { Roboto_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import Logo from "@/components/logo";
-import { Suspense } from "react";
-import Loading from "@/components/loading";
 
 const roboto_mono = Roboto_Mono({
   weight: ["400", "700"],
@@ -20,22 +16,5 @@ export default function RootLayout({
   children: React.ReactNode;
   params: any;
 }) {
-  return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <Suspense fallback={<Loading />}>
-        <div className="">
-          <div className="flex justify-between items-center">
-            <Logo />
-            {/* <Header /> */}
-          </div>
-        </div>
-        <div className="mx-auto main">{children}</div>
-      </Suspense>
-    </ThemeProvider>
-  );
+  return <div className="mx-auto main">{children}</div>;
 }
