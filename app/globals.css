@@ -58,7 +58,4 @@
   body {
     @apply bg-background text-foreground;
   }
-  .main {
-    background: hsl(240, 5%, 84%);
-  }
 }
