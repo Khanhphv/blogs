@@ -8,10 +8,12 @@ export const Thumbnail = (props: ThumbnailProps) => {
     <img
       {...props}
       style={{
-        height: "50vh",
+        height: "100vh",
         objectFit: "cover",
         width: "100%",
         ...props.style,
+        position: "absolute",
+        zIndex: -1,
       }}
     />
   );
