@@ -3,6 +3,12 @@ import styles from "./me.module.scss";
 import { MenuItem } from "@/components/menu-item";
 import Logo from "@/components/logo";
 import Head from "next/head";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Khanh's blog",
+  description: "...",
+};
 
 export default function Page() {
   return (
