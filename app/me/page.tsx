@@ -2,10 +2,14 @@ import { Thumbnail } from "@/components/me";
 import styles from "./me.module.scss";
 import { MenuItem } from "@/components/menu-item";
 import Logo from "@/components/logo";
+import Head from "next/head";
 
 export default function Page() {
   return (
     <>
+      <Head>
+        <title>Khanh's blog</title>
+      </Head>
       <Thumbnail src="/bg.jpg" />
       <div className={`${styles.main} p-5`}>
         <div className="h-full w-full backdrop-opacity-10 backdrop-invert bg-white/30 rounded  p-7">
