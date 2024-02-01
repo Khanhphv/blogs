@@ -4,6 +4,7 @@ import { MenuItem } from "@/components/menu-item";
 import Logo from "@/components/logo";
 import Head from "next/head";
 import { Metadata } from "next";
+import { Motion } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Khanh's blog",
@@ -30,17 +31,15 @@ export default function Page() {
           <div
             className={`flex justify-center ${styles.content} max-sm:flex-col`}
           >
-            <div>
-              <img width={400} src="/test.png" />
-            </div>
-            <div className="sm:pl-4">
+            <img width={400} src="/test.png" />
+            <Motion>
               <div className="text-sm">My Blog</div>
               <div className="flex text-5xl font-bold">Khanh Pham</div>
               <div className="mt-2 text-2xl">
                 Exploring Ideas, Inspiring Minds: Navigate the World of
                 Insightful Blogging
               </div>
-            </div>
+            </Motion>
           </div>
         </div>
       </div>
