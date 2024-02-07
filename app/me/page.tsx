@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description: "...",
 };
 
+const IMAGES = ["/test.png", "/test.png", "/test.png"];
+
 export default function Page() {
   return (
     <>
@@ -28,10 +30,7 @@ export default function Page() {
               <MenuItem href="tools" title="Tools" />
             </div>
           </div>
-          <div
-            className={`flex justify-center ${styles.content} max-sm:flex-col`}
-          >
-            <img width={400} src="/test.png" />
+          <div className={`flex ${styles.content} flex-col`}>
             <Motion>
               <div className="text-sm">My Blog</div>
               <div className="flex text-5xl font-bold">Khanh Pham</div>
@@ -40,6 +39,31 @@ export default function Page() {
                 Insightful Blogging
               </div>
             </Motion>
+
+            <div
+              className="no-scrollbar flex gap-4 pt-5 max-sm:overflow-x-auto"
+              style={{
+                height: "max-content",
+              }}
+            >
+              {IMAGES.map((e) => (
+                <Motion
+                  initial={{ y: 100 }}
+                  animate={{ y: 0 }}
+                  transition={{ ease: "circOut", duration: 0.5 }}
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  <img
+                    className={`lazy rounded-3xl ${styles.image}`}
+                    width={400}
+                    src="/test.png"
+                  />
+                </Motion>
+              ))}
+            </div>
           </div>
         </div>
       </div>

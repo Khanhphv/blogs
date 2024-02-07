@@ -1,6 +1,6 @@
 "use client";
-import { AnimationProps, motion } from "framer-motion";
-interface MotionProps extends AnimationProps {
+import { MotionProps as MotionPropsCustom, motion } from "framer-motion";
+interface MotionProps extends MotionPropsCustom {
   children: React.ReactNode;
 }
 export const Motion = (props: MotionProps) => {
