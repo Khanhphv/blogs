@@ -1,11 +1,11 @@
-export const MENU = [
+export const MENUS = [
   {
     title: "Home",
-    href: "home",
+    href: "/",
   },
   {
     title: "Blog",
-    href: "blog",
+    href: "blogs",
   },
   {
     title: "Contact",

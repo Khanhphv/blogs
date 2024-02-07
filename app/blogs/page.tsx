@@ -1,29 +1,41 @@
-// "use client";
-import CreatePost from "@/components/k-create-post";
-import { Button } from "@/components/ui/button";
-import { createPost } from "@/firebase/post";
-import { FormEvent } from "react";
+import KPost from "@/components/k-post";
+import { Metadata } from "next";
 
-export function generateStaticParams() {
-  return [
-    {
-      lang: "vi",
-    },
-    {
-      lang: "en",
-    },
-  ];
+async function getData(): Promise<{ data: any }> {
+  const data = await fetch("http://localhost:3000/api/getDocs", {
+    cache: "force-cache",
+  });
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!data.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return data.json();
 }
-export default function Blog() {
-  // const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.currentTarget);
-  //   if (formData.get("title") && formData.get("content")) {
-  //     const result = await createPost({
-  //       title: formData.get("title") as string,
-  //       content: formData.get("content") as string,
-  //     });
-  //   }
-  // };
-  return <section className="flex min-h-screen flex-col p-2">xxx</section>;
+
+export const metadata: Metadata = {
+  title: "Khanh's blog",
+  description: "...",
+};
+
+export default async function Page() {
+  const data = await getData();
+  return (
+    <section className="flex w-full min-h-screen flex-col p-2 gap-4">
+      {Object.entries(data.data)?.map(([key, data]: [string, any], i) => {
+        return (
+          <KPost
+            key={key}
+            tag={data.tag || "test"}
+            created_at={data.createdAt}
+            title={data?.title}
+            content={data?.content}
+          />
+        );
+      })}
+    </section>
+  );
 }

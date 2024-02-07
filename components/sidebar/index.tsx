@@ -4,7 +4,7 @@ import { Bars3Icon, XCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { HTMLAttributes, useRef } from "react";
 import { LightDarkSwitch } from "../dark-mode";
-import { MENU } from "@/app/x/config";
+import { MENU } from "@/app/config";
 interface SidebarProps extends HTMLAttributes<HTMLDivElement> {}
 
 const Sidebar = (props: SidebarProps) => {

@@ -1,5 +1,3 @@
-"use client";
-
 import { app } from "@/constant/app";
 
 export default function KPost({
