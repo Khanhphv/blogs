@@ -2,7 +2,7 @@ import KPost from "@/components/k-post";
 import { Metadata } from "next";
 
 async function getData(): Promise<{ data: any }> {
-  const data = await fetch("http://localhost:3000/api/getDocs", {
+  const data = await fetch("https://khanhphv.site/api/getDocs", {
     cache: "force-cache",
   });
   // The return value is *not* serialized
