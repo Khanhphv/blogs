@@ -1,6 +1,3 @@
-import { MENUS } from "@/app/config";
-import { MenuItem } from "../menu-item";
-import Logo from "../logo";
 import { Navbar } from "../navbar";
 
 interface Props {

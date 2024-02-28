@@ -1,4 +1,4 @@
-export const MENUS = [
+export const MENU = [
   {
     title: "Home",
     href: "/",

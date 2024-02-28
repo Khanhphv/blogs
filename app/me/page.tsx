@@ -1,11 +1,7 @@
 import { Thumbnail } from "@/components/me";
 import styles from "./me.module.scss";
-import { MenuItem } from "@/components/menu-item";
-import Logo from "@/components/logo";
-import Head from "next/head";
 import { Metadata } from "next";
 import { Motion } from "@/components/motion";
-import { MENUS } from "../config";
 import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
