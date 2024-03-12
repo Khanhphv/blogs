@@ -10,7 +10,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   env: {
-    domain: process.env.NEXTAUTH_URL
+    DOMAIN_URL: process.env.NEXT_PUBLIC_DOMAIN_URL
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
