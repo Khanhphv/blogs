@@ -1,18 +1,29 @@
-import { app } from "@/constant/app";
+"use client";
 
+import { app } from "@/constant/app";
+import { useRouter } from "next/navigation";
 export default function KPost({
   title,
   content,
   tag,
   created_at,
+  route,
 }: {
   title: string;
   content: string;
   tag: string;
   created_at: string;
+  route: string;
 }) {
+  const router = useRouter();
+  const onNavigation = () => {
+    route && router.push(`blog/${route}`);
+  };
   return (
-    <div className="border bg-white rounded p-2 border-slate-300 hover:border-black">
+    <div
+      onClick={onNavigation}
+      className="border rounded p-2 border-slate-300 hover:border-primary"
+    >
       <div className="flex text-xs">
         <div className="font-extrabold">
           {app.name}/{tag}

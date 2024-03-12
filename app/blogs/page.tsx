@@ -2,8 +2,8 @@ import KPost from "@/components/k-post";
 import { Metadata } from "next";
 
 async function getData(): Promise<{ data: any }> {
-  const data = await fetch("https://khanhphv.site/api/getDocs", {
-    cache: "force-cache",
+  const data = await fetch(`${process.env.DOMAIN_URL}/api/getDocs`, {
+    cache: "no-store",
   });
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
@@ -28,6 +28,7 @@ export default async function Page() {
       {Object.entries(data.data)?.map(([key, data]: [string, any], i) => {
         return (
           <KPost
+            route={key}
             key={key}
             tag={data.tag || "test"}
             created_at={data.createdAt}

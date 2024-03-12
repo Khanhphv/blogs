@@ -3,7 +3,7 @@
   
   <defs>
     <style class="style-fonts">
-      @font-face {
+      <!-- @font-face {
         font-family: "Virgil";
         src: url("https://excalidraw.com/Virgil.woff2");
       }
@@ -14,7 +14,7 @@
       @font-face {
         font-family: "Assistant";
         src: url("https://excalidraw.com/Assistant-Regular.woff2");
-      }
+      } -->
     </style>
     
   </defs>

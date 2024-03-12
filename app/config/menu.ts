@@ -5,10 +5,10 @@ export const MENU = [
   },
   {
     title: "Blog",
-    href: "blogs",
+    href: "/blogs",
   },
   {
     title: "Contact",
-    href: "contact",
+    href: "/contact",
   },
 ];

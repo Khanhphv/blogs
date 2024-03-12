@@ -25,15 +25,7 @@ export default async function Home({ params }: any) {
   return (
     <section className="flex min-h-screen flex-col p-2">
       {posts?.map((post, key) => {
-        return (
-          <KPost
-            key={key}
-            title={post.title}
-            tag={"xxx"}
-            created_at="xxx"
-            content="xxx"
-          />
-        );
+        return <></>;
       })}
     </section>
   );
