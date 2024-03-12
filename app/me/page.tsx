@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Thumbnail } from "@/components/me";
 import styles from "./me.module.scss";
 import { Metadata } from "next";
@@ -46,7 +47,7 @@ export default function Page() {
                     transition: { duration: 0.2 },
                   }}
                 >
-                  <Image
+                  <img
                     alt={`${index}`}
                     className={`lazy rounded-3xl ${styles.image}`}
                     width={400}

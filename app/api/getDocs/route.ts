@@ -3,8 +3,9 @@ import { ref, get as getFirebaseData, Query } from "firebase/database";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
+  const searchParams = req.nextUrl.searchParams;
   try {
-    const id = req.nextUrl.searchParams.get("id");
+    const id = searchParams.get("id");
     const completedTasksRef: Query = ref(
       database,
       `posts${id ? "/" + id : ""}`
@@ -20,7 +21,7 @@ export async function GET(req: NextRequest) {
       });
     }
   } catch (error: any) {
-    console.log(error);
+    console.log("Error");
     return NextResponse.json({
       data: [],
     });
