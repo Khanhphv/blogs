@@ -1,11 +1,10 @@
 import { database } from "@/firebase";
 import { ref, get as getFirebaseData, Query } from "firebase/database";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: Request) {
+export async function GET(req: NextRequest) {
   try {
-    const { searchParams } = new URL(req.url);
-    const id = searchParams.get("id");
+    const id = req.nextUrl.searchParams.get("id");
     const completedTasksRef: Query = ref(
       database,
       `posts${id ? "/" + id : ""}`
