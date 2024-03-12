@@ -3,6 +3,7 @@ import styles from "./me.module.scss";
 import { Metadata } from "next";
 import { Motion } from "@/components/motion";
 import { Navbar } from "@/components/navbar";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Khanh's blog",
@@ -34,8 +35,9 @@ export default function Page() {
                 height: "max-content",
               }}
             >
-              {IMAGES.map((e) => (
+              {IMAGES.map((e, index) => (
                 <Motion
+                  key={index}
                   initial={{ y: 100 }}
                   animate={{ y: 0 }}
                   transition={{ ease: "circOut", duration: 0.5 }}
@@ -44,7 +46,8 @@ export default function Page() {
                     transition: { duration: 0.2 },
                   }}
                 >
-                  <img
+                  <Image
+                    alt={`${index}`}
                     className={`lazy rounded-3xl ${styles.image}`}
                     width={400}
                     src="/test.png"

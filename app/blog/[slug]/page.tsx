@@ -35,8 +35,8 @@ export default function Page({
       const { data } = await getData(slug);
       setData(data);
     };
-    fetchData();
-  }, []);
+    slug && fetchData();
+  }, [slug]);
 
   const onUpdate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
