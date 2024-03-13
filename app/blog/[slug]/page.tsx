@@ -3,19 +3,25 @@
 import KEditor from "@/components/editor";
 import { env } from "process";
 import { FormEvent, createRef, useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 async function getData(id: string) {
-  const data = await fetch(`${process.env.DOMAIN_URL}/api/getDocs?id=${id}`, {
-    cache: "no-store",
+  const api = axios.create({
+    baseURL: `${process.env.DOMAIN_URL}/api/`,
   });
+  const { data } = await api.get(`getDocs?id=${id}`);
+  return data;
+  // const data = await axios(`${process.env.DOMAIN_URL}/api/getDocs?id=${id}`, {
+  //   cache: "no-store",
+  // });
 
-  const blog = await data.json();
+  // const blog = await data.json();
 
-  if (!data.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-  return blog;
+  // if (!data.ok) {
+  //   // This will activate the closest `error.js` Error Boundary
+  //   throw new Error("Failed to fetch data");
+  // }
+  // return blog;
 }
 
 export default function Page({
