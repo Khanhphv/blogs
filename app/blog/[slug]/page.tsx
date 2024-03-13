@@ -70,6 +70,10 @@ export default function Page({
           name="title"
           className="border rounded my-5 py-2 ps-2 w-full"
           value={data?.title}
+          onChange={(e) => {
+            console.log("xxx");
+            setData({ ...data, title: e.target.value });
+          }}
         />
 
         <KEditor
