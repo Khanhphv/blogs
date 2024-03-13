@@ -38,8 +38,8 @@ export default function Page({
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await getData(slug);
-      setData(data);
+      const { data: result } = await getData(slug);
+      setData({ ...data, ...result });
     };
     slug && fetchData();
   }, [slug]);
