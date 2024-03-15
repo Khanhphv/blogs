@@ -34,6 +34,7 @@ body {
 .flowers {
   position: relative;
   transform: scale(0.9);
+  bottom: 100px;
 }
 
 .flower {
