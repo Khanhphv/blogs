@@ -5,7 +5,7 @@ interface Props {
 }
 export const VerticalLayout = (props: Props) => {
   return (
-    <div className="flex w-100 flex-col">
+    <div className="flex w-full flex-col">
       <Navbar classContent="bg-secondary" />
       {props.children}
     </div>

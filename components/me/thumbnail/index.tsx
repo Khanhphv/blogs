@@ -5,16 +5,17 @@ export interface ThumbnailProps
 
 export const Thumbnail = (props: ThumbnailProps) => {
   return (
-    <img
-      {...props}
-      style={{
-        height: "100vh",
-        objectFit: "cover",
-        width: "100%",
-        ...props.style,
-        position: "absolute",
-        zIndex: -1,
-      }}
-    />
+    <div className="h-full fixed w-full">
+      <img
+        {...props}
+        style={{
+          minHeight: "100vh",
+          objectFit: "cover",
+          ...props.style,
+          position: "absolute",
+          zIndex: -1,
+        }}
+      />
+    </div>
   );
 };

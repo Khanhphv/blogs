@@ -1,6 +1,7 @@
 "use client";
 
 import KEditor from "@/components/editor";
+import { useRouter } from "next/navigation";
 import { FormEvent, createRef, useEffect, useRef, useState } from "react";
 
 async function getData(id: string) {
@@ -23,6 +24,7 @@ export default function Page({
   params: { slug: string };
 }) {
   const editorRef = createRef<any>();
+  const router = useRouter();
   // const title = createRef<string>();
   const [data, setData] = useState({
     title: "",
@@ -52,12 +54,12 @@ export default function Page({
       }),
     });
     console.log("result", result);
+    router.push("/blogs");
   };
 
   return (
     <div className="container">
       <form onSubmit={onUpdate}>
-        <div>My Post: {slug}</div>
         <input
           name="title"
           className="border rounded my-5 py-2 ps-2 w-full"

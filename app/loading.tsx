@@ -1,4 +1,7 @@
-import { Skeleton } from "@/components/ui/skeleton";
 export default function Loading() {
-  return <Skeleton className="w-[100px] h-[20px] rounded-full" />;
+  return (
+    <div className="items-center w-full items-center flex">
+      <span className="loader"></span>
+    </div>
+  );
 }
