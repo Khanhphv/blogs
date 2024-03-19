@@ -1,8 +1,7 @@
 "use client";
-
+import dynamic from "next/dynamic";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
 import { useRef } from "react";
 const KEditor = ({
   data,
