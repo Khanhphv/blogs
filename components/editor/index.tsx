@@ -7,7 +7,7 @@ const KEditor = ({
   data,
   onChange,
 }: {
-  data: string;
+  data?: string;
   onChange: (value: string) => void;
 }) => {
   const editor = useRef<any>();

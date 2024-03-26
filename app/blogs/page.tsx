@@ -28,6 +28,7 @@ export default async function Page() {
       {Object.entries(data.data)?.map(([key, data]: [string, any], i) => {
         return (
           <KPost
+            id={key}
             index={++i}
             route={key}
             key={key}

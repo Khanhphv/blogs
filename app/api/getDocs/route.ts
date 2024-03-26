@@ -17,13 +17,13 @@ export async function GET(req: NextRequest) {
       });
     } else {
       return NextResponse.json({
-        data: "No data found",
+        data: {},
       });
     }
   } catch (error: any) {
     console.log("Error");
     return NextResponse.json({
-      data: [],
+      data: {},
     });
   }
 }
