@@ -11,7 +11,9 @@ export const Navbar = ({ classContent = "" }) => {
         {MENU.map((i, v) => {
           return <MenuItem key={`menu-${v}`} href={i.href} title={i.title} />;
         })}
-        <MenuItem href="/login" title="Login"></MenuItem>
+        <LoginButton>
+          <MenuItem title="Login"></MenuItem>
+        </LoginButton>
       </div>
     </div>
   );

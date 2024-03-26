@@ -11,12 +11,19 @@ import {
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 
+import { signIn, useSession } from "next-auth/react";
+
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
 export default function LoginButton(props: HeaderProps) {
   const pathName = usePathname();
+  const login = () => {
+    signIn("google");
+  };
   const logout = async () => {};
-
+  const { data, status } = useSession();
+  console.log("dataxxxx", data);
+  console.log("dataxxxx", status);
   // if (data) {
   //   return (
   //     <DropdownMenu>
@@ -42,11 +49,7 @@ export default function LoginButton(props: HeaderProps) {
   //   if (status === "loading" || pathName.includes("login")) {
   //     return <></>;
   //   } else if (status === "unauthenticated") {
-  return (
-    <Link href="/login" className={buttonVariants({ variant: "ghost" })}>
-      <div className="mx-2 px-5 py-2 rounded h-fit">Sign In</div>
-    </Link>
-  );
+  return <div onClick={login}>{props.children}</div>;
   // }
   // }
 }
