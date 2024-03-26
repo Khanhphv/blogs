@@ -1,4 +1,4 @@
-import KPost from "@/components/k-post";
+import KPost from "@/components/post";
 import { Metadata } from "next";
 
 async function getData(): Promise<{ data: any }> {

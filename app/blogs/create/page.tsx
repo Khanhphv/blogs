@@ -1,5 +1,5 @@
-import CreatePost from "@/components/k-create-post";
-import KPost from "@/components/k-post";
+import CreatePost from "@/components/post/create-post";
+import KPost from "@/components/post";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

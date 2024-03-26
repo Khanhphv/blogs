@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import { Input } from "../ui/input";
+import { Input } from "../../ui/input";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 
