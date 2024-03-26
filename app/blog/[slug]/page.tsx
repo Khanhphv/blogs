@@ -1,7 +1,7 @@
 import { DetailedPost } from "@/components/post/edit-post";
 
 async function getData(id: string) {
-  const data = await fetch(`${process.env.DOMAIN_URL}/api/getDocs?id=${id}`, {
+  const data = await fetch(`${process.env.DOMAIN_URL}/api/post/get?id=${id}`, {
     cache: "no-store",
   });
 
