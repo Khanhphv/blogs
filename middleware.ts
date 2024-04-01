@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 export function middleware() {
   // retrieve the current response
   const res = NextResponse.next();
-  console.log("requestttt");
   // add the CORS headers to the response
   res.headers.append("Access-Control-Allow-Credentials", "true");
   res.headers.append("Access-Control-Allow-Origin", "*"); // replace this your actual origin
@@ -19,7 +18,9 @@ export function middleware() {
   return res;
 }
 
+export { default } from "next-auth/middleware";
+
 // specify the path regex to apply the middleware to
 export const config = {
-  matcher: "/api/:path*",
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

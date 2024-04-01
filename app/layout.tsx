@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html>
       <body suppressHydrationWarning>
-        <SessionProvider session={session}>
+        <SessionProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
   experimental: {
     serverActions: true,
   },
@@ -10,7 +9,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   env: {
-    DOMAIN_URL: process.env.NEXT_PUBLIC_DOMAIN_URL
+    DOMAIN_URL: process.env.NEXT_PUBLIC_DOMAIN_URL,
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports

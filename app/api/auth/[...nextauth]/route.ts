@@ -12,13 +12,12 @@ const handler = NextAuth({
         "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",
     }),
   ],
-  callbacks: {
-    async session({ session, token, user }) {
-      console.log("sesstion", session);
-      // Send properties to the client, like an access_token from a provider.
-      return session;
-    },
-  },
+  // callbacks: {
+  //   async session({ session, token, user }) {
+  //     // Send properties to the client, like an access_token from a provider.
+  //     return session;
+  //   },
+  // },
 });
 
 export { handler as GET, handler as POST };
