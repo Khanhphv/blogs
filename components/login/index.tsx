@@ -24,7 +24,8 @@ export default function LoginButton(props: HeaderProps) {
     signOut();
   };
   const { data, status } = useSession();
-  if (data) {
+  console.log("status", status);
+  if (status === "authenticated") {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger>
@@ -45,7 +46,9 @@ export default function LoginButton(props: HeaderProps) {
         </DropdownMenuContent>
       </DropdownMenu>
     );
-  } else {
+  } else if (status === "unauthenticated") {
     return <div onClick={login}>{props.children}</div>;
+  } else {
+    return <></>;
   }
 }

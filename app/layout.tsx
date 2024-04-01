@@ -26,9 +26,7 @@ export default function RootLayout({
               <div className="">
                 <div className="flex justify-between items-center"></div>
               </div>
-              <div className="flex mx-auto main w-full min-h-screen h-full">
-                {children}
-              </div>
+              <div className="flex mx-auto main w-full">{children}</div>
             </Suspense>
           </ThemeProvider>
         </SessionProvider>

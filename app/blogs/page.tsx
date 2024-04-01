@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   const data = await getData();
   return (
-    <section className="flex w-full min-h-screen flex-col p-2 gap-4">
+    <section className="flex w-full flex-col p-2 gap-4">
       {Object.entries(data.data)?.map(([key, data]: [string, any], i) => {
         return (
           <KPost
