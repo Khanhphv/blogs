@@ -17,8 +17,6 @@ const KEditor = ({
         editor={ClassicEditor}
         data={data || ""}
         onReady={(_editor: ClassicEditor) => {
-          // You can store the "editor" and use when it is needed.
-          console.log("Editor is ready to use!", _editor);
           editor.current = _editor;
         }}
         config={{

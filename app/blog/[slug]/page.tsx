@@ -22,5 +22,5 @@ export default async function Page({
 }) {
   const data = await getData(slug);
 
-  return <DetailedPost post={data} />;
+  return <DetailedPost id={slug} post={data} />;
 }

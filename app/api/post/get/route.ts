@@ -13,7 +13,9 @@ export async function GET(req: NextRequest) {
     const snapshot = await getFirebaseData(completedTasksRef);
     if (snapshot.exists()) {
       return NextResponse.json({
-        data: snapshot.val(),
+        data: {
+          ...snapshot.val(),
+        },
       });
     } else {
       return NextResponse.json({
@@ -21,7 +23,6 @@ export async function GET(req: NextRequest) {
       });
     }
   } catch (error: any) {
-    console.log("Error");
     return NextResponse.json({
       data: {},
     });

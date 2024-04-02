@@ -18,7 +18,6 @@ export default function CreatePost() {
         },
       }),
     });
-    console.log(post);
     if (post.status === 200) {
       router.push("/blogs");
     }

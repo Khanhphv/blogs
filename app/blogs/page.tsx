@@ -32,8 +32,8 @@ export default async function Page() {
             index={++i}
             route={key}
             key={key}
-            tag={data.tag || "test"}
-            created_at={data.createdAt}
+            tag={data?.tag || "test"}
+            created_at={data?.createdAt}
             title={data?.title}
             content={data?.content}
           />

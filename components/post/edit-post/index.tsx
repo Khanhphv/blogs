@@ -2,13 +2,12 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useRef, useState } from "react";
-const DetailedPost = ({ post }: any) => {
+const DetailedPost = ({ post, id }: any) => {
   const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
   const router = useRouter();
   const [data, setData] = useState({
     title: "",
     content: "",
-    id: "",
   });
 
   const postContent = useRef("");
@@ -16,7 +15,7 @@ const DetailedPost = ({ post }: any) => {
   useEffect(() => {
     const { data: result } = post;
     postContent.current = result.content;
-    setData({ content: result.content, title: result.title, id: result.id });
+    setData({ content: result.content, title: result.title });
   }, [post]);
 
   const onUpdate = async (e: FormEvent<HTMLFormElement>) => {
@@ -27,7 +26,7 @@ const DetailedPost = ({ post }: any) => {
         post: {
           title: data?.title,
           content: postContent.current || data.content,
-          id: data.id,
+          id: id,
         },
       }),
     });
@@ -48,7 +47,6 @@ const DetailedPost = ({ post }: any) => {
 
         <Editor
           onChange={(value) => {
-            console.log("post content:", value);
             postContent.current = value;
           }}
           data={data?.content}

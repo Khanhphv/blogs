@@ -24,7 +24,6 @@ export default function LoginButton(props: HeaderProps) {
     signOut();
   };
   const { data, status } = useSession();
-  console.log("status", status);
   if (status === "authenticated") {
     return (
       <DropdownMenu>

@@ -37,7 +37,6 @@ const getPost = async () => {
     const completedTasksRef: Query = ref(database, "posts");
     const snapshot = await getFirebaseData(completedTasksRef);
     if (snapshot.exists()) {
-      console.log("snapshot", snapshot.val());
       return {
         data: snapshot.val(),
       };
@@ -47,7 +46,6 @@ const getPost = async () => {
       };
     }
   } catch (error: any) {
-    console.log(error);
     return {
       data: [],
     };
