@@ -32,7 +32,7 @@ export default function CreatePost() {
         required
       />
       <Editor
-        onChange={(data) => {
+        onChange={(data: string) => {
           contentRef.current = data;
         }}
       />
