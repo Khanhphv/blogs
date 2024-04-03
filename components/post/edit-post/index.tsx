@@ -46,7 +46,8 @@ const DetailedPost = ({ post, id }: any) => {
         />
 
         <Editor
-          onChange={(value) => {
+          isModeView
+          onChange={(value: string) => {
             postContent.current = value;
           }}
           data={data?.content}

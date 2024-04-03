@@ -11,7 +11,6 @@ export default function RootLayout({
   children: React.ReactNode;
   params: any;
 }) {
-  console.log("params", params);
   return (
     <html>
       <body suppressHydrationWarning>

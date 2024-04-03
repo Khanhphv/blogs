@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const { id } = await req.json();
-    console.log("id", id);
     const postRef = ref(database, `posts${id ? "/" + id : ""}`);
     remove(postRef);
     return NextResponse.json({

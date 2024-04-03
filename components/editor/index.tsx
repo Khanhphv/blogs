@@ -1,23 +1,23 @@
 "use client";
-import dynamic from "next/dynamic";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { useRef } from "react";
-const KEditor = ({
-  data,
-  onChange,
-}: {
-  data?: string;
-  onChange: (value: string) => void;
-}) => {
+import React, { useRef } from "react";
+
+const KEditor = ({ data, onChange, isModeView, ...props }: any) => {
   const editor = useRef<any>();
   return (
     <>
       <CKEditor
+        {...props}
         editor={ClassicEditor}
         data={data || ""}
         onReady={(_editor: ClassicEditor) => {
           editor.current = _editor;
+          if (isModeView) {
+            const toolbarElement = _editor.ui.view.toolbar.element;
+            _editor.enableReadOnlyMode("viewMode");
+            toolbarElement!.style.display = "none";
+          }
         }}
         config={{
           toolbar: [
