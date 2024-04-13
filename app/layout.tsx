@@ -13,10 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body suppressHydrationWarning>
-        <SessionProvider>
+      <body suppressHydrationWarning={true}>
+        {/* <SessionProvider>
           <ThemeProvider
-            attribute="class"
+            // attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
@@ -28,7 +28,8 @@ export default function RootLayout({
               <div className="flex mx-auto main w-full">{children}</div>
             </Suspense>
           </ThemeProvider>
-        </SessionProvider>
+        </SessionProvider> */}
+        {children}
       </body>
     </html>
   );
