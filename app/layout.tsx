@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html>
       <body suppressHydrationWarning={true}>
-        {/* <SessionProvider>
+        <SessionProvider>
           <ThemeProvider
             // attribute="class"
             defaultTheme="system"
@@ -28,7 +28,7 @@ export default function RootLayout({
               <div className="flex mx-auto main w-full">{children}</div>
             </Suspense>
           </ThemeProvider>
-        </SessionProvider> */}
+        </SessionProvider>
         {children}
       </body>
     </html>
