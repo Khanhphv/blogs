@@ -29,7 +29,6 @@ export default function RootLayout({
             </Suspense>
           </ThemeProvider>
         </SessionProvider>
-        {children}
       </body>
     </html>
   );
