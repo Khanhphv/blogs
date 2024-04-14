@@ -2,6 +2,7 @@ import Image from "next/image";
 import "./khanh.scss";
 import "./button.css";
 import { Metadata } from "next";
+import { Video } from "@/components/video-bg";
 
 export const metadata: Metadata = {
   title: "Valorant / Cs2( faceit,5E,perfectworld )",
@@ -83,21 +84,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <video
-        // controls
-        className="fixed"
-        style={{
-          minWidth: "100%",
-          minHeight: "100%",
-          right: 0,
-          bottom: 0,
-          zIndex: -1,
-          objectFit: "cover",
-        }}
-        autoPlay
-        muted
-        src="/video.mp4"
-      ></video>
+      <Video />
     </>
   );
 }
