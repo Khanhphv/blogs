@@ -33,7 +33,7 @@ export const Video = () => {
       {isLoading && (
         <img
           className="fixed"
-          src="bg.png"
+          src="bg.webp"
           style={{
             minWidth: "100vw",
             minHeight: "100vh",
