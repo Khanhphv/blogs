@@ -39,7 +39,11 @@ export default function Home() {
             className="fixed logo text-white font-bold flex flex-col items-center"
             style={{ width: "100%", bottom: "8rem" }}
           >
-            <button className="buy">
+            <a
+              className="buy"
+              href="https://skydevs.sellpass.io/"
+              target="_blank"
+            >
               <div className="btn red-btn flex items-center justify-center">
                 <span className="dark"></span>
                 <span className="label flex items-center gap-4">
@@ -59,7 +63,7 @@ export default function Home() {
                   Buy Now
                 </span>
               </div>
-            </button>
+            </a>
           </div>
         </div>
       </div>
