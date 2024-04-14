@@ -24,6 +24,7 @@ export const Video = () => {
         }
         autoPlay
         muted
+        loop
         src="/video.mp4"
         onCanPlayThrough={() => {
           setLoading(false);
