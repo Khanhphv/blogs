@@ -1,5 +1,5 @@
 .btn {
-  border-radius: 30px;
+  border-radius: 5px;
   width: 200px;
   padding: 0.5rem;
   text-align: center;
@@ -8,16 +8,19 @@
 
 .btn:hover {
   animation: scale 500ms ease-in-out forwards;
+  background: white;
+  color: black;
+  svg {
+    path {
+      fill: black;
+    }
+  }
 }
 
 @keyframes scale {
   to {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
-}
-
-.red-btn {
-  background: #f13c3c;
 }
 
 .outCircle {
