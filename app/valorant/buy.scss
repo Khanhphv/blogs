@@ -1,0 +1,77 @@
+.buy {
+  border: 1px solid hsla(38, 22%, 90%, 0.5);
+  padding: 5px;
+
+  &:hover {
+    .dark {
+      transform: translateX(0) skew(-10deg);
+    }
+    .red-btn {
+      &:after {
+        background-color: white;
+      }
+    }
+    .label {
+      &::after {
+        background-color: white;
+      }
+    }
+  }
+  .red-btn {
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #ff4655;
+      bottom: 0;
+      height: calc(100% - 0.3rem);
+      width: 100%;
+      left: 0;
+    }
+    &:after {
+      bottom: 0;
+      content: "";
+      display: block;
+      top: 0;
+      width: calc(100% - 0.3rem);
+      position: absolute;
+      left: 0.3rem;
+      background-color: #ff4655;
+    }
+  }
+  .dark {
+    background-color: #0f1923;
+    left: -5%;
+    transform: translateX(-100%) skew(-10deg);
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 120%;
+    z-index: 1;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  }
+  .label {
+    z-index: 1;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px 50px;
+    text-align: center;
+    font-size: 1.9rem;
+    &::after {
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 0.6rem;
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: #0f1923;
+      transition: background-color 0.2s ease-in;
+      right: 0;
+    }
+  }
+}

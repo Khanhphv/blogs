@@ -1,28 +1,28 @@
-.btn {
-  border-radius: 5px;
+// .btn {
+//   border-radius: 5px;
 
-  width: 200px;
-  padding: 0.5rem;
-  text-align: center;
-  cursor: pointer;
-}
+//   width: 200px;
+//   padding: 0.5rem;
+//   text-align: center;
+//   cursor: pointer;
+// }
 
-.btn:hover {
-  animation: scale 500ms ease-in-out forwards;
-  background: white;
-  color: black;
-  svg {
-    path {
-      fill: black;
-    }
-  }
-}
+// .btn:hover {
+//   animation: scale 500ms ease-in-out forwards;
+//   background: white;
+//   color: black;
+//   svg {
+//     path {
+//       fill: black;
+//     }
+//   }
+// }
 
-@keyframes scale {
-  to {
-    transform: scale(1.1);
-  }
-}
+// @keyframes scale {
+//   to {
+//     transform: scale(1.1);
+//   }
+// }
 
 .outCircle {
   width: auto;
