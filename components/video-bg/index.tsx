@@ -1,9 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Video = () => {
   const [isLoading, setLoading] = useState<boolean>(true);
+  const [file, setFile] = useState<Blob>();
+  useEffect(() => {
+    fetch("video.mp4")
+      .then((response: Response) => response.blob())
+      .then((blob: any) => {
+        setFile(blob);
+      });
+  }, []);
   return (
     <>
       <video
@@ -25,7 +33,7 @@ export const Video = () => {
         autoPlay
         muted
         loop
-        src="/video.mp4"
+        src={file && URL.createObjectURL(file)}
         onCanPlayThrough={() => {
           setLoading(false);
         }}
