@@ -4,6 +4,7 @@ import "./globals.css";
 import { Suspense } from "react";
 import Loading from "@/components/loading";
 import { SessionProvider } from "next-auth/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 export default function RootLayout({
   children,
   params: { session, ...params },
@@ -30,6 +31,7 @@ export default function RootLayout({
           </ThemeProvider>
         </SessionProvider>
       </body>
+      <GoogleAnalytics gaId="G-SW6Y52P2PD" />
     </html>
   );
 }
