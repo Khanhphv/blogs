@@ -3,7 +3,8 @@
 import { app } from "@/constant/app";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-export default function KPost({
+import { withAuth } from "@/components/hoc/withAuth";
+export const KPost = ({
   id,
   title,
   content,
@@ -11,6 +12,7 @@ export default function KPost({
   created_at,
   route,
   index,
+  isAdmin = false,
 }: {
   id: string;
   title: string;
@@ -19,12 +21,14 @@ export default function KPost({
   created_at: string;
   route: string;
   index: number;
-}) {
+  isAdmin: boolean;
+}) => {
   const router = useRouter();
-  const [isShowTools, setShowTool] = useState(false);
+  const [isEditable, setEditAble] = useState(false);
   const onNavigation = () => {
     route && router.push(`blog/${route}`);
   };
+  console.log("isAdmin", isAdmin);
 
   const onDelete = async (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
@@ -41,10 +45,10 @@ export default function KPost({
     <>
       <div
         onMouseEnter={() => {
-          setShowTool(true);
+          setEditAble(true);
         }}
         onMouseLeave={() => {
-          setShowTool(false);
+          setEditAble(false);
         }}
         onClick={onNavigation}
         className="flex flex-row border rounded p-2 border-slate-300 hover:border-primary justify-between"
@@ -64,7 +68,7 @@ export default function KPost({
           />
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </div>
-        {isShowTools && (
+        {isEditable && isAdmin && (
           <>
             <div className="tool flex items-center text-red-600">
               <button onClick={onDelete}>Delete</button>
@@ -74,4 +78,6 @@ export default function KPost({
       </div>
     </>
   );
-}
+};
+
+export const Post = withAuth(KPost);

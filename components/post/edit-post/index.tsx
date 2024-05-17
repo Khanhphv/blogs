@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useRef, useState } from "react";
-const DetailedPost = ({ post, id }: any) => {
+const DetailedPost = ({ post, id, viewMode = true }: any) => {
   const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
   const router = useRouter();
   const [data, setData] = useState({
@@ -38,7 +38,9 @@ const DetailedPost = ({ post, id }: any) => {
       <form onSubmit={onUpdate}>
         <input
           name="title"
-          className="border rounded my-5 py-2 ps-2 w-full"
+          className={`${
+            !viewMode && "border"
+          } rounded my-5 py-2 ps-2 w-full font-bold text-3xl`}
           value={data?.title}
           onChange={(e) => {
             setData({ ...data, title: e.target.value });
@@ -52,9 +54,11 @@ const DetailedPost = ({ post, id }: any) => {
           }}
           data={data?.content}
         />
-        <button type="submit" className="border bg-primary p-2 mt-2">
-          Update
-        </button>
+        {!viewMode && (
+          <button type="submit" className="border bg-primary p-2 mt-2">
+            Update
+          </button>
+        )}
       </form>
     </div>
   );

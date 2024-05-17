@@ -1,4 +1,4 @@
-import KPost from "@/components/post";
+import { Post } from "@/components/post";
 import { Metadata } from "next";
 
 async function getData(): Promise<{ data: any }> {
@@ -29,7 +29,7 @@ export default async function Page() {
     <section className="flex w-full flex-col p-2 gap-4">
       {Object.entries(data.data)?.map(([key, data]: [string, any], i) => {
         return (
-          <KPost
+          <Post
             id={key}
             index={++i}
             route={key}

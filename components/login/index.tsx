@@ -1,5 +1,5 @@
 "use client";
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, useContext } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { usePathname } from "next/navigation";
 import {
@@ -8,14 +8,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import Link from "next/link";
-import { buttonVariants } from "../ui/button";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import { AuthContext } from "../authorize";
 
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
 export default function LoginButton(props: HeaderProps) {
+  const { isAdmin, setIsAdmin } = useContext(AuthContext);
   const pathName = usePathname();
   const login = () => {
     signIn("google");
@@ -25,6 +25,7 @@ export default function LoginButton(props: HeaderProps) {
   };
   const { data, status } = useSession();
   if (status === "authenticated") {
+    setIsAdmin(true);
     return (
       <DropdownMenu>
         <DropdownMenuTrigger>

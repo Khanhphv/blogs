@@ -9,6 +9,7 @@ const KEditor = ({ data, onChange, isModeView, ...props }: any) => {
     <>
       <CKEditor
         {...props}
+        style={{ border: 0 }}
         editor={ClassicEditor}
         data={data || ""}
         onReady={(_editor: ClassicEditor) => {
@@ -16,7 +17,9 @@ const KEditor = ({ data, onChange, isModeView, ...props }: any) => {
           if (isModeView) {
             const toolbarElement = _editor.ui.view.toolbar.element;
             _editor.enableReadOnlyMode("viewMode");
-            toolbarElement!.style.display = "none";
+            _editor.ui.view.stickyPanel.element?.remove();
+            toolbarElement?.remove();
+            _editor.ui.getEditableElement()!.style.border = "none";
           }
         }}
         config={{
