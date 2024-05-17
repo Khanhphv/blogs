@@ -1,4 +1,4 @@
-import { DetailedPost } from "@/components/post/edit-post";
+import { DetailedPostHOC } from "@/components/post/edit-post";
 
 async function getData(id: string) {
   const data = await fetch(`${process.env.DOMAIN_URL}/api/post/get?id=${id}`, {
@@ -22,5 +22,5 @@ export default async function Page({
 }) {
   const data = await getData(slug);
 
-  return <DetailedPost id={slug} post={data} />;
+  return <DetailedPostHOC id={slug} post={data} />;
 }

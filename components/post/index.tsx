@@ -28,7 +28,6 @@ export const KPost = ({
   const onNavigation = () => {
     route && router.push(`blog/${route}`);
   };
-  console.log("isAdmin", isAdmin);
 
   const onDelete = async (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
@@ -51,30 +50,32 @@ export const KPost = ({
           setEditAble(false);
         }}
         onClick={onNavigation}
-        className="flex flex-row border rounded p-2 border-slate-300 hover:border-primary justify-between"
+        className="w-full  border-t-2 p-3 "
       >
-        <div className="">
-          <div className="flex text-xs">
-            <div className="font-extrabold">
-              {app.name}/{tag}
+        <div className="flex flex-row w-full hover:bg-muted p-2 rounded-lg">
+          <div className="w-full  border-slate-300 justify-between">
+            <div className="flex text-xs">
+              <div className="font-extrabold">
+                {app.name}/{tag}
+              </div>
+              <span role="presentation" className="font-thin mx-1">
+                •
+              </span>
+              <div className="font-thin">{created_at}</div>
             </div>
-            <span role="presentation" className="font-thin mx-1">
-              •
-            </span>
-            <div className="font-thin">{created_at}</div>
+            <div
+              dangerouslySetInnerHTML={{ __html: `Chapter ${index}: ${title}` }}
+            />
+            <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
-          <div
-            dangerouslySetInnerHTML={{ __html: `Chapter ${index}: ${title}` }}
-          />
-          <div dangerouslySetInnerHTML={{ __html: content }} />
+          {isEditable && isAdmin && (
+            <>
+              <div className="tool flex items-center text-red-600">
+                <button onClick={onDelete}>Delete</button>
+              </div>
+            </>
+          )}
         </div>
-        {isEditable && isAdmin && (
-          <>
-            <div className="tool flex items-center text-red-600">
-              <button onClick={onDelete}>Delete</button>
-            </div>
-          </>
-        )}
       </div>
     </>
   );

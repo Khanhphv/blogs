@@ -1,12 +1,20 @@
 "use client";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const KEditor = ({ data, onChange, isModeView, ...props }: any) => {
+const KEditor = ({
+  data,
+  onChange,
+  isModeView = true,
+  isAdmin = false,
+  ...props
+}: any) => {
   const editor = useRef<any>();
+  const [isLoaded, setLoaded] = useState(false);
+
   return (
-    <>
+    <div style={{ display: isLoaded ? "block" : "none" }}>
       <CKEditor
         {...props}
         style={{ border: 0 }}
@@ -14,12 +22,17 @@ const KEditor = ({ data, onChange, isModeView, ...props }: any) => {
         data={data || ""}
         onReady={(_editor: ClassicEditor) => {
           editor.current = _editor;
-          if (isModeView) {
-            const toolbarElement = _editor.ui.view.toolbar.element;
-            _editor.enableReadOnlyMode("viewMode");
-            _editor.ui.view.stickyPanel.element?.remove();
-            toolbarElement?.remove();
-            _editor.ui.getEditableElement()!.style.border = "none";
+          if (editor.current.state === "ready") {
+            if (isModeView && !isAdmin) {
+              const toolbarElement = _editor.ui.view.toolbar.element;
+              _editor.enableReadOnlyMode("viewMode");
+              _editor.ui.view.stickyPanel.element?.remove();
+              toolbarElement?.remove();
+              if (_editor.ui.getEditableElement()) {
+                _editor.ui.getEditableElement()!.style.border = "none";
+              }
+            }
+            setLoaded(true);
           }
         }}
         config={{
@@ -59,7 +72,7 @@ const KEditor = ({ data, onChange, isModeView, ...props }: any) => {
           onChange?.(editor?.current?.getData());
         }}
       />
-    </>
+    </div>
   );
 };
 
