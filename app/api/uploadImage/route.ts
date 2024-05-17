@@ -20,3 +20,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ status: "fail", error: e });
   }
 }
+
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "50mb",
+    },
+  },
+};
