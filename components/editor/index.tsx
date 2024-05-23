@@ -22,9 +22,12 @@ const KEditor = ({
         data={data || ""}
         onReady={(_editor: ClassicEditor) => {
           editor.current = _editor;
+          const toolbarElement = _editor.ui.view.toolbar.element;
           if (editor.current.state === "ready") {
             if (isModeView && !isAdmin) {
-              const toolbarElement = _editor.ui.view.toolbar.element;
+              if (!data) {
+                _editor.ui.view.element?.remove();
+              }
               _editor.enableReadOnlyMode("viewMode");
               _editor.ui.view.stickyPanel.element?.remove();
               toolbarElement?.remove();

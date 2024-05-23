@@ -11,9 +11,7 @@ export const MenuItem = ({ className, title, href }: MenuItemProps) => {
   return (
     <Link
       href={href || ""}
-      className={`mx-2 px-5 py-2 rounded h-fit ${style.menu} ${
-        className || ""
-      }`}
+      className={`mx-2 py-2 rounded h-fit ${style.menu} ${className || ""}`}
     >
       {title || ""}
     </Link>
