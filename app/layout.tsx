@@ -27,10 +27,9 @@ export default function RootLayout({
           >
             <Suspense fallback={<Loading />}>
               <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
-                <div className="">
-                  <div className="flex justify-between items-center"></div>
+                <div className="flex flex-col mx-auto main w-full min-h-screen">
+                  {children}
                 </div>
-                <div className="flex mx-auto main w-full">{children}</div>
               </AuthContext.Provider>
             </Suspense>
           </ThemeProvider>

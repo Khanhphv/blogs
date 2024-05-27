@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Motion } from "@/components/motion";
 import { Navbar } from "@/components/navbar";
 import Image from "next/image";
+import Logo from "@/components/logo";
 
 export const metadata: Metadata = {
   title: "Khanh's blog",
@@ -19,7 +20,11 @@ export default function Page() {
       <Thumbnail src="/bg.jpg" />
       <div className={`${styles.main} p-5`}>
         <div className="h-full w-full backdrop-opacity-10 backdrop-invert bg-white/30 rounded  p-7">
-          <Navbar />
+          <div className="flex">
+            <Logo />
+            <Navbar classContent="grow" />
+          </div>
+
           <div className={`flex ${styles.content} flex-col`}>
             <Motion>
               <div className="text-sm">My Blog</div>

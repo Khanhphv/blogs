@@ -5,16 +5,21 @@ import LoginButton from "../login";
 
 export const Navbar = ({ classContent = "" }) => {
   return (
-    <div className={`flex justify-between ${classContent}`}>
-      <Logo />
-      <div className="flex justify-end items-center gap-4">
-        {MENU.map((i, v) => {
-          return <MenuItem key={`menu-${v}`} href={i.href} title={i.title} />;
-        })}
-        <LoginButton>
-          <MenuItem title="Login"></MenuItem>
-        </LoginButton>
-      </div>
+    <div className={`flex gap-4 p-2 items-center ${classContent}`}>
+      {MENU.map((i, v) => {
+        return (
+          <MenuItem
+            className="justify-center"
+            key={`menu-${v}`}
+            href={i.href}
+            title={i.title}
+            icon={i?.icon}
+          />
+        );
+      })}
+      <LoginButton>
+        <MenuItem icon={"Login"} title="Login"></MenuItem>
+      </LoginButton>
     </div>
   );
 };

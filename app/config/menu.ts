@@ -6,13 +6,11 @@ export const MENU = [
   {
     title: "Home",
     href: "/",
+    icon: "home",
   },
   {
     title: "Blog",
     href: "/blogs",
-  },
-  {
-    title: "Contact",
-    href: "/contact",
+    icon: "compass",
   },
 ];

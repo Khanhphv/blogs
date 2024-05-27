@@ -1,4 +1,4 @@
-import { VerticalLayout } from "@/components/layout/vertical-layout";
+import { MainLayout } from "@/components/layout/main-layout";
 
 export default function RootLayout({
   children,
@@ -7,5 +7,5 @@ export default function RootLayout({
   children: React.ReactNode;
   params: any;
 }) {
-  return <VerticalLayout>{children}</VerticalLayout>;
+  return <MainLayout>{children}</MainLayout>;
 }

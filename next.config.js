@@ -11,6 +11,7 @@ const nextConfig = {
   env: {
     DOMAIN_URL: process.env.NEXT_PUBLIC_DOMAIN_URL,
   },
+  transpilePackages: ["lucide-react"],
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
