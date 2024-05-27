@@ -1,9 +1,10 @@
 export interface Post {
-  title: string;
+  id?: string;
   content: string;
-  tag?: TAG;
-  img?: string;
-  created_at?: string;
+  title: string;
+  createdAt: string;
+  updatedAt?: string;
+  tag?: string;
 }
 
 enum TAG {

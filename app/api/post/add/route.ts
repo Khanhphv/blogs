@@ -13,8 +13,9 @@ export async function POST(req: Request) {
       /**
        * Create new post
        */
-      // const newPostRef = push(postRef); // Generates a unique ID for the new user
-      // set(newPostRef, post);
+
+      const newPostRef = push(postRef); // Generates a unique ID for the new user
+      set(newPostRef, post);
     }
     return NextResponse.json({
       postId: id,

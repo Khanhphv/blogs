@@ -3,20 +3,19 @@ import dynamic from "next/dynamic";
 import { Input } from "../../ui/input";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
+import dayjs from "dayjs";
+import { Button } from "@/components/ui/button";
+import { createPost } from "../actionForm";
 
 export default function CreatePost() {
   const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
   const contentRef = useRef<string>("");
   const router = useRouter();
   const onCreate = async (formData: FormData) => {
-    const post = await fetch("/api/post/add", {
-      method: "POST",
-      body: JSON.stringify({
-        post: {
-          content: contentRef.current,
-          title: formData.get("title"),
-        },
-      }),
+    const post = await createPost({
+      content: contentRef.current,
+      title: formData.get("title") as string,
+      createdAt: dayjs().format(),
     });
     if (post.status === 200) {
       router.push("/blogs");
@@ -32,13 +31,14 @@ export default function CreatePost() {
         required
       />
       <Editor
+        isModeView={false}
         onChange={(data: string) => {
           contentRef.current = data;
         }}
       />
-      <button type="submit" className="rounded bg-primary p-2 mt-2 text-white">
+      <Button className="mt-2" type="submit">
         Create
-      </button>
+      </Button>
     </form>
   );
 }

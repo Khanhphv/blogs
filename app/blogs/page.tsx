@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const data = await getData();
+  console.log(data);
   return (
     <section className="flex w-full flex-col">
       {Object.entries(data.data)?.map(([key, data]: [string, any], i) => {
@@ -35,7 +36,7 @@ export default async function Page() {
             route={key}
             key={key}
             tag={data?.tag || "test"}
-            created_at={data?.createdAt}
+            createdAt={data?.createdAt}
             title={data?.title}
             content={data?.content}
           />

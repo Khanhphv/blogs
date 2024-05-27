@@ -1,4 +1,5 @@
 import { DetailedPostHOC } from "@/components/post/edit-post";
+import { Post } from "@/types/post";
 
 async function getData(id: string) {
   const data = await fetch(`${process.env.DOMAIN_URL}/api/post/get?id=${id}`, {
@@ -20,7 +21,16 @@ export default async function Page({
 }: {
   params: { slug: string };
 }) {
-  const data = await getData(slug);
+  const data = (await getData(slug)) as { data: Post };
 
-  return <DetailedPostHOC id={slug} post={data} />;
+  return (
+    <DetailedPostHOC
+      post={{
+        data: {
+          ...data.data,
+          id: slug,
+        },
+      }}
+    />
+  );
 }
