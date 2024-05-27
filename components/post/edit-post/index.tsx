@@ -54,7 +54,7 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
   };
 
   return (
-    <div className="container p-2">
+    <div className="container p-2 overflow-auto">
       <div className="min-h-full w-full flex">
         <form className="w-full" onSubmit={onUpdate}>
           <input

@@ -8,8 +8,8 @@ interface Props {
 export const MainLayout = (props: Props) => {
   return (
     <div
-      className={`flex w-full grow ${
-        props.direction === "vertical" ? "flex-col" : "flex-row"
+      className={`flex w-full overflow-hidden  ${
+        props.direction === "vertical" ? "flex-col" : "flex-row h-screen"
       } `}
     >
       <div className="bg-secondary ">
