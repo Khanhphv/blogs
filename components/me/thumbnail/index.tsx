@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { ImgHTMLAttributes } from "react";
 
 export interface ThumbnailProps
