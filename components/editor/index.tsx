@@ -23,6 +23,7 @@ const KEditor = ({
         onReady={(_editor: ClassicEditor) => {
           editor.current = _editor;
           const toolbarElement = _editor.ui.view.toolbar.element;
+          console.log("editor state:", editor.current.state);
           if (editor.current.state === "ready") {
             if (isModeView && !isAdmin) {
               if (!data) {
