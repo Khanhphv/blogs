@@ -1,5 +1,11 @@
 import { database } from "@/firebase";
-import { ref, get as getFirebaseData, Query } from "firebase/database";
+import {
+  ref,
+  get as getFirebaseData,
+  Query,
+  query,
+  orderByChild,
+} from "firebase/database";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -10,11 +16,12 @@ export async function GET(req: NextRequest) {
       database,
       `posts${id ? "/" + id : ""}`
     );
-    const snapshot = await getFirebaseData(completedTasksRef);
-    if (snapshot.exists()) {
+
+    const posts = query(completedTasksRef, orderByChild("created_at"));
+    if (posts) {
       return NextResponse.json({
         data: {
-          ...snapshot.val(),
+          posts,
         },
       });
     } else {

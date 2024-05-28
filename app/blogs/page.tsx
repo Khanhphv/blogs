@@ -28,20 +28,22 @@ export default async function Page() {
   console.log(data);
   return (
     <section className="flex w-full flex-col">
-      {Object.entries(data.data)?.map(([key, data]: [string, any], i) => {
-        return (
-          <Post
-            id={key}
-            index={++i}
-            route={key}
-            key={key}
-            tag={data?.tag || "test"}
-            createdAt={data?.createdAt}
-            title={data?.title}
-            content={data?.content}
-          />
-        );
-      })}
+      {Object.entries(data.data)
+        ?.reverse()
+        .map(([key, data]: [string, any], i) => {
+          return (
+            <Post
+              id={key}
+              index={++i}
+              route={key}
+              key={key}
+              tag={data?.tag || "test"}
+              createdAt={data?.createdAt}
+              title={data?.title}
+              content={data?.content}
+            />
+          );
+        })}
     </section>
   );
 }
