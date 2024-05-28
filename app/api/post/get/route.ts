@@ -16,12 +16,15 @@ export async function GET(req: NextRequest) {
       database,
       `posts${id ? "/" + id : ""}`
     );
+    // const snapshot = await getFirebaseData(completedTasksRef);
 
-    const posts = query(completedTasksRef, orderByChild("created_at"));
-    if (posts) {
+    const postdQuery = query(completedTasksRef, orderByChild("created_at"));
+
+    const data = await getFirebaseData(postdQuery);
+    if (data.exists()) {
       return NextResponse.json({
         data: {
-          posts,
+          ...data.val(),
         },
       });
     } else {
