@@ -65,6 +65,20 @@ export default function Home() {
               </div>
             </a>
           </div>
+          <a
+            target="_blank"
+            href="http://discord.gg/skydevs"
+            className="fixed  flex flex-col items-end"
+            style={{ width: "100%", bottom: "3rem", right: "2rem" }}
+          >
+            <Image
+              className="discord"
+              alt="discord"
+              src={"/discord.png"}
+              height={50}
+              width={50}
+            />
+          </a>
         </div>
       </div>
       <Video />
