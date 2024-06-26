@@ -1,8 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { ADMIN_ROUTES, ROUTES } from "./constant/routes";
+import * as jose from "jose";
 
-export function middleware() {
-  // retrieve the current response
+export function middleware(request: NextRequest) {
   const res = NextResponse.next();
+
   // add the CORS headers to the response
   res.headers.append("Access-Control-Allow-Credentials", "true");
   res.headers.append("Access-Control-Allow-Origin", "*"); // replace this your actual origin
@@ -15,12 +17,20 @@ export function middleware() {
     "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
   );
 
-  return res;
+  const { url, cookies } = request;
+  const { value: token } = cookies.get("Authorization") ?? { value: null };
+
+  if (url.includes("/login")) {
+    if (token) return NextResponse.redirect(new URL(ADMIN_ROUTES.keys, url));
+    return res;
+  }
+  if (token) {
+    return res;
+  } else {
+    return NextResponse.redirect(new URL(ROUTES.login, url));
+  }
 }
 
-export { default } from "next-auth/middleware";
-
-// specify the path regex to apply the middleware to
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/admin/:path*", "/login"],
 };
