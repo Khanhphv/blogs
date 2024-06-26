@@ -20,10 +20,17 @@ export default function LoginForm() {
     }
   };
   return (
-    <>
-      <form action={onSubmit}>
-        <Input required name="username" type="text" placeholder="Username" />
+    <div className="w-full">
+      <form className="p-5" action={onSubmit}>
         <Input
+          required
+          className="my-3"
+          name="username"
+          type="text"
+          placeholder="Username"
+        />
+        <Input
+          className="my-3"
           required
           name="password"
           type="password"
@@ -31,6 +38,6 @@ export default function LoginForm() {
         />
         <Button type="submit">Login</Button>
       </form>
-    </>
+    </div>
   );
 }
