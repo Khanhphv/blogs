@@ -9,9 +9,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
+import ButtonGenKey from "@/components/keys/button-gen-key";
+import DeleteKeyButton from "@/components/keys/button-delete";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 enum STATUS {
   ACTIVE = "1",
   INACTIVE = "2",
@@ -38,31 +44,10 @@ export const KeyList = () => {
     getData();
   }, []);
 
-  const onGenerate = async () => {
-    const data = await fetch("/api/key/create", {
-      method: "POST",
-      cache: "no-cache",
-    });
-    await getData();
-  };
-
-  const onDelete = async (key: string) => {
-    try {
-      await fetch(`/api/key/delete/${key}`, {
-        method: "PUT",
-        cache: "no-cache",
-      });
-      await getData();
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <div className="p-3 w-full h-full">
-      <Button variant="default" onClick={() => onGenerate()}>
-        Generate key
-      </Button>
       <hr className="my-2" />
+      <ButtonGenKey onGen={getData} />
       <Table>
         <TableHeader>
           <TableRow>
@@ -76,7 +61,17 @@ export const KeyList = () => {
           {keys.map((key) => (
             <TableRow key={key.id}>
               <TableCell className="font-medium">{key.key}</TableCell>
-              <TableCell>{key.hwid}</TableCell>
+              <TableCell>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      {key.hwid?.slice(0, 7)}
+                      {key.hwid && "..."}
+                    </TooltipTrigger>
+                    <TooltipContent>{key.hwid}</TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </TableCell>
               <TableCell>
                 <Badge
                   variant={
@@ -88,13 +83,7 @@ export const KeyList = () => {
               </TableCell>
               <TableCell className="">
                 <div className="items-center justify-center flex gap-4">
-                  {/* <Button variant="outline">Disable</Button> */}
-                  <Button
-                    variant="destructive"
-                    onClick={() => onDelete(key.key)}
-                  >
-                    Delete
-                  </Button>
+                  <DeleteKeyButton id={key.key} onDelete={getData} />
                 </div>
               </TableCell>
             </TableRow>
