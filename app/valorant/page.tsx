@@ -14,8 +14,13 @@ export default function Home() {
   return (
     <>
       <div className="w-full h-full right-0">
+        <div className=" text-2xl text-white" style={{ background: "#F4CE14" }}>
+          <div className="notice">
+            Due to an unexpected issue, please join Discord from the website.
+          </div>
+        </div>
         <div className="flex h-full w-full flex-col items-center justify-center">
-          <div className="fixed top-4 left-0 logo text-white text-5xl font-bold w-full">
+          <div className="top-4 left-0 logo text-white text-5xl font-bold w-full">
             <div className="sign flex justify-center">
               <span className="fast-flicker">S</span>ky
               <span className="flicker">D</span>

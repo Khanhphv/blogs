@@ -1,3 +1,19 @@
+.notice {
+  animation-name: rightToLeft;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  white-space: nowrap;
+  color: green;
+}
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 .discord {
   animation: mymove 0.5s infinite;
   @media only screen and (max-width: 768px) {
