@@ -14,7 +14,10 @@ export default function Home() {
   return (
     <>
       <div className="w-full h-full right-0">
-        <div className=" text-2xl text-white" style={{ background: "#F4CE14" }}>
+        <div
+          className=" text-2xl text-white"
+          style={{ background: "#F4CE14", overflow: "hidden" }}
+        >
           <div className="notice">
             Due to an unexpected issue, please join Discord from the website.
           </div>
