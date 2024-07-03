@@ -67,7 +67,7 @@ export default function Home() {
           </div>
           <a
             target="_blank"
-            href="https://discord.gg/FCJf7u9zSf"
+            href="https://discord.gg/tf7eVM4n4V"
             className="fixed  flex flex-col items-end"
             style={{ width: "100%", bottom: "3rem", right: "2rem" }}
           >
