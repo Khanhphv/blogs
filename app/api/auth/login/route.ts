@@ -21,6 +21,7 @@ export async function PUT(req: Request) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
     };
+
     const response = NextResponse.json(null, {
       status: res.status,
       headers: {

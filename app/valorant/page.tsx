@@ -3,7 +3,7 @@ import "./khanh.scss";
 import "./buy.scss";
 import "./button.css";
 import { Metadata } from "next";
-import { Video } from "@/components/video-bg";
+import { Video } from "@/components/molecules/video-bg";
 
 export const metadata: Metadata = {
   title: "Valorant / Cs2( faceit,5E,perfectworld )",

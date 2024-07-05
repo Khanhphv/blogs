@@ -9,8 +9,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import ButtonGenKey from "@/components/keys/button-gen-key";
-import DeleteKeyButton from "@/components/keys/button-delete";
+import ButtonGenKey from "@/components/molecules/keys/button-gen-key";
+import DeleteKeyButton from "@/components/molecules/keys/button-delete";
 import {
   Tooltip,
   TooltipContent,

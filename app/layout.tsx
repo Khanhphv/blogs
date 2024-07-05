@@ -2,10 +2,10 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import { Suspense } from "react";
-import Loading from "@/components/loading";
+import Loading from "@/components/atomic/loading";
 import { SessionProvider } from "next-auth/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { GoogleAdsense } from "@/components/google-adsense";
+import { GoogleAdsense } from "@/components/atomic/google-adsense";
 import { Analytics } from "@vercel/analytics/react";
 export default function RootLayout({
   children,
