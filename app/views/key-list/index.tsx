@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -18,31 +17,17 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { KPagination } from "@/components/atomic/pagination";
+import { useFetchData } from "./fetchData";
+import { useRouter } from "next/navigation";
 enum STATUS {
   ACTIVE = "1",
   INACTIVE = "2",
 }
-interface IKey {
-  id: string;
-  key: string;
-  hwid: string;
-  status: string;
-}
 
 export const KeyList = () => {
-  const [keys, setKeys] = useState<IKey[]>([]);
-  const getData = async () => {
-    const data = await fetch("/api/key", {
-      method: "GET",
-      cache: "no-cache",
-    });
-    const { keys } = await data.json();
-    setKeys(keys);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const router = useRouter();
+  const { keys, getData, totalPage } = useFetchData();
 
   return (
     <div className="p-3 w-full h-full">
@@ -58,7 +43,7 @@ export const KeyList = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {keys.map((key) => (
+          {keys?.map((key) => (
             <TableRow key={key.id}>
               <TableCell className="font-medium">{key.key}</TableCell>
               <TableCell>
@@ -90,6 +75,7 @@ export const KeyList = () => {
           ))}
         </TableBody>
       </Table>
+      <KPagination totalPage={totalPage} />
     </div>
   );
 };
