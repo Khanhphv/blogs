@@ -6,6 +6,7 @@ import Loading from "@/components/atomic/loading";
 import { SessionProvider } from "next-auth/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GoogleAdsense } from "@/components/atomic/google-adsense";
+import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 export default function RootLayout({
   children,
@@ -28,6 +29,7 @@ export default function RootLayout({
               <div className="flex justify-between items-center"></div>
             </div>
             <div className="flex mx-auto main w-full">{children}</div>
+            <Toaster />
             <Analytics />
           </Suspense>
         </ThemeProvider>

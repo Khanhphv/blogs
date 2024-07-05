@@ -1,22 +1,31 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { ButtonLoading } from "@/components/ui/button";
 import { login } from "./login";
 import { useRouter } from "next/navigation";
 import { ADMIN_ROUTES, ROUTES } from "@/constant/routes";
+import { useToast } from "@/components/ui/use-toast";
+import { useState } from "react";
 
 export default function LoginForm() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
   const onSubmit = async (formData: any) => {
     try {
+      setLoading(true);
       await login({
         username: formData.get("username"),
         password: formData.get("password"),
       });
-      // redirect(ADMIN_ROUTES.keys);
       router.push(ADMIN_ROUTES.keys);
     } catch (error) {
-      console.log(error);
+      toast({
+        description: "Please try again!",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -36,7 +45,9 @@ export default function LoginForm() {
           type="password"
           placeholder="Password"
         />
-        <Button type="submit">Login</Button>
+        <ButtonLoading loading={loading} variant="default" type="submit">
+          Login
+        </ButtonLoading>
       </form>
     </div>
   );
