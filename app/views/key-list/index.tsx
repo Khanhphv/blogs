@@ -20,6 +20,9 @@ import {
 import { KPagination } from "@/components/atomic/pagination";
 import { useFetchData } from "./fetchData";
 import { useRouter } from "next/navigation";
+import { KEY_TYPE_LIST } from "@/app/config/constant";
+import moment from "moment";
+
 enum STATUS {
   ACTIVE = "1",
   INACTIVE = "2",
@@ -29,6 +32,11 @@ export const KeyList = () => {
   const router = useRouter();
   const { keys, getData, totalPage } = useFetchData();
 
+  const keyType = (type: string) => {
+    const key = KEY_TYPE_LIST.find((e) => e.value === type);
+    return key?.name || "";
+  };
+
   return (
     <div className="p-3 w-full h-full">
       <hr className="my-2" />
@@ -36,9 +44,14 @@ export const KeyList = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="">Key</TableHead>
+            <TableHead style={{ width: 400 }} className="">
+              Key
+            </TableHead>
             <TableHead>HIWD</TableHead>
+            <TableHead>Type</TableHead>
             <TableHead>Status</TableHead>
+            <TableHead>Active Time</TableHead>
+            <TableHead>Expired Time</TableHead>
             <TableHead className="text-center">Action</TableHead>
           </TableRow>
         </TableHeader>
@@ -57,6 +70,7 @@ export const KeyList = () => {
                   </Tooltip>
                 </TooltipProvider>
               </TableCell>
+              <TableCell className="font-medium">{keyType(key.type)}</TableCell>
               <TableCell>
                 <Badge
                   variant={
@@ -65,6 +79,14 @@ export const KeyList = () => {
                 >
                   {key.status == STATUS.ACTIVE ? "Active" : "Inactive"}
                 </Badge>
+              </TableCell>
+              <TableCell>
+                {key?.active_time &&
+                  moment(key?.active_time).format("YYYY-MM-DD HH:mm:ss")}
+              </TableCell>
+              <TableCell>
+                {key?.expired_time &&
+                  moment(key?.expired_time).format("YYYY-MM-DD HH:mm:ss")}
               </TableCell>
               <TableCell className="">
                 <div className="items-center justify-center flex gap-4">

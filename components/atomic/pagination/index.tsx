@@ -56,16 +56,14 @@ export const KPagination = (props: IPagination) => {
               .map((_, i: number) => {
                 const index = i + 1;
                 return (
-                  <>
-                    <PaginationItem>
-                      <PaginationLink
-                        href={createPageURL(index)}
-                        isActive={currentPage === index}
-                      >
-                        {index}
-                      </PaginationLink>
-                    </PaginationItem>
-                  </>
+                  <PaginationItem key={i}>
+                    <PaginationLink
+                      href={createPageURL(index)}
+                      isActive={currentPage === index}
+                    >
+                      {index}
+                    </PaginationLink>
+                  </PaginationItem>
                 );
               })}
         </PaginationContent>

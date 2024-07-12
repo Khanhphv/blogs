@@ -5,8 +5,11 @@ import { useEffect, useState } from "react";
 export interface IKey {
   id: string;
   key: string;
-  hwid: string;
+  hwid?: string;
   status: string;
+  active_time?: string;
+  expired_time?: string;
+  type: string;
 }
 
 export const useFetchData = () => {
