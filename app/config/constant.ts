@@ -11,3 +11,8 @@ export const KEY_TYPE_LIST = [
   { name: "MONTH", value: KEY_TYPE.MONTH },
   { name: "UNLIMITED", value: KEY_TYPE.UNLIMITED },
 ];
+
+export enum KEY_STATUS {
+  ACTIVE = "1",
+  INACTIVE = "2",
+}

@@ -20,13 +20,9 @@ import {
 import { KPagination } from "@/components/atomic/pagination";
 import { useFetchData } from "./fetchData";
 import { useRouter } from "next/navigation";
-import { KEY_TYPE_LIST } from "@/app/config/constant";
+import { KEY_STATUS, KEY_TYPE_LIST } from "@/app/config/constant";
 import moment from "moment";
-
-enum STATUS {
-  ACTIVE = "1",
-  INACTIVE = "2",
-}
+import UpdateButton from "@/components/molecules/keys/button-update";
 
 export const KeyList = () => {
   const router = useRouter();
@@ -74,10 +70,10 @@ export const KeyList = () => {
               <TableCell>
                 <Badge
                   variant={
-                    key.status == STATUS.ACTIVE ? "default" : "destructive"
+                    key.status == KEY_STATUS.ACTIVE ? "default" : "destructive"
                   }
                 >
-                  {key.status == STATUS.ACTIVE ? "Active" : "Inactive"}
+                  {key.status == KEY_STATUS.ACTIVE ? "Active" : "Inactive"}
                 </Badge>
               </TableCell>
               <TableCell>
@@ -91,6 +87,7 @@ export const KeyList = () => {
               <TableCell className="">
                 <div className="items-center justify-center flex gap-4">
                   <DeleteKeyButton id={key.key} onDelete={getData} />
+                  <UpdateButton item={key} onUpdate={getData} />
                 </div>
               </TableCell>
             </TableRow>
