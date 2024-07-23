@@ -13,6 +13,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { chipColorByType } from "@/lib/utils";
 
 export const useKeyColumns = ({
   callback,
@@ -50,9 +51,11 @@ export const useKeyColumns = ({
       accessorKey: "type",
       header: "Type",
       cell: ({ row }) => {
-        const type = row.getValue("type");
+        const type = row.getValue("type") as string;
         const key = KEY_TYPE_LIST.find((e) => e.value === type);
-        return <>{key?.name}</>;
+        return (
+          <span style={{ color: chipColorByType(type) }}>{key?.name}</span>
+        );
       },
     },
     {
