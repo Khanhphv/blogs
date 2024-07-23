@@ -27,7 +27,7 @@ const ButtonGenKey = (props: { onGen?: () => Promise<any> }) => {
     }
   };
   return (
-    <>
+    <div className="my-3">
       <Popover>
         <PopoverTrigger asChild>
           <Button variant="outline">Generate key</Button>
@@ -37,6 +37,7 @@ const ButtonGenKey = (props: { onGen?: () => Promise<any> }) => {
             return (
               <>
                 <ButtonLoading
+                  key={index}
                   className="w-full"
                   loading={loading}
                   variant="default"
@@ -55,7 +56,7 @@ const ButtonGenKey = (props: { onGen?: () => Promise<any> }) => {
           })}
         </PopoverContent>
       </Popover>
-    </>
+    </div>
   );
 };
 export default ButtonGenKey;

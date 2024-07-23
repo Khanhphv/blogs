@@ -12,6 +12,8 @@ import { query } from "firebase/database";
 import { useCallback, useMemo, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { PAGE_SIZE } from "@/constant/pagination";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 interface IPagination {
   totalPage?: number;
@@ -36,7 +38,7 @@ export const KPagination = (props: IPagination) => {
 
   return (
     <>
-      <Pagination>
+      <Pagination className="my-3">
         <PaginationContent>
           {/* <PaginationItem>
               <PaginationPrevious href="#" />
@@ -57,12 +59,21 @@ export const KPagination = (props: IPagination) => {
                 const index = i + 1;
                 return (
                   <PaginationItem key={i}>
-                    <PaginationLink
+                    <Link
+                      className={buttonVariants({
+                        variant: currentPage === index ? "outline" : "ghost",
+                        size: "icon",
+                      })}
+                      href={createPageURL(index)}
+                    >
+                      {index}
+                    </Link>
+                    {/* <PaginationLink
                       href={createPageURL(index)}
                       isActive={currentPage === index}
                     >
                       {index}
-                    </PaginationLink>
+                    </PaginationLink> */}
                   </PaginationItem>
                 );
               })}
