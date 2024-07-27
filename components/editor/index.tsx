@@ -22,22 +22,22 @@ const KEditor = ({
       onReady={(_editor: ClassicEditor) => {
         editor.current = _editor;
         const toolbarElement = _editor.ui.view.toolbar.element;
-        console.log("editor state:", editor.current.state);
-        if (editor.current.state === "ready") {
-          console.log(editor.current.state);
-          setLoaded(true);
-          if (isModeView && !isAdmin) {
-            if (!data) {
-              _editor.ui.view.element?.remove();
-            }
-            _editor.enableReadOnlyMode("viewMode");
-            _editor.ui.view.stickyPanel.element?.remove();
-            toolbarElement?.remove();
-            if (_editor.ui.getEditableElement()) {
-              _editor.ui.getEditableElement()!.style.border = "none";
-            }
-          }
-        }
+        // console.log("editor state:", editor.current.state);
+        // if (editor.current.state === "ready") {
+        //   console.log(editor.current.state);
+        //   setLoaded(true);
+        //   if (isModeView && !isAdmin) {
+        //     if (!data) {
+        //       _editor.ui.view.element?.remove();
+        //     }
+        //     _editor.enableReadOnlyMode("viewMode");
+        //     _editor.ui.view.stickyPanel.element?.remove();
+        //     toolbarElement?.remove();
+        //     if (_editor.ui.getEditableElement()) {
+        //       _editor.ui.getEditableElement()!.style.border = "none";
+        //     }
+        //   }
+        // }
       }}
       config={{
         toolbar: [
