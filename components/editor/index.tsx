@@ -25,6 +25,7 @@ const KEditor = ({
           const toolbarElement = _editor.ui.view.toolbar.element;
           console.log("editor state:", editor.current.state);
           if (editor.current.state === "ready") {
+            setLoaded(true);
             if (isModeView && !isAdmin) {
               if (!data) {
                 _editor.ui.view.element?.remove();
@@ -36,7 +37,6 @@ const KEditor = ({
                 _editor.ui.getEditableElement()!.style.border = "none";
               }
             }
-            setLoaded(true);
           }
         }}
         config={{
