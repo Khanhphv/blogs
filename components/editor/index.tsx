@@ -25,6 +25,7 @@ const KEditor = ({
           const toolbarElement = _editor.ui.view.toolbar.element;
           console.log("editor state:", editor.current.state);
           if (editor.current.state === "ready") {
+            console.log(editor.current.state);
             setLoaded(true);
             if (isModeView && !isAdmin) {
               if (!data) {
