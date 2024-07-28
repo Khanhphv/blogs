@@ -13,9 +13,7 @@ export const MenuItem = ({ className, title, href, icon }: MenuItemProps) => {
   return (
     <Link
       href={href || ""}
-      className={`py-2 px-2 my-2 flex rounded h-fit w-full ${style.menu} ${
-        className || ""
-      }`}
+      className={`py-2 px-2 my-2 flex rounded h-fit w-full ${className || ""}`}
     >
       <Icon size={30} name={icon} />
     </Link>

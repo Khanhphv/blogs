@@ -28,39 +28,14 @@ export default function Page() {
           <div className={`flex ${styles.content} flex-col`}>
             <Motion>
               <div className="text-sm">My Blog</div>
-              <div className="flex text-5xl font-bold">Khanh Pham</div>
-              <div className="mt-2 text-2xl">
+              <div className="flex lg:text-5xl sm:text-5xl text-2xl font-bold">
+                Khanh Pham
+              </div>
+              <div className="mt-2 lg:text-2xl sm:text-xl text-md">
                 Exploring Ideas, Inspiring Minds: Navigate the World of
                 Insightful Blogging
               </div>
             </Motion>
-
-            <div
-              className="no-scrollbar flex gap-4 pt-5 max-sm:overflow-x-auto"
-              style={{
-                height: "max-content",
-              }}
-            >
-              {IMAGES.map((e, index) => (
-                <Motion
-                  key={index}
-                  initial={{ y: 100 }}
-                  animate={{ y: 0 }}
-                  transition={{ ease: "circOut", duration: 0.5 }}
-                  whileHover={{
-                    scale: 1.1,
-                    transition: { duration: 0.2 },
-                  }}
-                >
-                  <img
-                    alt={`${index}`}
-                    className={`lazy rounded-3xl ${styles.image}`}
-                    width={400}
-                    src="/test.png"
-                  />
-                </Motion>
-              ))}
-            </div>
           </div>
         </div>
       </div>

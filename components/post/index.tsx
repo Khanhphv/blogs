@@ -52,7 +52,7 @@ export const KPost = ({
         setEditAble(false);
       }}
       onClick={onNavigation}
-      className="w-full border-t-2 p-3 pb-0"
+      className="w-full border-t-2 p-3 pb-0 cursor-pointer"
       style={{ position: "relative" }}
     >
       <div
