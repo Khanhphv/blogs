@@ -18,7 +18,7 @@ export const Navbar = ({ classContent = "" }) => {
         );
       })}
       <LoginButton>
-        <MenuItem icon={"Login"} title="Login"></MenuItem>
+        <MenuItem showLable title="Login"></MenuItem>
       </LoginButton>
     </div>
   );

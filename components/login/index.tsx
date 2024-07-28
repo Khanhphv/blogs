@@ -1,5 +1,5 @@
 "use client";
-import { HTMLAttributes, useContext } from "react";
+import { HTMLAttributes, useContext, useMemo } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { usePathname } from "next/navigation";
 import {
@@ -23,7 +23,14 @@ export default function LoginButton(props: HeaderProps) {
   const logout = async () => {
     signOut();
   };
+
   const { data, status } = useSession();
+
+  const name = useMemo(() => {
+    const names = data?.user?.name?.split(" ");
+    return names?.[names?.length - 1].slice(0, 1);
+  }, [data?.user?.name]);
+
   if (status === "authenticated") {
     setIsAdmin(true);
     return (
@@ -31,7 +38,9 @@ export default function LoginButton(props: HeaderProps) {
         <DropdownMenuTrigger>
           <Avatar>
             <AvatarImage src={data?.user?.image || ""} />
-            <AvatarFallback>{data?.user?.name}</AvatarFallback>
+            <AvatarFallback className="border-2 font-bold bg-white">
+              {name}
+            </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-40 border rounded-md bg-popover shadow-md">

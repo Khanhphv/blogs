@@ -13,7 +13,6 @@ interface IDetailedPost {
   post: { data: Post };
 }
 const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
-  console.log(post);
   const id = post.data.id as string;
   const router = useRouter();
   const [data, setData] = useState({

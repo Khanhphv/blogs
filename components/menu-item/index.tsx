@@ -7,15 +7,23 @@ export interface MenuItemProps {
   title?: string;
   href?: string;
   icon?: any;
+  showLable?: boolean;
 }
 
-export const MenuItem = ({ className, title, href, icon }: MenuItemProps) => {
+export const MenuItem = ({
+  className,
+  title,
+  href,
+  icon,
+  showLable = false,
+}: MenuItemProps) => {
   return (
     <Link
       href={href || ""}
       className={`py-2 px-2 my-2 flex rounded h-fit w-full ${className || ""}`}
     >
-      <Icon size={30} name={icon} />
+      {icon && <Icon size={30} name={icon} />}
+      {showLable && <span>{title}</span>}
     </Link>
   );
 };

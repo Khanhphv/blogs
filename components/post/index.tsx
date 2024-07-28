@@ -31,7 +31,6 @@ export const KPost = ({
     if (contentRef.current) {
       const resizeObserver = new ResizeObserver(() => {
         // Do what you want to do when the size of the element changes
-        console.log(contentRef.current?.clientHeight);
         const heightContent = contentRef.current?.clientHeight || 0;
         if (heightContent > MAX_HEIGHT) {
           setIsShowMore(true);

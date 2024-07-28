@@ -25,7 +25,6 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const data = await getData();
-  console.log(data);
   return (
     <section className="flex w-full flex-col">
       {Object.entries(data.data)
