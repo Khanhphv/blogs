@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(req: NextRequest) {
   try {
     const searchParams = req.nextUrl.searchParams;
     const id = searchParams.get("id");
@@ -14,6 +11,7 @@ export async function GET(
       },
     });
     const data = await res.json();
+    console.log(data);
     const response = NextResponse.json(data, {
       status: res.status,
     });

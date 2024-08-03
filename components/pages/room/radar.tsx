@@ -1,6 +1,7 @@
 "use client";
+import { useSocket } from "@/components/molecules/providers/socket-provider";
 import "./styles.scss";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 const LINE_COLOR = "white";
 const TEXT_COLOR = "white";
@@ -10,39 +11,50 @@ enum TYPES {
   "teammate" = 2,
   "boom" = 3,
 }
+
+const POINTS = [
+  {
+    x: 1000,
+    y: 1000,
+    type: 1,
+  },
+  {
+    x: 327,
+    y: -103,
+    type: 1,
+  },
+
+  {
+    x: -300,
+    y: 300,
+    type: 3,
+  },
+  {
+    x: -300,
+    y: -500,
+    type: 2,
+  },
+  {
+    x: 300,
+    y: -300,
+    type: 1,
+  },
+];
+
+interface IPoint {
+  x: number;
+  y: number;
+  type: TYPES;
+}
+
 export default function Radar({ room }: { room: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { socket } = useSocket();
 
-  const points = [
-    {
-      x: 1000,
-      y: 1000,
-      type: 1,
-    },
-    {
-      x: 327,
-      y: -103,
-      type: 1,
-    },
+  const [points, setPoints] = useState<IPoint[]>([]);
 
-    {
-      x: -300,
-      y: 300,
-      type: 3,
-    },
-    {
-      x: -300,
-      y: -1000,
-      type: 2,
-    },
-    {
-      x: 300,
-      y: -300,
-      type: 4,
-    },
-  ];
-
-  const getMaxSize = () => {
+  const getMaxSize = useCallback(() => {
+    if (points.length === 0) return { x: 1, y: 1 };
     let x = 0;
     let y = 0;
 
@@ -53,17 +65,36 @@ export default function Radar({ room }: { room: string }) {
     y = Math.max(...yAxises);
 
     return { x, y };
-  };
+  }, [points]);
+
+  useEffect(() => {
+    if (!socket?.active) return;
+    socket.emit("join_room", {
+      room: "khanh",
+    });
+    socket.on("my_response", function (data, callback) {
+      console.log(data);
+      if (
+        data?.data &&
+        typeof data.data === "object" &&
+        data?.data?.length > 0
+      ) {
+        callback?.();
+        setPoints(data.data);
+      }
+    });
+  }, [socket, setPoints]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    let centerPoint = {
-      x: 0,
-      y: 0,
-    };
 
     if (canvas) {
       const resizeCanvas = () => {
+        const ctx = canvas.getContext("2d");
+        if (ctx) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
         canvas.width = 1 * window.innerWidth;
         canvas.height = 1 * window.innerHeight;
         const maxSize = getMaxSize();
@@ -80,7 +111,7 @@ export default function Radar({ room }: { room: string }) {
           drawPoint({
             x: e.x,
             y: e.y,
-            ratio: 0.45,
+            ratio: ratio,
             type: e.type,
           });
         });
@@ -140,11 +171,11 @@ export default function Radar({ room }: { room: string }) {
         img.src = "/grenade.png";
         ctx.drawImage(img, x, y);
 
-        ctx.font = "15px Arial";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillStyle = TEXT_COLOR;
-        ctx.fillText("20:30", x + 15, y - 10);
+        // ctx.font = "15px Arial";
+        // ctx.textAlign = "center";
+        // ctx.textBaseline = "middle";
+        // ctx.fillStyle = TEXT_COLOR;
+        // ctx.fillText("20:30", x + 15, y - 10);
         ctx.fill();
       };
 
@@ -173,7 +204,6 @@ export default function Radar({ room }: { room: string }) {
         if (ctx) {
           const centerX = canvas.width / 2;
           const centerY = canvas.height / 2;
-          centerPoint = { x: centerX, y: centerY };
 
           // Clear canvas
           ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -213,7 +243,7 @@ export default function Radar({ room }: { room: string }) {
       window.addEventListener("resize", resizeCanvas);
       return () => window.removeEventListener("resize", resizeCanvas);
     }
-  }, []);
+  }, [getMaxSize, points]);
 
   return (
     <div className="App">

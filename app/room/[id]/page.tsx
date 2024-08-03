@@ -1,4 +1,4 @@
-import Radar from "@/components/pages/room/radar";
+import Room from "@/components/pages/room";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default async function Page({
 }) {
   const data = await getData(id);
   if (data.id) {
-    return <Radar room={data.id} />;
+    return <Room room={id} />;
   } else {
     return <h2>Link is expired</h2>;
   }
