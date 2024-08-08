@@ -73,20 +73,33 @@ export default function Home() {
               </div>
             </a>
           </div>
-          <a
-            target="_blank"
-            href="https://discord.gg/JU4f9DQCM7"
+          <div
             className="fixed  flex flex-col items-end"
-            style={{ width: "100%", bottom: "3rem", right: "2rem" }}
+            style={{
+              bottom: "3rem",
+              right: "2rem",
+              gap: "2rem",
+            }}
           >
-            <Image
-              className="discord"
-              alt="discord"
-              src={"/discord.png"}
-              height={50}
-              width={50}
-            />
-          </a>
+            <a target="_blank" href="https://discord.com/invite/wXWvWWryfe">
+              <Image
+                className="discord"
+                alt="discord"
+                src={"/discord.png"}
+                height={50}
+                width={50}
+              />
+            </a>
+            <a target="_blank" href="https://t.me/skydevswtf">
+              <Image
+                className="discord"
+                alt="discord"
+                src={"/telegram.png"}
+                height={50}
+                width={50}
+              />
+            </a>
+          </div>
         </div>
       </div>
       <Video />
