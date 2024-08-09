@@ -60,14 +60,14 @@ export const KPost = ({
       >
         <div className="w-full  border-slate-300 justify-between">
           <div className="flex text-xs">
-            <div className="font-extrabold">{app.name}</div>
+            {/* <div className="font-extrabold">{app.name}</div>
             <div></div>
             <span role="presentation" className="font-thin mx-1">
               •
             </span>
             <div className="font-thin">
               {dayjs(createdAt).format("YYYY MM DD HH:mm")}
-            </div>
+            </div> */}
           </div>
           <div
             className="font-extrabold"

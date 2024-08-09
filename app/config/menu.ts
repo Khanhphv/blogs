@@ -13,4 +13,9 @@ export const MENU = [
     href: "/blogs",
     icon: "compass",
   },
+  {
+    title: "Write",
+    href: "/blogs/create",
+    icon: "pen-line",
+  },
 ];

@@ -56,16 +56,18 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
     <div className="container p-2 overflow-auto">
       <div className="min-h-full w-full flex">
         <form className="w-full" onSubmit={onUpdate}>
-          <input
-            name="title"
-            className={`${
-              !viewMode && "border"
-            } rounded py-2 ps-2 w-full font-bold text-xl`}
-            value={data?.title}
-            onChange={(e) => {
-              setData({ ...data, title: e.target.value });
-            }}
-          />
+          {(data.title || !viewMode) && (
+            <input
+              name="title"
+              className={`${
+                !viewMode && "border"
+              } rounded py-2 ps-2 w-full font-bold text-xl`}
+              value={data?.title}
+              onChange={(e) => {
+                setData({ ...data, title: e.target.value });
+              }}
+            />
+          )}
 
           <Editor
             isModeView={viewMode}

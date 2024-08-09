@@ -7,15 +7,7 @@ export const Navbar = ({ classContent = "" }) => {
   return (
     <div className={`flex gap-4 p-2 items-center ${classContent}`}>
       {MENU.map((i, v) => {
-        return (
-          <MenuItem
-            className="justify-center"
-            key={`menu-${v}`}
-            href={i.href}
-            title={i.title}
-            icon={i?.icon}
-          />
-        );
+        return <MenuItem className="justify-center" key={`menu-${v}`} {...i} />;
       })}
       <LoginButton>
         <MenuItem showLable title="Login"></MenuItem>

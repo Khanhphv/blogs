@@ -24,11 +24,11 @@ export default function CreatePost() {
 
   return (
     <form action={onCreate} className="mt-2">
+      <p className="my-2 font-bold">Hãy để lại lời nhắn cho tui !!!</p>
       <Input
         name="title"
         className="rounded ring-offset-0 mb-4"
         placeholder="Title"
-        required
       />
       <Editor
         isModeView={false}
@@ -36,7 +36,7 @@ export default function CreatePost() {
           contentRef.current = data;
         }}
       />
-      <Button className="mt-2" type="submit">
+      <Button variant="default" className="mt-2" type="submit">
         Create
       </Button>
     </form>

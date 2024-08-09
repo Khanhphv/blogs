@@ -32,7 +32,9 @@ export default function LoginButton(props: HeaderProps) {
   }, [data?.user?.name]);
 
   if (status === "authenticated") {
-    setIsAdmin(true);
+    if (data.user?.email === "vietkhanh1310@gmail.com") {
+      setIsAdmin(true);
+    }
     return (
       <DropdownMenu>
         <DropdownMenuTrigger>
