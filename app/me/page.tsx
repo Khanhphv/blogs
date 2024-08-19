@@ -1,10 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { Thumbnail } from "@/components/me";
+import { ThumbNail } from "@/components/me";
 import styles from "./me.module.scss";
 import { Metadata } from "next";
 import { Motion } from "@/components/motion";
 import { Navbar } from "@/components/navbar";
-import Image from "next/image";
 import Logo from "@/components/logo";
 
 export const metadata: Metadata = {
@@ -12,12 +11,10 @@ export const metadata: Metadata = {
   description: "...",
 };
 
-const IMAGES = ["/test.png", "/test.png", "/test.png"];
-
 export default function Page() {
   return (
     <>
-      <Thumbnail src="/bg.jpg" />
+      <ThumbNail src="/bg.jpg" />
       <div className={`${styles.main} p-5`}>
         <div className="h-full w-full backdrop-opacity-10 backdrop-invert bg-white/30 rounded  p-7">
           <div className="flex">

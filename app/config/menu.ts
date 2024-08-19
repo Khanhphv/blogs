@@ -1,5 +1,6 @@
 export namespace MENU_ROUTE {
   export const BLOG = "/blogs";
+  export const HOME = "/me";
 }
 
 export const MENU = [

@@ -8,7 +8,7 @@ export interface MenuItemProps {
   href?: string;
   icon?: any;
   size?: number;
-  showLable?: boolean;
+  showLabel?: boolean;
 }
 
 export const MenuItem = ({
@@ -16,7 +16,7 @@ export const MenuItem = ({
   title,
   href,
   icon,
-  showLable = false,
+  showLabel = false,
   size,
 }: MenuItemProps) => {
   return (
@@ -25,7 +25,7 @@ export const MenuItem = ({
       className={`py-2 px-2 my-2 flex rounded h-fit w-full ${className || ""}`}
     >
       {icon && <Icon size={size || 30} name={icon} />}
-      {showLable && <span>{title}</span>}
+      {showLabel && <span>{title}</span>}
     </Link>
   );
 };
