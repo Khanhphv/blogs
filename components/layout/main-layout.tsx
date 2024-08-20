@@ -9,7 +9,7 @@ export const MainLayout = (props: Props) => {
   return (
     <div
       className={`flex w-full h-max min-h-screen ${
-        props.direction === "vertical" ? "flex-col" : "flex-row h-screen"
+        props.direction === "vertical" ? "flex-col" : "flex-row"
       } `}
     >
       <div className="bg-secondary border-r-2">

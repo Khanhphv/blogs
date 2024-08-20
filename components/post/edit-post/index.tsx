@@ -53,7 +53,7 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
   };
 
   return (
-    <div className="min-h-full w-full flex">
+    <div className="min-h-full h-max w-full flex">
       <form className="w-full" onSubmit={onUpdate}>
         {data.title && !viewMode ? (
           <input
