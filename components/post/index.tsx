@@ -51,14 +51,11 @@ export const KPost = ({
         setEditAble(false);
       }}
       onClick={onNavigation}
-      className="w-full border-t-2 p-3 pb-0 cursor-pointer"
+      className="w-full p-3  cursor-pointer  border-b-2"
       style={{ position: "relative" }}
     >
-      <div
-        style={{ maxHeight: MAX_HEIGHT, overflow: "hidden" }}
-        className="flex flex-row w-full rounded-lg"
-      >
-        <div className="w-full  border-slate-300 justify-between">
+      <div className="flex flex-row w-full rounded-lg ">
+        <div className="w-full  border-slate-300 justify-between hover:bg-zinc-100 hover:rounded-sm  p-3 ">
           <div className="flex text-xs">
             {/* <div className="font-extrabold">{app.name}</div>
             <div></div>
@@ -73,10 +70,13 @@ export const KPost = ({
             className="font-extrabold"
             dangerouslySetInnerHTML={{ __html: `${title}` }}
           />
-          <div dangerouslySetInnerHTML={{ __html: content }} />
+          <div
+            className="line-clamp-5"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </div>
       </div>
-      {isShowMore && (
+      {/* {isShowMore && (
         <>
           <div
             className="flex items-center justify-center absolute w-full"
@@ -99,7 +99,7 @@ export const KPost = ({
             }}
           />
         </>
-      )}
+      )} */}
     </div>
   );
 };

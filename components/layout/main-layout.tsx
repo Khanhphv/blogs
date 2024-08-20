@@ -12,7 +12,7 @@ export const MainLayout = (props: Props) => {
         props.direction === "vertical" ? "flex-col" : "flex-row h-screen"
       } `}
     >
-      <div className="bg-secondary ">
+      <div className="bg-secondary border-r-2">
         <Logo />
         <Navbar
           classContent={`${
