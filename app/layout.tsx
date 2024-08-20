@@ -26,6 +26,7 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        <script src="/script/common.js" async></script>
       </head>
       <body suppressHydrationWarning>
         <SessionProvider>
