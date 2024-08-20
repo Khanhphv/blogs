@@ -6,6 +6,10 @@ import Loading from "@/components/loading";
 import { SessionProvider } from "next-auth/react";
 import { createContext } from "react";
 import { AuthContext } from "@/components/authorize";
+import { Box, ColorSchemeProvider, ExperimentProvider } from "gestalt";
+
+import "gestalt/dist/gestalt.css";
+import "gestalt-datepicker/dist/gestalt-datepicker.css";
 
 export default function RootLayout({
   children,
@@ -30,13 +34,19 @@ export default function RootLayout({
             defaultTheme="light"
             disableTransitionOnChange
           >
-            <Suspense fallback={<Loading />}>
-              <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
-                <div className="flex flex-col mx-auto main w-full min-h-screen">
-                  {children}
-                </div>
-              </AuthContext.Provider>
-            </Suspense>
+            <ExperimentProvider value={{}}>
+              <ColorSchemeProvider colorScheme="light" fullDimensions>
+                <Box color="default" height="100%" width="100%">
+                  <Suspense fallback={<Loading />}>
+                    <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
+                      <div className="flex flex-col mx-auto main w-full min-h-screen">
+                        {children}
+                      </div>
+                    </AuthContext.Provider>
+                  </Suspense>
+                </Box>
+              </ColorSchemeProvider>
+            </ExperimentProvider>
           </ThemeProvider>
         </SessionProvider>
       </body>
