@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Motion } from "@/components/motion";
 import { Navbar } from "@/components/navbar";
 import Logo from "@/components/logo";
+import Example from "@/components/Molecules/gallery";
 
 export const metadata: Metadata = {
   title: "Khanh's blog",
@@ -33,6 +34,9 @@ export default function Page() {
                 Insightful Blogging
               </div>
             </Motion>
+            <div className={`${styles.content} mt-6`}>
+              <Example />
+            </div>
           </div>
         </div>
       </div>

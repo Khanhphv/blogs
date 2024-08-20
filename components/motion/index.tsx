@@ -11,7 +11,6 @@ export const Motion = (props: MotionProps) => {
         animate={{ x: 0 }}
         initial={{ x: 100 }}
         transition={{ ease: "easeOut", duration: 1 }}
-        className="sm:pl-4"
         {...others}
       >
         {children}
