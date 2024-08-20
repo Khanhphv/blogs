@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   const data = await getData();
   return (
-    <section className="flex w-full flex-col">
+    <section className="flex w-full flex-col overflow-auto">
       {Object.entries(data.data)
         ?.reverse()
         .map(([key, data]: [string, any], i) => {

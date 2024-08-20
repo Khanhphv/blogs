@@ -65,7 +65,7 @@ export const KPost = ({
             </div> */}
           </div>
           <div
-            className="font-extrabold"
+            className="font-extrabold whitespace-pre-wrap"
             dangerouslySetInnerHTML={{ __html: `${title}` }}
           />
           <div

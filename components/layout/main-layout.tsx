@@ -8,7 +8,7 @@ interface Props {
 export const MainLayout = (props: Props) => {
   return (
     <div
-      className={`flex w-full overflow-hidden  ${
+      className={`flex w-full h-max  ${
         props.direction === "vertical" ? "flex-col" : "flex-row h-screen"
       } `}
     >
