@@ -1,6 +1,4 @@
 import Link from "next/link";
-import style from "./menu-item.module.scss";
-import Icon from "../icon";
 
 export interface MenuItemProps {
   className?: string;
@@ -24,8 +22,8 @@ export const MenuItem = ({
       href={href || ""}
       className={`py-2 px-2 my-2 flex rounded h-fit w-full ${className || ""}`}
     >
-      {icon && <Icon size={size || 30} name={icon} />}
-      {showLabel && <span>{title}</span>}
+      {icon}
+      {showLabel && <span className="ml-4">{title}</span>}
     </Link>
   );
 };

@@ -4,8 +4,6 @@ import { app } from "@/constant/app";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { withAuth } from "@/components/hoc/withAuth";
-import Icon from "../icon";
-import dayjs from "dayjs";
 import { Post as PostType } from "@/types/post";
 
 const MAX_HEIGHT = 300;
@@ -76,30 +74,6 @@ export const KPost = ({
           />
         </div>
       </div>
-      {/* {isShowMore && (
-        <>
-          <div
-            className="flex items-center justify-center absolute w-full"
-            style={{
-              height: 100,
-              background: "linear-gradient(to bottom, white, black)",
-              bottom: 0,
-              opacity: 0.3,
-            }}
-          ></div>
-          <Icon
-            color="#fff"
-            strokeWidth="2"
-            size={50}
-            name="chevrons-down"
-            className="absolute"
-            style={{
-              bottom: 0,
-              left: "40%",
-            }}
-          />
-        </>
-      )} */}
     </div>
   );
 };
