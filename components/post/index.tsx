@@ -53,7 +53,7 @@ export const KPost = ({
       style={{ position: "relative" }}
     >
       <div className="flex flex-row w-full rounded-lg ">
-        <div className="w-full  border-slate-300 justify-between hover:bg-secondary-foreground hover:rounded-sm  p-3 ">
+        <div className="w-full  border-slate-300 justify-between hover:rounded-sm p-3">
           <div className="flex text-xs">
             {/* <div className="font-extrabold">{app.name}</div>
             <div></div>
