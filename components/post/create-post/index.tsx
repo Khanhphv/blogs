@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import dayjs from "dayjs";
 import { Button } from "@/components/ui/button";
 import { createPost } from "../actionForm";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function CreatePost() {
   const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
@@ -27,15 +28,16 @@ export default function CreatePost() {
       <p className="my-2 font-bold">Hãy để lại lời nhắn cho tui !!!</p>
       <Input
         name="title"
-        className="rounded ring-offset-0 mb-4 dark:text-white"
+        className="rounded ring-offset-0 mb-4 da"
         placeholder="Title"
       />
-      {/* <Editor
-        isModeView={false}
-        onChange={(data: string) => {
-          contentRef.current = data;
+      <Textarea
+        placeholder="Please type content"
+        onChange={(e) => {
+          contentRef.current = e.target.value;
         }}
-      /> */}
+      />
+      <br></br>
       <Button variant="default" className="mt-2" type="submit">
         Create
       </Button>
