@@ -8,7 +8,7 @@ export default function Logo() {
   const router = useRouter();
   return (
     <Link className="max-sm:hidden" href={MENU.HOME}>
-      <Image alt="khnah' blog" width={70} height={70} src="/logo.png" />
+      <div className="text-2xl p-2 text-center">K</div>
     </Link>
   );
 }

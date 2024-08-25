@@ -53,46 +53,46 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
   };
 
   return (
-    <div className="min-h-full h-max w-full flex">
-      <form className="w-full" onSubmit={onUpdate}>
-        {data.title && !viewMode ? (
-          <input
-            name="title"
-            className={`${"border"} rounded py-2 ps-2 w-full font-bold text-xl`}
-            value={data?.title}
-            onChange={(e) => {
-              setData({ ...data, title: e.target.value });
-            }}
-          />
-        ) : (
-          <p className="py-2 ps-2 w-full font-bold text-xl">{data.title}</p>
-        )}
-
-        <Editor
-          isModeView={viewMode}
-          onChange={(value: string) => {
-            postContent.current = value;
+    // <div className="min-h-full h-max w-full flex">
+    <form className="w-full" onSubmit={onUpdate}>
+      {data.title && !viewMode ? (
+        <input
+          name="title"
+          className={`${"border"} rounded py-2 ps-2 w-full font-bold text-xl`}
+          value={data?.title}
+          onChange={(e) => {
+            setData({ ...data, title: e.target.value });
           }}
-          data={data?.content}
         />
+      ) : (
+        <p className="py-2 ps-2 w-full font-bold text-xl">{data.title}</p>
+      )}
 
-        {!viewMode && (
-          <div className="flex gap-4 ">
-            <Button type="submit" className=" p-2 mt-2">
-              Update
-            </Button>
-            <Button
-              type="button"
-              variant={"destructive"}
-              onClick={onDelete}
-              className=" p-2 mt-2"
-            >
-              Delete
-            </Button>
-          </div>
-        )}
-      </form>
-    </div>
+      <Editor
+        isModeView={viewMode}
+        onChange={(value: string) => {
+          postContent.current = value;
+        }}
+        data={data?.content}
+      />
+
+      {!viewMode && (
+        <div className="flex gap-4 ">
+          <Button type="submit" className=" p-2 mt-2">
+            Update
+          </Button>
+          <Button
+            type="button"
+            variant={"destructive"}
+            onClick={onDelete}
+            className=" p-2 mt-2"
+          >
+            Delete
+          </Button>
+        </div>
+      )}
+    </form>
+    // </div>
   );
 };
 

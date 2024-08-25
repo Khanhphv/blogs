@@ -29,11 +29,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <SessionProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            disableTransitionOnChange
-          >
+          <ThemeProvider attribute="class" defaultTheme="dark">
             <ExperimentProvider value={{}}>
               <ColorSchemeProvider colorScheme="light" fullDimensions>
                 <Box color="default" height="100%" width="100%">

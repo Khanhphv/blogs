@@ -6,6 +6,7 @@ import { PiSmileyMelting } from "react-icons/pi";
 import { VscNote } from "react-icons/vsc";
 import { PiNotePencil } from "react-icons/pi";
 import { useLayoutEffect, useRef } from "react";
+import { MENU as MENU_CONSTANT } from "@/constant/app";
 
 import {
   Sheet,
@@ -24,7 +25,7 @@ export const MENU = [
   },
   {
     title: "Blog",
-    href: "/blogs",
+    href: MENU_CONSTANT.HOME,
     icon: <VscNote size={30} />,
   },
   {

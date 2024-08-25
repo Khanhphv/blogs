@@ -43,6 +43,38 @@ export default async function Page() {
             />
           );
         })}
+      {Object.entries(data.data)
+        ?.reverse()
+        .map(([key, data]: [string, any], i) => {
+          return (
+            <Post
+              id={key}
+              index={++i}
+              route={key}
+              key={key}
+              tag={data?.tag || "test"}
+              createdAt={data?.createdAt}
+              title={data?.title}
+              content={data?.content}
+            />
+          );
+        })}
+      {Object.entries(data.data)
+        ?.reverse()
+        .map(([key, data]: [string, any], i) => {
+          return (
+            <Post
+              id={key}
+              index={++i}
+              route={key}
+              key={key}
+              tag={data?.tag || "test"}
+              createdAt={data?.createdAt}
+              title={data?.title}
+              content={data?.content}
+            />
+          );
+        })}
     </section>
   );
 }
