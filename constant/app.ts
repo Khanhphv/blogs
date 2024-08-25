@@ -5,4 +5,5 @@ export const app = {
 
 export namespace MENU {
   export const HOME = "/home";
+  export const BLOGS = "/blogs";
 }
