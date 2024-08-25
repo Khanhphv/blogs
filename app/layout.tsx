@@ -31,17 +31,17 @@ export default function RootLayout({
         <SessionProvider>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <ExperimentProvider value={{}}>
-              <ColorSchemeProvider colorScheme="light" fullDimensions>
-                <Box color="default" height="100%" width="100%">
-                  <Suspense fallback={<Loading />}>
-                    <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
-                      <div className="flex flex-row max-sm:flex-col mx-auto main w-full min-h-screen ">
-                        {children}
-                      </div>
-                    </AuthContext.Provider>
-                  </Suspense>
-                </Box>
-              </ColorSchemeProvider>
+              {/* <ColorSchemeProvider colorScheme="light" fullDimensions> */}
+              {/* <Box color="default" height="100%" width="100%"> */}
+              <Suspense fallback={<Loading />}>
+                <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
+                  <div className="flex flex-row max-sm:flex-col mx-auto main w-full min-h-screen ">
+                    {children}
+                  </div>
+                </AuthContext.Provider>
+              </Suspense>
+              {/* </Box> */}
+              {/* </ColorSchemeProvider> */}
             </ExperimentProvider>
           </ThemeProvider>
         </SessionProvider>

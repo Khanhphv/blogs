@@ -26,23 +26,25 @@ export const metadata: Metadata = {
 export default async function Page() {
   const data = await getData();
   return (
-    <section className="flex w-full flex-col overflow-auto">
-      {Object.entries(data.data)
-        ?.reverse()
-        .map(([key, data]: [string, any], i) => {
-          return (
-            <Post
-              id={key}
-              index={++i}
-              route={key}
-              key={key}
-              tag={data?.tag || "test"}
-              createdAt={data?.createdAt}
-              title={data?.title}
-              content={data?.content}
-            />
-          );
-        })}
-    </section>
+    <div className="sm:p-5">
+      <section className="flex w-full flex-col overflow-auto  sm:rounded-md sm:bg-secondary">
+        {Object.entries(data.data)
+          ?.reverse()
+          .map(([key, data]: [string, any], i) => {
+            return (
+              <Post
+                id={key}
+                index={++i}
+                route={key}
+                key={key}
+                tag={data?.tag || "test"}
+                createdAt={data?.createdAt}
+                title={data?.title}
+                content={data?.content}
+              />
+            );
+          })}
+      </section>
+    </div>
   );
 }

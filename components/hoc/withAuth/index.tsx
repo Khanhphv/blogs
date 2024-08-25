@@ -1,5 +1,4 @@
 import { AuthContext } from "@/components/authorize";
-import { Post } from "@/types/post";
 import { useContext } from "react";
 
 export const withAuth = (WrappedComponent: any) => {

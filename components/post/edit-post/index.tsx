@@ -54,27 +54,33 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
 
   return (
     // <div className="min-h-full h-max w-full flex">
-    <form className="w-full" onSubmit={onUpdate}>
+    <form className="w-full ps-2" onSubmit={onUpdate}>
       {data.title && !viewMode ? (
         <input
           name="title"
-          className={`${"border"} rounded py-2 ps-2 w-full font-bold text-xl`}
+          className={`${"border"} rounded py-2 w-full font-bold text-xl`}
           value={data?.title}
           onChange={(e) => {
             setData({ ...data, title: e.target.value });
           }}
         />
       ) : (
-        <p className="py-2 ps-2 w-full font-bold text-xl">{data.title}</p>
+        <p className="py-2 w-full font-bold text-xl">{data.title}</p>
       )}
 
-      <Editor
-        isModeView={viewMode}
-        onChange={(value: string) => {
-          postContent.current = value;
-        }}
-        data={data?.content}
-      />
+      {viewMode ? (
+        <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+      ) : (
+        <>
+          <Editor
+            isModeView={false}
+            onChange={(value: string) => {
+              postContent.current = value;
+            }}
+            data={data?.content}
+          />
+        </>
+      )}
 
       {!viewMode && (
         <div className="flex gap-4 ">

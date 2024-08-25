@@ -27,15 +27,15 @@ export default function CreatePost() {
       <p className="my-2 font-bold">Hãy để lại lời nhắn cho tui !!!</p>
       <Input
         name="title"
-        className="rounded ring-offset-0 mb-4"
+        className="rounded ring-offset-0 mb-4 dark:text-white"
         placeholder="Title"
       />
-      <Editor
+      {/* <Editor
         isModeView={false}
         onChange={(data: string) => {
           contentRef.current = data;
         }}
-      />
+      /> */}
       <Button variant="default" className="mt-2" type="submit">
         Create
       </Button>
