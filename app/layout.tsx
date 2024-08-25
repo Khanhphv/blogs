@@ -39,7 +39,7 @@ export default function RootLayout({
                 <Box color="default" height="100%" width="100%">
                   <Suspense fallback={<Loading />}>
                     <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
-                      <div className="flex flex-col mx-auto main w-full min-h-screen">
+                      <div className="flex flex-row max-sm:flex-col mx-auto main w-full min-h-screen ">
                         {children}
                       </div>
                     </AuthContext.Provider>

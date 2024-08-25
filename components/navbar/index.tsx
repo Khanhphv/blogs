@@ -16,7 +16,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-const MENU = [
+export const MENU = [
   {
     title: "Home",
     href: "/",
@@ -79,9 +79,9 @@ export const Navbar = ({ classContent = "" }) => {
             <MenuItem className="justify-center" key={`menu-${v}`} {...i} />
           );
         })}
-        <LoginButton>
+        {/* <LoginButton>
           <MenuItem showLabel title="Login"></MenuItem>
-        </LoginButton>
+        </LoginButton> */}
       </div>
     </>
   );
@@ -89,13 +89,13 @@ export const Navbar = ({ classContent = "" }) => {
 
 export const Sidebar = ({ classContent = "" }) => {
   return (
-    <div className={`flex gap-4 items-center  ${classContent}`}>
+    <>
       {MENU.map((i, v) => {
         return <MenuItem className="justify-center" key={`menu-${v}`} {...i} />;
       })}
-      <LoginButton>
+      {/* <LoginButton>
         <MenuItem showLabel title="Login"></MenuItem>
-      </LoginButton>
-    </div>
+      </LoginButton> */}
+    </>
   );
 };

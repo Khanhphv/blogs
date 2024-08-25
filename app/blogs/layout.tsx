@@ -8,13 +8,5 @@ export default function RootLayout({
   children: React.ReactNode;
   params: any;
 }) {
-  return (
-    <div className="flex w-full overflow-hidden flex-row h-screen">
-      <div className="bg-secondary border-r-2">
-        <Logo />
-        <Sidebar classContent="flex-col" />
-      </div>
-      {children}
-    </div>
-  );
+  return <MainLayout>{children}</MainLayout>;
 }
