@@ -27,7 +27,7 @@ export default async function Page() {
   const data = await getData();
   return (
     <div className="sm:p-5">
-      <section className="flex w-full flex-col overflow-auto  sm:rounded-md sm:bg-secondary">
+      <section className="flex w-full flex-col sm:rounded-md sm:bg-secondary">
         {Object.entries(data.data)
           ?.reverse()
           .map(([key, data]: [string, any], i) => {

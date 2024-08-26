@@ -12,7 +12,7 @@ export const MainLayout = (props: Props) => {
         <Logo />
         <Sidebar />
       </div>
-      <div className="sm:min-h-full w-full flex grow max-sm:mb-[50px] ">
+      <div className="sm:min-h-full w-full sm:container max-sm:mb-[50px] ">
         {props.children}
       </div>
     </div>

@@ -40,13 +40,15 @@ export default async function Page({
   const data = (await getData(slug)) as { data: Post };
 
   return (
-    <DetailedPostHOC
-      post={{
-        data: {
-          ...data.data,
-          id: slug,
-        },
-      }}
-    />
+    <div className="flex p-4 min-h-screen">
+      <DetailedPostHOC
+        post={{
+          data: {
+            ...data.data,
+            id: slug,
+          },
+        }}
+      />
+    </div>
   );
 }

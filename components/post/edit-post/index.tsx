@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import dayjs from "dayjs";
 import { updatePost, detelePost } from "../actionForm";
 import { Post } from "@/types/post";
+import "./ck.scss";
+
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 interface IDetailedPost {
   viewMode: boolean;
@@ -54,7 +56,7 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
 
   return (
     // <div className="min-h-full h-max w-full flex">
-    <form className="w-full px-2" onSubmit={onUpdate}>
+    <form className="w-full p-4 bg-secondary" onSubmit={onUpdate}>
       {data.title && !viewMode ? (
         <input
           name="title"
@@ -71,7 +73,7 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
       {viewMode ? (
         <div dangerouslySetInnerHTML={{ __html: data?.content }} />
       ) : (
-        <>
+        <div className="mt-4">
           <Editor
             isModeView={false}
             onChange={(value: string) => {
@@ -79,7 +81,7 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
             }}
             data={data?.content}
           />
-        </>
+        </div>
       )}
 
       {!viewMode && (

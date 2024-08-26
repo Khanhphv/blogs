@@ -39,9 +39,7 @@ export const Navbar = ({ classContent = "" }) => {
 
   useLayoutEffect(() => {
     if (navBarRef.current) {
-      const observer = new ResizeObserver((entries) => {
-        console.log(entries);
-      });
+      const observer = new ResizeObserver((entries) => {});
       observer.observe(navBarRef.current);
       return () => {
         navBarRef.current && observer.unobserve(navBarRef.current);
@@ -94,9 +92,9 @@ export const Sidebar = ({ classContent = "" }) => {
       {MENU.map((i, v) => {
         return <MenuItem className="justify-center" key={`menu-${v}`} {...i} />;
       })}
-      {/* <LoginButton>
+      <LoginButton>
         <MenuItem showLabel title="Login"></MenuItem>
-      </LoginButton> */}
+      </LoginButton>
     </>
   );
 };

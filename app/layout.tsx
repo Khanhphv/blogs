@@ -83,7 +83,7 @@ export default function RootLayout({
                     id="main-content"
                     className=" flex flex-row max-sm:flex-col mx-auto main w-full min-h-screen "
                   >
-                    <div className="min-h-screen" id="khanh-content">
+                    <div className="min-h-screen w-full" id="khanh-content">
                       {children}
                       {/* <div className="on-footer">
                       </div> */}
