@@ -71,7 +71,7 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
       )}
 
       {viewMode ? (
-        <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+        <Editor isModeView={true} data={data?.content} />
       ) : (
         <div className="mt-4">
           <Editor
