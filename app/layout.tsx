@@ -11,6 +11,8 @@ import Script from "next/script";
 import "gestalt/dist/gestalt.css";
 import "gestalt-datepicker/dist/gestalt-datepicker.css";
 import "../public/index.js";
+import { Analytics } from "@vercel/analytics/react";
+
 export default function RootLayout({
   children,
   params: { session, ...params },
@@ -85,8 +87,7 @@ export default function RootLayout({
                   >
                     <div className="min-h-screen w-full" id="khanh-content">
                       {children}
-                      {/* <div className="on-footer">
-                      </div> */}
+                      <Analytics />
                     </div>
                   </div>
                   {/* <div className="flex flex-row max-sm:flex-col mx-auto main w-full min-h-screen ">
