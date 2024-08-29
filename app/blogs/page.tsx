@@ -1,6 +1,6 @@
 import { Post } from "@/components/post";
 import { Metadata } from "next";
-
+import style from "./syle.module.scss";
 async function getData(): Promise<{ data: any }> {
   const data = await fetch(`${process.env.DOMAIN_URL}/api/post/get`, {
     cache: "no-store",
@@ -26,7 +26,24 @@ export const metadata: Metadata = {
 export default async function Page() {
   const data = await getData();
   return (
-    <div className="sm:p-5">
+    <>
+      <div className="min-h-[60px] flex sticky top-0 z-10 max-sm:hidden">
+        <div
+          className={`h-[30px] w-[30px] absolute bottom-0 overflow-hidden ${style.leftCorner}`}
+        >
+          <div
+            className={`h-[50px] w-[50px] absolute bg-secondary absolute ${style.leftCornerBorder}`}
+          ></div>
+        </div>
+        <div
+          className={`h-[30px] w-[30px] absolute bottom-0 overflow-hidden ${style.rightCorner}`}
+        >
+          <div
+            className={`h-[50px] w-[50px] absolute bg-secondary absolute ${style.rightCornerBorder}`}
+          ></div>
+        </div>
+        <div className="w-full bg-background"></div>
+      </div>
       <section className="flex w-full flex-col sm:rounded-md sm:bg-secondary">
         {Object.entries(data.data)
           ?.reverse()
@@ -45,6 +62,6 @@ export default async function Page() {
             );
           })}
       </section>
-    </div>
+    </>
   );
 }

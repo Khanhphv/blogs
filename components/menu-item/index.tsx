@@ -20,10 +20,12 @@ export const MenuItem = ({
   return (
     <Link
       href={href || ""}
-      className={`py-2 flex rounded h-fit w-full ${className || ""}`}
+      className={`py-2 justify-center flex rounded h-fit w-full ${
+        className || ""
+      }`}
     >
       {icon}
-      {showLabel && <span className="ml-4">{title}</span>}
+      {showLabel && <span>{title}</span>}
     </Link>
   );
 };

@@ -1,0 +1,25 @@
+.leftCorner {
+  top: 42px;
+  left: -12px;
+  background: hsl(var(--background));
+}
+
+.leftCornerBorder {
+  border: 1px solid hsl(var(--secondary));
+  top: 18px;
+  left: 12px;
+  border-radius: 12px;
+}
+
+.rightCorner {
+  top: 42px;
+  right: -12px;
+  background: hsl(var(--background));
+}
+
+.rightCornerBorder {
+  border: 1px solid hsl(var(--secondary));
+  top: 18px;
+  right: 12px;
+  border-radius: 12px;
+}
