@@ -23,16 +23,16 @@ export const MENU = [
     href: "/",
     icon: <PiSmileyMelting size={30} />,
   },
-  {
-    title: "Blog",
-    href: MENU_CONSTANT.HOME,
-    icon: <VscNote size={30} />,
-  },
-  {
-    title: "Write",
-    href: "/blogs/create",
-    icon: <PiNotePencil size={30} />,
-  },
+  // {
+  //   title: "Blog",
+  //   href: MENU_CONSTANT.HOME,
+  //   icon: <VscNote size={30} />,
+  // },
+  // {
+  //   title: "Write",
+  //   href: "/blogs/create",
+  //   icon: <PiNotePencil size={30} />,
+  // },
 ];
 export const Navbar = ({ classContent = "" }) => {
   const navBarRef = useRef<HTMLDivElement>(null);
@@ -86,15 +86,12 @@ export const Navbar = ({ classContent = "" }) => {
   );
 };
 
-export const Sidebar = ({ classContent = "" }) => {
+export const Sidebar = ({ className = "" }) => {
   return (
-    <>
+    <div className={className}>
       {MENU.map((i, v) => {
         return <MenuItem className="justify-center" key={`menu-${v}`} {...i} />;
       })}
-      <LoginButton>
-        <MenuItem showLabel title="Login"></MenuItem>
-      </LoginButton>
-    </>
+    </div>
   );
 };
