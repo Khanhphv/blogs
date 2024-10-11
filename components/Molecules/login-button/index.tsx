@@ -1,16 +1,16 @@
 "use client";
 import { HTMLAttributes, useContext, useMemo } from "react";
-import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "../../ui/avatar";
 import { usePathname } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "../../ui/dropdown-menu";
 
 import { signIn, signOut, useSession } from "next-auth/react";
-import { AuthContext } from "../authorize";
+import { AuthContext } from "../../authorize";
 
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 

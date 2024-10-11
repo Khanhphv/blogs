@@ -9,7 +9,9 @@ import { createPost } from "../actionForm";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function CreatePost() {
-  const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
+  const Editor = dynamic(() => import("@/components/molecules/editor"), {
+    ssr: false,
+  });
   const contentRef = useRef<string>("");
   const router = useRouter();
   const onCreate = async (formData: FormData) => {

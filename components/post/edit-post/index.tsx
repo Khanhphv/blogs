@@ -9,7 +9,9 @@ import { updatePost, detelePost } from "../actionForm";
 import { Post } from "@/types/post";
 import "./ck.scss";
 
-const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
+const Editor = dynamic(() => import("@/components/molecules/editor"), {
+  ssr: false,
+});
 interface IDetailedPost {
   viewMode: boolean;
   post: { data: Post };
