@@ -1,6 +1,7 @@
 import { Post } from "@/components/post";
 import { Metadata } from "next";
 import style from "./syle.module.scss";
+import { CreatePost } from "@/components/molecules/create-post";
 async function getData(): Promise<{ data: any }> {
   const data = await fetch(`${process.env.DOMAIN_URL}/api/post/get`, {
     cache: "no-store",
@@ -44,6 +45,7 @@ export default async function Page() {
         </div>
         <div className="w-full bg-background"></div>
       </div>
+      <CreatePost />
       <section className="flex w-full flex-col sm:rounded-md sm:bg-secondary">
         {Object.entries(data.data)
           ?.reverse()

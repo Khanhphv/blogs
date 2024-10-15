@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Navbar } from "../organism/navbar";
+import Header from "../molecules/header";
 
 interface Props {
   children: React.ReactNode;
@@ -17,8 +18,11 @@ export const MainLayout = (props: Props) => {
   }, []);
   return (
     <div className="w-full h-full flex">
+      <Header />
       <Navbar vertical={vertical} />
-      <div className="sm:min-h-full w-full sm:container max-sm:mb-[50px] flex justify-center sm:pl-[70px]">
+      <div
+        className={`sm:min-h-full w-full sm:container max-sm:mb-[50px] flex justify-center sm:pl-[70px] mt-[60px]`}
+      >
         <div className="max-w-[640px] pb-[60px]">{props.children}</div>
       </div>
     </div>
