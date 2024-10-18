@@ -40,7 +40,7 @@ export default async function Page({
   const data = (await getData(slug)) as { data: Post };
 
   return (
-    <div className="flex p-4 min-h-screen">
+    <div className="flex p-4 min-h-[400px]">
       <DetailedPostHOC
         post={{
           data: {
