@@ -23,7 +23,7 @@ export const MainLayout = (props: Props) => {
       <div
         className={`sm:min-h-full w-full sm:container max-sm:mb-[50px] flex justify-center sm:pl-[70px] mt-[60px]`}
       >
-        <div className="max-w-[640px] pb-[60px]">{props.children}</div>
+        <div className="max-w-[640px] pb-[60px] w-full">{props.children}</div>
       </div>
     </div>
   );

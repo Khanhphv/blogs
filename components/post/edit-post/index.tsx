@@ -8,6 +8,7 @@ import dayjs from "dayjs";
 import { updatePost, detelePost } from "../actionForm";
 import { Post } from "@/types/post";
 import "./ck.scss";
+import useLoaded from "@/hooks/useLoaded";
 
 const Editor = dynamic(() => import("@/components/molecules/editor"), {
   ssr: false,
@@ -23,6 +24,8 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
     title: "",
     content: "",
   });
+
+  const loaded = useLoaded();
 
   const postContent = useRef("");
 
@@ -56,6 +59,8 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
     router.push("/blogs");
   };
 
+  if (!loaded) return <></>;
+
   return (
     // <div className="min-h-full h-max w-full flex">
     <form className="w-full p-4 bg-secondary" onSubmit={onUpdate}>
@@ -73,7 +78,12 @@ const DetailedPost = ({ post, viewMode = true }: IDetailedPost) => {
       )}
 
       {viewMode ? (
-        <Editor isModeView={true} data={data?.content} />
+        <div
+          className="mt-4"
+          dangerouslySetInnerHTML={{
+            __html: data?.content,
+          }}
+        ></div>
       ) : (
         <div className="mt-4">
           <Editor
