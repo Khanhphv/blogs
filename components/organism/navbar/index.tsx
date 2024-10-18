@@ -4,10 +4,10 @@ import { VscNote } from "react-icons/vsc";
 import { MENU as MENU_CONSTANT } from "@/constant/app";
 import { MenuItem } from "@/components/molecules/menu-item";
 import Logo from "@/components/molecules/logo";
-import LoginButton from "@/components/molecules/login-button";
 
 export const Navbar = ({ vertical = false }: { vertical?: boolean }) => {
   const [className, setClassName] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     if (vertical) {
@@ -17,19 +17,25 @@ export const Navbar = ({ vertical = false }: { vertical?: boolean }) => {
     }
   }, [vertical]);
 
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <>
-      <div
-        className={`flex justify-between px-2 gap-4 fixed z-30 bg-background ${className}`}
-      >
-        <Logo />
-        <Sidebar
-          className={`justify-center gap-4 flex ${
-            vertical ? "flex-row" : "flex-col"
-          } max-sm:flex-1`}
-        />
-        <div></div>
-      </div>
+      {isLoaded && (
+        <div
+          className={`flex justify-between px-2 gap-4 fixed z-30 bg-background ${className}`}
+        >
+          <Logo />
+          <Sidebar
+            className={`justify-center gap-4 flex ${
+              vertical ? "flex-row" : "flex-col"
+            } max-sm:flex-1`}
+          />
+          <div></div>
+        </div>
+      )}
     </>
   );
 };
