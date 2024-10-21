@@ -4,7 +4,8 @@ import { VscNote } from "react-icons/vsc";
 import { MENU as MENU_CONSTANT } from "@/constant/app";
 import { MenuItem } from "@/components/molecules/menu-item";
 import Logo from "@/components/molecules/logo";
-export const Navbar = ({ vertical = false }: { vertical?: boolean }) => {
+import _ from "lodash";
+export const Navbar = ({ vertical }: { vertical?: boolean }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const classNameMain = useMemo(() => {
@@ -16,8 +17,8 @@ export const Navbar = ({ vertical = false }: { vertical?: boolean }) => {
   }, [vertical]);
 
   useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+    !_.isNil(vertical) && setIsLoaded(true);
+  }, [vertical]);
 
   return (
     <>
