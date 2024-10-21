@@ -1,19 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PiSmileyMelting } from "react-icons/pi";
 import { VscNote } from "react-icons/vsc";
 import { MENU as MENU_CONSTANT } from "@/constant/app";
 import { MenuItem } from "@/components/molecules/menu-item";
 import Logo from "@/components/molecules/logo";
-
 export const Navbar = ({ vertical = false }: { vertical?: boolean }) => {
-  const [className, setClassName] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
+  const classNameMain = useMemo(() => {
     if (vertical) {
-      setClassName("flex-row max-h-[50px] bottom-0 w-full border-t-2");
+      return "flex-row max-h-[50px] bottom-0 w-full border-t-2";
     } else {
-      setClassName("flex-col w-[70px] h-full border-r-2");
+      return "flex-col w-[70px] h-full border-r-2";
     }
   }, [vertical]);
 
@@ -25,7 +23,7 @@ export const Navbar = ({ vertical = false }: { vertical?: boolean }) => {
     <>
       {isLoaded && (
         <div
-          className={`flex justify-between px-2 gap-4 fixed z-30 bg-background ${className}`}
+          className={`flex justify-between px-2 gap-4 fixed z-30 bg-background ${classNameMain}`}
         >
           <Logo />
           <Sidebar
