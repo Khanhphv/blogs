@@ -19,12 +19,6 @@ export default function RootLayout({
   children: React.ReactNode;
   params: any;
 }) {
-  const contentRef = useRef<HTMLBodyElement>(null);
-  useEffect(() => {}, []);
-
-  const Comp = useMemo(() => {
-    return <MainLayout>{children}</MainLayout>;
-  }, []);
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   return (
     <html>
@@ -38,7 +32,7 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
       </head>
-      <body ref={contentRef} suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <SessionProvider>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <ExperimentProvider value={{}}>
@@ -47,7 +41,7 @@ export default function RootLayout({
                   <Analytics />
                   <div className="webkit-gap"></div>
 
-                  {Comp}
+                  <MainLayout>{children}</MainLayout>
                 </AuthContext.Provider>
               </Suspense>
             </ExperimentProvider>

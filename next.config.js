@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production'; 
 const nextConfig = {
   // experimental: {
   //   serverActions: true,
@@ -7,7 +8,7 @@ const nextConfig = {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
-  reactStrictMode: true,
+  reactStrictMode: isProd ? false : true,
   env: {
     DOMAIN_URL: process.env.NEXT_PUBLIC_DOMAIN_URL,
   },
