@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <div className="container" style={{ maxWidth: "80%" }}>
-      <CreatePost />
+      {/* <CreatePost /> */}
     </div>
   );
 }

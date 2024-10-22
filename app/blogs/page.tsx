@@ -1,7 +1,7 @@
 import { Post } from "@/components/post";
 import { Metadata } from "next";
 import style from "./syle.module.scss";
-import { CreatePost } from "@/components/molecules/create-post";
+import { CreatePost } from "@/components/molecules/post/create-post";
 async function getData(): Promise<{ data: any }> {
   const data = await fetch(`${process.env.DOMAIN_URL}/api/post/get`, {
     cache: "no-store",
