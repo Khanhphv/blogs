@@ -2,8 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { PiSmileyMelting } from "react-icons/pi";
 import { VscNote } from "react-icons/vsc";
 import { MENU as MENU_CONSTANT } from "@/constant/app";
-import { MenuItem } from "@/components/molecules/menu-item";
-import Logo from "@/components/molecules/logo";
 import _ from "lodash";
 export const Navbar = ({ vertical }: { vertical?: boolean }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,7 +24,6 @@ export const Navbar = ({ vertical }: { vertical?: boolean }) => {
         <div
           className={`flex justify-between px-2 gap-4 fixed z-30 bg-background ${classNameMain}`}
         >
-          <Logo />
           <Sidebar
             className={`justify-center gap-4 flex ${
               vertical ? "flex-row" : "flex-col"
@@ -55,9 +52,9 @@ export const MENU = [
 export const Sidebar = ({ className = "" }) => {
   return (
     <div className={className}>
-      {MENU.map((i, v) => {
+      {/* {MENU.map((i, v) => {
         return <MenuItem className="justify-center" key={`menu-${v}`} {...i} />;
-      })}
+      })} */}
     </div>
   );
 };

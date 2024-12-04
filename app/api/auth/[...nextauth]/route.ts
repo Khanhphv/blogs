@@ -1,3 +1,4 @@
+import { loginWithSocical } from "@/utils/login";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -12,12 +13,31 @@ const handler = NextAuth({
         "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",
     }),
   ],
-  // callbacks: {
-  //   async session({ session, token, user }) {
-  //     // Send properties to the client, like an access_token from a provider.
-  //     return session;
-  //   },
-  // },
+  session: { strategy: "jwt" },
+  callbacks: {
+    async signIn(data) {
+      console.log("-----------------------------");
+      console.log("SignIn");
+
+      if (data) {
+        const { account, user } = data;
+        console.log({ ...user, ...account });
+        // const res = await loginWithSocical({ ...user, ...account });
+        return true;
+      }
+      return true;
+    },
+
+    async session(data) {
+      console.log("-----------------------------");
+      console.log("Session");
+      const { session } = data;
+      return session;
+    },
+    async jwt(data) {
+      return data;
+    },
+  },
 });
 
 export { handler as GET, handler as POST };
