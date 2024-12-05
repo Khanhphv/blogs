@@ -1,7 +1,7 @@
 import { loginWithSocical } from "@/utils/login";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-
+import { login } from "@/api/user";
 const handler = NextAuth({
   providers: [
     GoogleProvider({
@@ -14,27 +14,28 @@ const handler = NextAuth({
     }),
   ],
   session: { strategy: "jwt" },
-  callbacks: {
-    async signIn(data) {
-      console.log("-----------------------------");
-      console.log("SignIn");
-      if (data) {
-        const { account, user } = data;
-        console.log({ ...user, ...account });
-        const res = await loginWithSocical({ ...user, ...account });
-        return true;
-      }
-      return true;
-    },
 
-    async session(data) {
-      console.log("-----------------------------");
-      console.log("Session");
-      const { session } = data;
-      return session;
+  callbacks: {
+    async signIn({ user, account, profile }) {
+      console.log("signIn");
+      try {
+        const res = await login({
+          email: user.email || "",
+          token: account?.id_token || "",
+          provider: "google",
+        });
+        user.accessToken = res.access as any;
+        user.refreshToken = res.refresh;
+        return user as any;
+      } catch (error) {}
+      return false;
     },
     async jwt(data) {
-      return data;
+      const { user, token } = data;
+      return { ...token, ...user };
+    },
+    async session({ session, token }) {
+      return { ...session, ...token };
     },
   },
 });

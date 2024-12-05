@@ -1,5 +1,4 @@
-import { MENU } from "@/constant/app";
-import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
   return <></>;

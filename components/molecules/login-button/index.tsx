@@ -11,6 +11,7 @@ import {
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import { AuthContext } from "../../authorize";
+import { login as loginApi } from "@/api/user";
 
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -25,6 +26,7 @@ export default function LoginButton(props: HeaderProps) {
   };
 
   const { data, status } = useSession();
+  const accessToken = data?.user?.accessToken;
 
   const name = useMemo(() => {
     const names = data?.user?.name?.split(" ");

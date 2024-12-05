@@ -1,8 +1,9 @@
 import { IToken } from "./../types/user";
 import { ILoginParams } from "@/types/user";
 
-export const login = async (user: ILoginParams) => {
+export const login = async (user: ILoginParams): Promise<IToken> => {
   const url = `${process.env.NEXT_PUBLIC_API}/login`;
+  console.log(user);
   const res = await fetch(url, {
     method: "POST",
     headers: {
@@ -10,5 +11,7 @@ export const login = async (user: ILoginParams) => {
     },
     body: JSON.stringify(user),
   });
-  return await res.json();
+  const data = await res.json();
+  console.log(data);
+  return data;
 };
