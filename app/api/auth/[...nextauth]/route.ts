@@ -18,11 +18,10 @@ const handler = NextAuth({
     async signIn(data) {
       console.log("-----------------------------");
       console.log("SignIn");
-
       if (data) {
         const { account, user } = data;
         console.log({ ...user, ...account });
-        // const res = await loginWithSocical({ ...user, ...account });
+        const res = await loginWithSocical({ ...user, ...account });
         return true;
       }
       return true;
