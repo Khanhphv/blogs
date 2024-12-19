@@ -7,6 +7,7 @@ import { AuthContext } from "@/components/authorize";
 import { Analytics } from "@vercel/analytics/react";
 import { MainLayout } from "@/components/layout/main-layout";
 import Loading from "@/components/atoms/loading";
+import { UserLayout } from "@/components/layout/user-layout";
 
 export default function RootLayout({
   children,
@@ -30,13 +31,12 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <SessionProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark">
+          <ThemeProvider attribute="class" defaultTheme="white">
             <Suspense fallback={<Loading />}>
               <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
                 <Analytics />
                 <div className="webkit-gap"></div>
-
-                <MainLayout>{children}</MainLayout>
+                <UserLayout>{children}</UserLayout>
               </AuthContext.Provider>
             </Suspense>
           </ThemeProvider>

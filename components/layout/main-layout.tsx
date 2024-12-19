@@ -19,7 +19,7 @@ export const MainLayout = (props: Props) => {
   return (
     <div className="w-full h-full flex">
       <Header />
-      <Navbar vertical={vertical} />
+      {/* <Navbar vertical={vertical} /> */}
       <div
         className={`sm:min-h-full w-full sm:container max-sm:mb-[50px] flex justify-center sm:pl-[70px] mt-[60px]`}
       >
