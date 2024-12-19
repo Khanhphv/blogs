@@ -27,7 +27,9 @@ const handler = NextAuth({
         user.accessToken = res.access as any;
         user.refreshToken = res.refresh;
         return user as any;
-      } catch (error) {}
+      } catch (error) {
+        return user;
+      }
       return false;
     },
     async jwt(data) {
