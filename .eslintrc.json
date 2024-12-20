@@ -2,6 +2,10 @@
   "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
   "rules": {
     "next/next/no-async-client-component": 0,
-    "no-multi-spaces": "error"
+    "no-console": "warn",
+    "no-trailing-spaces": "warn"
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
   }
 }

@@ -1,7 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
 import { Navbar, Sidebar } from '../organism/navbar'
-import Header from '../molecules/header'
 import LoginButton from '../molecules/login-button'
 import Logo from '../atoms/logo'
 
@@ -13,7 +11,7 @@ export const UserLayout = (props: Props) => {
   return (
     <div className="w-full h-full">
       <div className="flex flex-col">
-        <Navbar className=" border-b-2 p-2   ">
+        <Navbar className="border-b-2 p-2">
           <Logo />
           <Sidebar>
             <>
