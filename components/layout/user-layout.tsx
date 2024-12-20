@@ -13,7 +13,7 @@ export const UserLayout = (props: Props) => {
   return (
     <div className="w-full h-full">
       <div className="flex flex-col">
-        <Navbar className=" border-b-2 p-2">
+        <Navbar className=" border-b-2 p-2   ">
           <Logo />
           <Sidebar>
             <>
