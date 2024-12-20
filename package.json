@@ -63,7 +63,7 @@
   },
   "lint-staged": {
     "*": [
-      "next lint --fix",
+      "lint --fix",
       "prettier --write ."
     ]
   }
