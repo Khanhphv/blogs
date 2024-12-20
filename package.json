@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --fix"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
@@ -22,6 +23,7 @@
     "clsx": "^2.0.0",
     "dayjs": "^1.11.11",
     "embla-carousel-react": "^8.0.0-rc22",
+    "eslint-plugin-prettier": "^5.2.1",
     "firebase": "^10.7.1",
     "lucide-react": "^0.292.0",
     "moment": "^2.29.4",
@@ -49,6 +51,7 @@
     "eslint": "8.57.0",
     "eslint-config-next": "^15.1.2",
     "eslint-config-prettier": "^9.0.0",
+    "husky": "^9.1.7",
     "lint-staged": "^15.2.11",
     "lodash": "^4.17.21",
     "postcss": "latest",
@@ -59,9 +62,9 @@
     "typescript-eslint": "^8.18.1"
   },
   "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "eslint --ext .js,.jsx,.vue,.ts,.tsx --fix",
-      "prettier --write"
+    "*": [
+      "next lint --fix",
+      "prettier --write ."
     ]
   }
 }
