@@ -1,7 +1,6 @@
 {
   "extends": ["next", "prettier"],
   "rules": {
-    "next/next/no-async-client-component" : 0
-    
+    "next/next/no-async-client-component": 0
   }
 }
