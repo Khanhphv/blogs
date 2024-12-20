@@ -1,13 +1,13 @@
-"use client";
-import { useEffect, useState } from "react";
-import { Navbar, Sidebar } from "../organism/navbar";
-import Header from "../molecules/header";
-import LoginButton from "../molecules/login-button";
-import Logo from "../atoms/logo";
+'use client'
+import { useEffect, useState } from 'react'
+import { Navbar, Sidebar } from '../organism/navbar'
+import Header from '../molecules/header'
+import LoginButton from '../molecules/login-button'
+import Logo from '../atoms/logo'
 
 interface Props {
-  children: React.ReactNode;
-  direction?: "horizontal" | "vertical";
+  children: React.ReactNode
+  direction?: 'horizontal' | 'vertical'
 }
 export const UserLayout = (props: Props) => {
   return (
@@ -29,5 +29,5 @@ export const UserLayout = (props: Props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

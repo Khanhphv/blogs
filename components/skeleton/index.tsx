@@ -1,4 +1,4 @@
-import { Skeleton as SkeletonUI } from "../ui/skeleton";
+import { Skeleton as SkeletonUI } from '../ui/skeleton'
 
 export default function Skeleton() {
   return (
@@ -10,5 +10,5 @@ export default function Skeleton() {
         <SkeletonUI className="h-10 w-9/12" />
       </div>
     </>
-  );
+  )
 }

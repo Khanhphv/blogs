@@ -1,49 +1,49 @@
-import { useEffect, useMemo, useState } from "react";
-import { PiSmileyMelting } from "react-icons/pi";
-import { VscNote } from "react-icons/vsc";
-import { MENU as MENU_CONSTANT } from "@/constant/app";
-import _ from "lodash";
-import Link from "next/link";
+import { useEffect, useMemo, useState } from 'react'
+import { PiSmileyMelting } from 'react-icons/pi'
+import { VscNote } from 'react-icons/vsc'
+import { MENU as MENU_CONSTANT } from '@/constant/app'
+import _ from 'lodash'
+import Link from 'next/link'
 
 export const MENU = [
   {
-    title: "Home",
+    title: 'Home',
     href: MENU_CONSTANT.HOME,
     icon: <PiSmileyMelting size={30} />,
   },
   {
-    title: "Contact",
-    href: "/contact",
+    title: 'Contact',
+    href: '/contact',
     icon: <VscNote size={30} />,
   },
   {
-    title: "Product",
-    href: "/product",
+    title: 'Product',
+    href: '/product',
     icon: <PiSmileyMelting size={30} />,
   },
   {
-    title: "About",
-    href: "/about",
+    title: 'About',
+    href: '/about',
     icon: <PiSmileyMelting size={30} />,
   },
-];
+]
 
 export const Navbar = ({
   children,
   className,
 }: {
-  children?: React.ReactNode;
-  className?: string;
+  children?: React.ReactNode
+  className?: string
 }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const classNameMain = useMemo(() => {
-    return `flex-row w-full h-full ${className}`;
-  }, [className]);
+    return `flex-row w-full h-full ${className}`
+  }, [className])
 
   useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+    setIsLoaded(true)
+  }, [])
 
   return (
     <>
@@ -55,15 +55,15 @@ export const Navbar = ({
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
 export const Sidebar = ({
-  className = "",
+  className = '',
   children,
 }: {
-  className?: string;
-  children?: React.ReactNode;
+  className?: string
+  children?: React.ReactNode
 }) => {
   return (
     <div className={`flex grow ${className}`}>
@@ -78,11 +78,11 @@ export const Sidebar = ({
                 {i.title}
               </Link>
             </>
-          );
+          )
         })}
       </div>
 
       <div className="flex gap-4 items-center">{children}</div>
     </div>
-  );
-};
+  )
+}

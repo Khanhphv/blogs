@@ -1,22 +1,22 @@
-"use client";
-import { ThemeProvider } from "@/components/theme-provider";
-import "./globals.css";
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { SessionProvider } from "next-auth/react";
-import { AuthContext } from "@/components/authorize";
-import { Analytics } from "@vercel/analytics/react";
-import { MainLayout } from "@/components/layout/main-layout";
-import Loading from "@/components/atoms/loading";
-import { UserLayout } from "@/components/layout/user-layout";
+'use client'
+import { ThemeProvider } from '@/components/theme-provider'
+import './globals.css'
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import { SessionProvider } from 'next-auth/react'
+import { AuthContext } from '@/components/authorize'
+import { Analytics } from '@vercel/analytics/react'
+import { MainLayout } from '@/components/layout/main-layout'
+import Loading from '@/components/atoms/loading'
+import { UserLayout } from '@/components/layout/user-layout'
 
 export default function RootLayout({
   children,
   params: { session, ...params },
 }: {
-  children: React.ReactNode;
-  params: any;
+  children: React.ReactNode
+  params: any
 }) {
-  const [isAdmin, setIsAdmin] = useState<boolean>(false);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false)
   return (
     <html>
       <head>
@@ -43,5 +43,5 @@ export default function RootLayout({
         </SessionProvider>
       </body>
     </html>
-  );
+  )
 }

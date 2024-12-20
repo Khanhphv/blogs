@@ -1,20 +1,20 @@
-import { gql } from "@apollo/client";
-import { createApolloClient } from ".";
+import { gql } from '@apollo/client'
+import { createApolloClient } from '.'
 
 export interface IProduct {
-  content: string;
-  created_at: string;
-  id: string;
-  product_type: string;
-  sub_title: string;
-  thumbnail: string;
-  title: string;
-  updated_at: string;
+  content: string
+  created_at: string
+  id: string
+  product_type: string
+  sub_title: string
+  thumbnail: string
+  title: string
+  updated_at: string
 }
 
 export const productsGraphql = {
   getAll: async (offset?: number, limit?: number) => {
-    const client = createApolloClient();
+    const client = createApolloClient()
     try {
       const {
         data: { products },
@@ -33,10 +33,10 @@ export const productsGraphql = {
             }
           }
         `,
-      });
-      return products as IProduct[];
+      })
+      return products as IProduct[]
     } catch (error) {
-      return [] as IProduct[];
+      return [] as IProduct[]
     }
   },
-};
+}

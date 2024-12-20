@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 const useLoaded = () => {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    setLoaded(true);
-  }, []);
+    setLoaded(true)
+  }, [])
 
-  return loaded;
-};
+  return loaded
+}
 
-export default useLoaded;
+export default useLoaded

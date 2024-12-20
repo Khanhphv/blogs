@@ -1,21 +1,21 @@
-"use client";
-import { useEffect, useState } from "react";
-import { Navbar } from "../organism/navbar";
-import Header from "../molecules/header";
+'use client'
+import { useEffect, useState } from 'react'
+import { Navbar } from '../organism/navbar'
+import Header from '../molecules/header'
 
 interface Props {
-  children: React.ReactNode;
-  direction?: "horizontal" | "vertical";
+  children: React.ReactNode
+  direction?: 'horizontal' | 'vertical'
 }
 export const MainLayout = (props: Props) => {
-  const [vertical, setVertical] = useState(false);
+  const [vertical, setVertical] = useState(false)
   useEffect(() => {
     const resizeObserver = new ResizeObserver(() => {
-      setVertical(document.body.clientWidth <= 625);
-    });
-    resizeObserver.observe(document.body);
-    return () => resizeObserver.disconnect();
-  }, []);
+      setVertical(document.body.clientWidth <= 625)
+    })
+    resizeObserver.observe(document.body)
+    return () => resizeObserver.disconnect()
+  }, [])
   return (
     <div className="w-full h-full flex">
       <Header />
@@ -26,5 +26,5 @@ export const MainLayout = (props: Props) => {
         <div className="max-w-[640px] pb-[60px] w-full">{props.children}</div>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -148,7 +148,7 @@ body {
 }
 .loader::after,
 .loader::before {
-  content: "";
+  content: '';
   box-sizing: border-box;
   position: absolute;
   width: 24px;

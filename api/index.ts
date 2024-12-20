@@ -1,3 +1,3 @@
 export const API = {
-  ME: "me",
-};
+  ME: 'me',
+}

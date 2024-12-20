@@ -1,11 +1,11 @@
 export const loginWithSocical = async (user: any) => {
-  const url = `${process.env.NEXT_PUBLIC_API}/login`;
+  const url = `${process.env.NEXT_PUBLIC_API}/login`
   const res = await fetch(url, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
+      Accept: 'application/json',
     },
     body: JSON.stringify(user),
-  });
-  return res;
-};
+  })
+  return res
+}
