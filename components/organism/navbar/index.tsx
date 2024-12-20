@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { PiSmileyMelting } from 'react-icons/pi'
 import { VscNote } from 'react-icons/vsc'
 import { MENU as MENU_CONSTANT } from '@/constant/app'
-import _ from 'lodash'
 import Link from 'next/link'
 
 export const MENU = [
@@ -49,7 +48,7 @@ export const Navbar = ({
     <>
       {isLoaded && (
         <div className={`${classNameMain}`}>
-          <div className="flex justify-between gap-4 container bg-background">
+          <div className="container flex justify-between gap-4 bg-background">
             {children}
           </div>
         </div>
@@ -67,13 +66,13 @@ export const Sidebar = ({
 }) => {
   return (
     <div className={`flex grow ${className}`}>
-      <div className="flex grow gap-10  justify-center">
-        {MENU.map((i, v) => {
+      <div className="flex grow justify-center gap-10">
+        {MENU.map((i) => {
           return (
             <>
               <Link
                 href={i.href}
-                className="flex justify-center items-center hover:underline"
+                className="flex items-center justify-center hover:underline"
               >
                 {i.title}
               </Link>
@@ -82,7 +81,7 @@ export const Sidebar = ({
         })}
       </div>
 
-      <div className="flex gap-4 items-center">{children}</div>
+      <div className="flex items-center gap-4">{children}</div>
     </div>
   )
 }

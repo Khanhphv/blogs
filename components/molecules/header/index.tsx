@@ -3,8 +3,8 @@ import LoginButton from '../login-button'
 
 const Header = () => {
   return (
-    <div className="fixed top-0 w-full h-[60px] z-20 bg-background">
-      <div className="flex flex-row w-full p-2 justify-center items-center h-full">
+    <div className="fixed top-0 z-20 h-[60px] w-full bg-background">
+      <div className="flex h-full w-full flex-row items-center justify-center p-2">
         <div className="absolute right-0">
           <LoginButton>
             <Button variant={'white'}>Login</Button>

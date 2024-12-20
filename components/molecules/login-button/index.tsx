@@ -1,7 +1,6 @@
 'use client'
 import { HTMLAttributes, useContext, useMemo } from 'react'
 import { Avatar, AvatarImage, AvatarFallback } from '../../ui/avatar'
-import { usePathname } from 'next/navigation'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,13 +10,12 @@ import {
 
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { AuthContext } from '../../authorize'
-import { login as loginApi } from '@/api/user'
+// import { login as loginApi } from '@/api/user'
 
-interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
+type HeaderProps = HTMLAttributes<HTMLDivElement>
 
 export default function LoginButton(props: HeaderProps) {
-  const { isAdmin, setIsAdmin } = useContext(AuthContext)
-  const pathName = usePathname()
+  const { setIsAdmin } = useContext(AuthContext)
   const login = () => {
     signIn('google')
   }
@@ -26,7 +24,6 @@ export default function LoginButton(props: HeaderProps) {
   }
 
   const { data, status } = useSession()
-  const accessToken = data?.user?.accessToken
 
   const name = useMemo(() => {
     const names = data?.user?.name?.split(' ')
@@ -42,12 +39,12 @@ export default function LoginButton(props: HeaderProps) {
         <DropdownMenuTrigger>
           <Avatar>
             <AvatarImage src={data?.user?.image || ''} />
-            <AvatarFallback className="border-2 font-bold bg-white">
+            <AvatarFallback className="border-2 bg-white font-bold">
               {name}
             </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-40 border rounded-md bg-popover shadow-md">
+        <DropdownMenuContent className="w-40 rounded-md border bg-popover shadow-md">
           <DropdownMenuItem className="text-center">
             <button
               className="font-medium leading-none"
