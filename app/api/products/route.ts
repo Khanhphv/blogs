@@ -17,9 +17,9 @@ export async function GET() {
     },
     {
       id: 2,
-      title: 'Product 1',
+      title: 'Product 2',
       thumbnail: '/Image.png',
-      description: 'Description 1',
+      description: 'Description 2',
       price: 100,
     },
   ]

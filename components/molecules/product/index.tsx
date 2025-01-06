@@ -1,14 +1,18 @@
 'use client'
 import { IProduct } from '@/types/product'
 import Image from 'next/image'
+import { useCartStore } from '@/app/store/useCartStore'
 
 export default function ProductItem({ product }: { product: IProduct }) {
   const addCart = () => {
-    const cartLocal = localStorage.getItem('cart') ?? ''
-    const cartStore = cartLocal ? JSON.parse(cartLocal) : []
-    alert('add to cart')
-    cartStore.push(product)
-    localStorage.setItem('cart', JSON.stringify(cartStore))
+    const cartState = useCartStore.getState()
+    // const cartLocal = localStorage.getItem('cart') ?? ''
+    // const cartStore = cartLocal ? JSON.parse(cartLocal) : []
+    // alert('add to cart')
+    // cartStore.push(product)
+    // localStorage.setItem('cart', JSON.stringify(cartStore))
+
+    cartState.increase(product)
   }
   return (
     <>

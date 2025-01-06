@@ -2,6 +2,7 @@
 import { Navbar, Sidebar } from '../organism/navbar'
 import LoginButton from '../molecules/login-button'
 import Logo from '../atoms/logo'
+import { Cart } from '../organism/cart'
 
 interface Props {
   children: React.ReactNode
@@ -15,7 +16,7 @@ export const UserLayout = (props: Props) => {
           <Logo />
           <Sidebar>
             <>
-              Cart
+              <Cart></Cart>
               <LoginButton>Login</LoginButton>
             </>
           </Sidebar>
