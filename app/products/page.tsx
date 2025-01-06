@@ -1,7 +1,7 @@
-import ProductItem from '@/components/molecules/product'
+import { ProductItem } from '@/components/molecules/product'
 import { IProduct } from '@/types/product'
 
-export default async function Product() {
+export default async function Products() {
   const products = await fetch('http://localhost:3000/api/products')
   const data = await products.json()
   const { data: productsData } = data

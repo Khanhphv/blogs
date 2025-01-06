@@ -1,3 +1,5 @@
+import { dummy } from './dummy'
+
 export async function GET() {
   //   const res = await fetch('https://data.mongodb-api.com/...', {
   //     headers: {
@@ -6,23 +8,7 @@ export async function GET() {
   //     },
   //   })
   //   const data = await res.json()
-
-  const data = [
-    {
-      id: 1,
-      title: 'Product 1',
-      thumbnail: '/Image.png',
-      description: 'Description 1',
-      price: 100,
-    },
-    {
-      id: 2,
-      title: 'Product 2',
-      thumbnail: '/Image.png',
-      description: 'Description 2',
-      price: 100,
-    },
-  ]
+  const data = dummy
 
   return Response.json({ data })
 }

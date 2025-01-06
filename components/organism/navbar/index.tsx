@@ -17,7 +17,7 @@ export const MENU = [
   // },
   {
     title: 'Product',
-    href: '/product',
+    href: '/products',
     icon: <PiSmileyMelting size={30} />,
   },
   // {

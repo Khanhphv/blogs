@@ -4,5 +4,6 @@ export interface IProduct {
   thumbnail: string
   description: string
   price: number
+  discount?: number
   amount?: number
 }
