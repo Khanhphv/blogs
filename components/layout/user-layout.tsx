@@ -1,4 +1,3 @@
-'use client'
 import { Navbar, Sidebar } from '../organism/navbar'
 import LoginButton from '../molecules/login-button'
 import Logo from '../atoms/logo'
@@ -17,7 +16,9 @@ export const UserLayout = (props: Props) => {
           <Sidebar>
             <>
               <Cart></Cart>
-              <LoginButton>Login</LoginButton>
+              <div style={{ minWidth: '50px' }}>
+                <LoginButton>Login</LoginButton>
+              </div>
             </>
           </Sidebar>
         </Navbar>

@@ -1,7 +1,9 @@
 import { ProductItem } from '@/components/molecules/product'
 import { IProduct } from '@/types/product'
+import { delay } from '@/utils'
 
 export default async function Products() {
+  await delay()
   const products = await fetch('http://localhost:3000/api/products')
   const data = await products.json()
   const { data: productsData } = data
@@ -12,9 +14,7 @@ export default async function Products() {
 
   return (
     <>
-      <h1>Product</h1>
-      <code>{JSON.stringify(productsData, null, 2)}</code>
-      <div className="flex flex-wrap">{productItems}</div>
+      <div className="flex flex-wrap gap-4">{productItems}</div>
     </>
   )
 }

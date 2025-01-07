@@ -1,8 +1,12 @@
 import { ProductDetail } from '@/components/molecules/product'
 import { IProduct } from '@/types/product'
+import { delay } from '@/utils'
 
 async function getProduct(id: string) {
-  const product = await fetch('http://localhost:3000/api/products/' + id)
+  await delay()
+  const product = await fetch('http://localhost:3000/api/products/' + id, {
+    next: { revalidate: 0 },
+  })
   if (product.ok) return await product.json()
   return {}
 }
