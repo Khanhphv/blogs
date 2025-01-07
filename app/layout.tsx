@@ -108,7 +108,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <SessionProvider>
-          <ThemeProvider attribute="class" defaultTheme="white">
+          <ThemeProvider attribute="class" defaultTheme="dark">
             <Suspense fallback={<Loading />}>
               <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
                 <Analytics />

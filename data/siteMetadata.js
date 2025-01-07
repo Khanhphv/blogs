@@ -1,6 +1,6 @@
 const siteMetadata = {
-  siteUrl: `${process.env.NODE_ENV !== 'development' ? process.env.BASE_URL : 'http://localhost:3000'}`,
-  siteAPI: `${process.env.BASE_API}`,
+  siteUrl: `${process.env.NODE_ENV !== 'development' ? process.env.DOMAIN_URL : 'http://localhost:3000'}`,
+  siteAPI: `${process.env.DOMAIN_URL}`,
   title: 'SkyDev',
   author: 'SkyDevers',
   headerTitle: 'SkyDev',

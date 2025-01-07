@@ -11,6 +11,12 @@ export const MENU = [
   },
 
   {
+    title: 'Applications',
+    href: '/applications',
+    icon: <PiSmileyMelting size={30} />,
+  },
+
+  {
     title: 'Product',
     href: '/products',
     icon: <PiSmileyMelting size={30} />,
@@ -26,7 +32,9 @@ export const Navbar = ({
 }) => {
   return (
     <>
-      <div className={`h-full w-full flex-row ${className}`}>
+      <div
+        className={`h-full w-full flex-row ${className} sticky top-0 z-10 bg-background`}
+      >
         <div className="container flex justify-between gap-4 bg-background">
           {children}
         </div>

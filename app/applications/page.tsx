@@ -23,9 +23,11 @@ export default async function Applications() {
   const { data: applicaitons } = await getApplication()
   return (
     <div className="-m-4 flex grow flex-wrap items-center justify-center">
-      {applicaitons?.map((app, index: number) => {
+      {JSON.stringify(applicaitons)}
+      {siteMetadata.siteUrl}
+      {/* {applicaitons?.map((app, index: number) => {
         return <Card key={index} {...app}></Card>
-      })}
+      })} */}
     </div>
   )
 }
