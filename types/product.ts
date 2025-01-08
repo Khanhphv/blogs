@@ -6,4 +6,6 @@ export interface IProduct {
   price: number | string
   discount?: number
   amount?: number
+  download?: number
+  imgSrc?: string
 }

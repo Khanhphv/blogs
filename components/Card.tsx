@@ -11,7 +11,7 @@ const Card = ({ title = '', description = '', imgSrc, href }) => {
   return (
     <div className="md max-w-[300px] transform">
       <div
-        className={`${imgSrc} overflow-hidden rounded-md p-4 hover:scale-105 hover:bg-slate-900`}
+        className={`${imgSrc} overflow-hidden rounded-md bg-slate-900 p-4 hover:scale-105`}
       >
         {imgSrc &&
           (href ? (

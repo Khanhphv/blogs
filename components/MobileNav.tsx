@@ -8,7 +8,7 @@ import {
 } from 'body-scroll-lock'
 import { Fragment, useState, useEffect, useRef } from 'react'
 import Link from './Link'
-import headerNavLinks from '@/data/headerNavLinks'
+import { MENU } from './organism/navbar'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
@@ -35,7 +35,7 @@ const MobileNav = () => {
       <button
         aria-label="Toggle Menu"
         onClick={onToggleNav}
-        className="lg:hidden"
+        className="sm:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -75,12 +75,12 @@ const MobileNav = () => {
             leaveTo="translate-x-full opacity-0"
             unmount={false}
           >
-            <Dialog.Panel className="z-70 fixed left-0 top-0 h-full w-full bg-white opacity-95 duration-300 dark:bg-gray-950 dark:opacity-[0.98]">
+            <Dialog.Panel className="z-70 fixed left-0 top-0 h-full w-full bg-white opacity-95 duration-300 dark:bg-gray-950">
               <nav
                 ref={navRef}
                 className="mt-8 flex h-full basis-0 flex-col items-start overflow-y-auto pl-12 pt-2 text-left"
               >
-                {headerNavLinks.map((link) => (
+                {MENU.map((link) => (
                   <Link
                     key={link.title}
                     href={link.href}

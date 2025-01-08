@@ -45,19 +45,18 @@ export default function LoginButton(props: HeaderProps) {
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-40 rounded-md border bg-popover shadow-md">
-          <DropdownMenuItem className="text-center">
-            <button
-              className="font-medium leading-none"
-              onClick={() => logout()}
-            >
-              Sign out
-            </button>
+          <DropdownMenuItem onClick={() => logout()} className="text-center">
+            <button className="font-medium leading-none">Sign out</button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     )
   } else if (status === 'unauthenticated') {
-    return <div onClick={login}>{props.children}</div>
+    return (
+      <div className="cursor-pointer hover:text-lime-400" onClick={login}>
+        {props.children}
+      </div>
+    )
   } else {
     return <></>
   }

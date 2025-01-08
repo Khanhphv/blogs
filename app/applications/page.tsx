@@ -1,6 +1,7 @@
 import Card from '@/components/Card'
 import siteMetadata from '@/data/siteMetadata'
 import { Metadata } from 'next'
+import { IApplication } from '@/types/application'
 const getApplication = async () => {
   const data = await fetch(`${siteMetadata.siteUrl}/api/application`, {
     cache: 'no-cache',
@@ -20,14 +21,12 @@ export const metadata: Metadata = {
 }
 
 export default async function Applications() {
-  const { data: applicaitons } = await getApplication()
+  const { data: applications } = await getApplication()
   return (
     <div className="-m-4 flex grow flex-wrap items-center justify-center">
-      {JSON.stringify(applicaitons)}
-      {siteMetadata.siteUrl}
-      {/* {applicaitons?.map((app, index: number) => {
+      {applications?.map((app: IApplication, index: number) => {
         return <Card key={index} {...app}></Card>
-      })} */}
+      })}
     </div>
   )
 }

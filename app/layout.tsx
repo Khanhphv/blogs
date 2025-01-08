@@ -66,7 +66,7 @@ export default function RootLayout({
         <link
           rel="apple-touch-icon"
           sizes="76x76"
-          href={`${basePath}/static/favicons/apple-touch-icon.png`}
+          href={`${basePath}/logo.png`}
         />
         <link
           rel="icon"
@@ -89,7 +89,6 @@ export default function RootLayout({
           href={`${basePath}/static/favicons/safari-pinned-tab.svg`}
           color="#5bbad5"
         />
-        <meta name="msapplication-TileColor" content="#000000" />
         <meta
           name="theme-color"
           media="(prefers-color-scheme: light)"
@@ -99,11 +98,6 @@ export default function RootLayout({
           name="theme-color"
           media="(prefers-color-scheme: dark)"
           content="#000"
-        />
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          href={`${basePath}/feed.xml`}
         />
       </head>
       <body suppressHydrationWarning>

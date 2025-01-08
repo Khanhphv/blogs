@@ -3,7 +3,6 @@ import { IProduct } from '@/types/product'
 import { delay } from '@/utils'
 
 export default async function Products() {
-  await delay()
   const products = await fetch('http://localhost:3000/api/products')
   const data = await products.json()
   const { data: productsData } = data
@@ -12,9 +11,5 @@ export default async function Products() {
     return <ProductItem key={product.id} product={product} />
   })
 
-  return (
-    <>
-      <div className="flex flex-wrap gap-4">{productItems}</div>
-    </>
-  )
+  return <>{/* <div className="flex flex-wrap gap-4">{productItems}</div> */}</>
 }

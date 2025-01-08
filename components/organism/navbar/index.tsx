@@ -1,7 +1,9 @@
+'use client'
 import { PiSmileyMelting } from 'react-icons/pi'
 import { MENU as MENU_CONSTANT } from '@/constant/app'
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
+import MobileNav from '@/components/MobileNav'
 
 export const MENU = [
   {
@@ -18,7 +20,7 @@ export const MENU = [
 
   {
     title: 'Product',
-    href: '/products',
+    href: '/store/valorant',
     icon: <PiSmileyMelting size={30} />,
   },
 ]
@@ -33,9 +35,9 @@ export const Navbar = ({
   return (
     <>
       <div
-        className={`h-full w-full flex-row ${className} sticky top-0 z-10 bg-background`}
+        className={`h-full w-full flex-row ${className} sticky top-0 bg-background`}
       >
-        <div className="container flex justify-between gap-4 bg-background">
+        <div className="flex justify-between gap-4 bg-background">
           {children}
         </div>
       </div>
@@ -52,16 +54,16 @@ export const Sidebar = ({
 }) => {
   const segment = useSelectedLayoutSegment()
   return (
-    <div className={`flex grow ${className}`}>
-      <div className="flex grow justify-center gap-10">
+    <div className={`flex grow justify-end ${className}`}>
+      <div className="flex grow justify-center gap-10 max-sm:hidden">
         {MENU.map((i, index) => {
           return (
             <>
               <Link
                 key={index}
                 href={i.href}
-                className={`flex items-center justify-center hover:underline ${
-                  segment === i.href.replace('/', '') ? 'underline' : ''
+                className={`flex items-center justify-center hover:text-lime-400 ${
+                  segment && i.href.includes(segment) ? 'text-lime-400' : ''
                 }`}
               >
                 {i.title}
@@ -71,7 +73,10 @@ export const Sidebar = ({
         })}
       </div>
 
-      <div className="flex items-center gap-4">{children}</div>
+      <div className="align-end flex items-center gap-4">
+        {children}
+        <MobileNav />
+      </div>
     </div>
   )
 }
