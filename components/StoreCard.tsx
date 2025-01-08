@@ -42,6 +42,7 @@ const StoreCard = (product: IProduct) => {
           </div>
           <a
             href={siteMetadata.discord}
+            target="_blank"
             className="block w-full bg-gray-700 p-2 text-center text-white"
           >
             Download

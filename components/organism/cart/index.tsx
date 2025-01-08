@@ -9,7 +9,7 @@ import { PiShoppingCartSimpleLight } from 'react-icons/pi'
 export function Cart() {
   const products = useCartStore((state) => state.products)
   return (
-    <Link href="/cart" className="flex items-center whitespace-nowrap">
+    <Link href="/cart" className="flex items-center whitespace-nowrap px-3">
       <PiShoppingCartSimpleLight size={30} />
       {products.length ? `(${products.length})` : ''}
     </Link>

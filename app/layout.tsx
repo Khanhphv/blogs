@@ -1,56 +1,52 @@
-'use client'
-// import { Metadata } from 'next'
-// import siteMetadata from '@/data/siteMetadata'
+import { Metadata } from 'next'
+import siteMetadata from '@/data/siteMetadata'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
-import { Suspense, useState } from 'react'
 import { SessionProvider } from 'next-auth/react'
 import { Analytics } from '@vercel/analytics/react'
-import Loading from '@/components/atoms/loading'
 import { UserLayout } from '@/components/layout/user-layout'
 
-// export const metadata: Metadata = {
-//   metadataBase: new URL(siteMetadata.siteUrl),
-//   title: {
-//     default: siteMetadata.title,
-//     template: `%s | ${siteMetadata.title}`,
-//   },
-//   description: siteMetadata.description,
-//   keywords: siteMetadata.keyword,
-//   openGraph: {
-//     title: siteMetadata.title,
-//     description: siteMetadata.description,
-//     url: './',
-//     siteName: siteMetadata.title,
-//     images: [siteMetadata.socialBanner],
-//     locale: 'en_US',
-//     type: 'website',
-//   },
-//   robots: {
-//     index: true,
-//     follow: true,
-//     googleBot: {
-//       index: true,
-//       follow: true,
-//       'max-video-preview': -1,
-//       'max-image-preview': 'large',
-//       'max-snippet': -1,
-//     },
-//   },
-//   twitter: {
-//     title: siteMetadata.title,
-//     card: 'summary_large_image',
-//     images: [siteMetadata.socialBanner],
-//     description: siteMetadata.description,
-//   },
-// }
+export const metadata: Metadata = {
+  metadataBase: new URL(siteMetadata.siteUrl),
+  title: {
+    default: siteMetadata.title,
+    template: `%s | ${siteMetadata.title}`,
+  },
+  description: siteMetadata.description,
+  keywords: siteMetadata.keyword,
+  openGraph: {
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    url: './',
+    siteName: siteMetadata.title,
+    images: [siteMetadata.socialBanner],
+    locale: 'en_US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  twitter: {
+    title: siteMetadata.title,
+    card: 'summary_large_image',
+    images: [siteMetadata.socialBanner],
+    description: siteMetadata.description,
+  },
+}
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   const basePath = process.env.DOMAIN_URL || ''
-  const [isAdmin, setIsAdmin] = useState<boolean>(false)
   return (
     <html lang="en">
       <head>
@@ -100,16 +96,14 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
-        <SessionProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark">
-            <Suspense fallback={<Loading />}>
-              <Analytics />
-              <div className="webkit-gap"></div>
-              {/* {children} */}
-              <UserLayout>{children}</UserLayout>
-            </Suspense>
-          </ThemeProvider>
-        </SessionProvider>
+        {/* <SessionProvider> */}
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          <Analytics />
+          <div className="webkit-gap"></div>
+          {/* {children} */}
+          <UserLayout>{children}</UserLayout>
+        </ThemeProvider>
+        {/* </SessionProvider> */}
       </body>
     </html>
   )
