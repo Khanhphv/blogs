@@ -15,9 +15,9 @@ export const UserLayout = (props: Props) => {
         <Sidebar>
           <>
             <Cart></Cart>
-            <div style={{ minWidth: '50px' }}>
+            {/* <div style={{ minWidth: '50px' }}>
               <LoginButton>Login</LoginButton>
-            </div>
+            </div> */}
           </>
         </Sidebar>
       </Navbar>
