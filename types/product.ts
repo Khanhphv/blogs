@@ -1,11 +1,11 @@
 export interface IProduct {
   id: number
   title: string
-  thumbnail: string
+  thumbnail?: string
   description?: string
-  price: number | string
+  price?: number | string
   discount?: number
   amount?: number
-  download?: number
+  download?: number | string
   imgSrc?: string
 }

@@ -15,7 +15,6 @@ import { AuthContext } from '../../authorize'
 type HeaderProps = HTMLAttributes<HTMLDivElement>
 
 export default function LoginButton(props: HeaderProps) {
-  const { setIsAdmin } = useContext(AuthContext)
   const login = () => {
     signIn('google')
   }
@@ -31,9 +30,6 @@ export default function LoginButton(props: HeaderProps) {
   }, [data?.user?.name])
 
   if (status === 'authenticated') {
-    if (data.user?.email === 'vietkhanh1310@gmail.com') {
-      setIsAdmin(true)
-    }
     return (
       <DropdownMenu>
         <DropdownMenuTrigger>

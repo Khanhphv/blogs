@@ -3,7 +3,7 @@ import Image from './Image'
 import Link from './Link'
 import { useEffect, useState } from 'react'
 
-const Card = ({ title = '', description = '', imgSrc, href }) => {
+const Card = ({ title = '', description = '', imgSrc = ' ', href = '' }) => {
   const [isShowing, setIsShowing] = useState(false)
   useEffect(() => {
     setTimeout(() => setIsShowing(true), 500)

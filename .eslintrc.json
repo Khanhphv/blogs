@@ -6,7 +6,9 @@
     "no-trailing-spaces": "warn",
     "no-unused-vars": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
-    "react/no-unescaped-entities": "warn"
+    "react/no-unescaped-entities": "warn",
+    "@typescript-eslint/no-empty-object-type": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "parserOptions": {
     "project": "./tsconfig.json"

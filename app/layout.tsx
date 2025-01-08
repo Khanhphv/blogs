@@ -5,7 +5,6 @@ import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 import { Suspense, useState } from 'react'
 import { SessionProvider } from 'next-auth/react'
-import { AuthContext } from '@/components/authorize'
 import { Analytics } from '@vercel/analytics/react'
 import Loading from '@/components/atoms/loading'
 import { UserLayout } from '@/components/layout/user-layout'
@@ -104,12 +103,10 @@ export default function RootLayout({
         <SessionProvider>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <Suspense fallback={<Loading />}>
-              <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
-                <Analytics />
-                <div className="webkit-gap"></div>
-                {/* {children} */}
-                <UserLayout>{children}</UserLayout>
-              </AuthContext.Provider>
+              <Analytics />
+              <div className="webkit-gap"></div>
+              {/* {children} */}
+              <UserLayout>{children}</UserLayout>
             </Suspense>
           </ThemeProvider>
         </SessionProvider>

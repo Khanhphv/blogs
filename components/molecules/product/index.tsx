@@ -17,7 +17,7 @@ export function ProductItem({ product }: { product: IProduct }) {
         <Image
           width={200}
           height={200}
-          src={product.thumbnail}
+          src={product.thumbnail ?? ''}
           alt={product.title}
         />
         <h2>{product.title}</h2>
