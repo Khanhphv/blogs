@@ -4,7 +4,8 @@ import { delay } from '@/utils'
 
 export default async function Products() {
   await delay()
-  const products = await fetch('http://localhost:3000/api/products')
+  const url = `${process.env.NEXT_PUBLIC_API}/products`
+  const products = await fetch(url)
   const data = await products.json()
   const { data: productsData } = data
 

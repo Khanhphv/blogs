@@ -14,4 +14,13 @@ declare module 'next-auth' {
       image: string
     }
   }
+  interface User {
+    name: string
+    email: string
+    picture: string
+    sub: string
+    accessToken: string
+    refreshToken: string
+    image: string
+  }
 }

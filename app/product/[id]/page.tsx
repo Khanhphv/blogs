@@ -4,7 +4,8 @@ import { delay } from '@/utils'
 
 async function getProduct(id: string) {
   await delay()
-  const product = await fetch('http://localhost:3000/api/products/' + id, {
+  const url = `${process.env.NEXT_PUBLIC_API}/products/`
+  const product = await fetch(url + id, {
     next: { revalidate: 0 },
   })
   if (product.ok) return await product.json()

@@ -1,4 +1,3 @@
-import { loginWithSocical } from '@/utils/login'
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import { login } from '@/api/user'
@@ -17,7 +16,6 @@ const handler = NextAuth({
 
   callbacks: {
     async signIn({ user, account, profile }) {
-      console.log('signIn')
       try {
         const res = await login({
           email: user.email || '',
