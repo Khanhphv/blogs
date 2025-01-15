@@ -1,7 +1,7 @@
 import { Navbar, Sidebar } from '../organism/navbar'
 import LoginButton from '../molecules/login-button'
 import Logo from '../atoms/logo'
-import { Cart } from '../organism/cart'
+import ThemeSwitch from '../molecules/theme-switch'
 
 interface Props {
   children: React.ReactNode
@@ -16,6 +16,7 @@ export const UserLayout = (props: Props) => {
           <Sidebar>
             <>
               {/* <Cart></Cart> */}
+              <ThemeSwitch />
               <div style={{ minWidth: '50px' }}>
                 <LoginButton>Login</LoginButton>
               </div>

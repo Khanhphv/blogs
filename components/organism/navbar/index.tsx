@@ -11,8 +11,8 @@ export const MENU = [
   },
 
   {
-    title: 'Product',
-    href: '/products',
+    title: 'About',
+    href: '/about',
     icon: <PiSmileyMelting size={30} />,
   },
 ]

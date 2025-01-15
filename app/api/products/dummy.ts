@@ -1,4 +1,5 @@
 import { IProduct } from '@/types/product'
+import { Social } from '@/types/types'
 
 export const dummy: IProduct[] = [
   {
@@ -14,5 +15,18 @@ export const dummy: IProduct[] = [
     thumbnail: '/Image.png',
     description: 'Description 2',
     price: 100,
+  },
+]
+
+export const social: Social[] = [
+  {
+    title: 'Instagram',
+    thumbnail: '/Image.png',
+    description: 'Description 1',
+  },
+  {
+    title: 'Facebook',
+    thumbnail: '/Image.png',
+    description: 'Description 2',
   },
 ]
