@@ -1,5 +1,4 @@
 import { Navbar, Sidebar } from '../organism/navbar'
-import LoginButton from '../molecules/login-button'
 import Logo from '../atoms/logo'
 import ThemeSwitch from '../molecules/theme-switch'
 
@@ -11,16 +10,10 @@ export const UserLayout = (props: Props) => {
   return (
     <div className="h-full w-full">
       <div className="flex flex-col">
-        <Navbar className="border-b-2 p-2">
+        <Navbar className="p-2">
           <Logo />
           <Sidebar>
-            <>
-              {/* <Cart></Cart> */}
-              <ThemeSwitch />
-              <div style={{ minWidth: '50px' }}>
-                <LoginButton>Login</LoginButton>
-              </div>
-            </>
+            <ThemeSwitch />
           </Sidebar>
         </Navbar>
         <div

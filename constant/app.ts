@@ -1,8 +1,13 @@
 export const app = {
   version: 1.0,
-  name: 'Khanhphv',
+  name: 'Khazh',
+  nickname: '@khanhphamviet',
+  instagram: 'https://www.instagram.com/khanhphamviet_/',
+  facebook: 'https://www.facebook.com/khanh.phamviet',
 }
 
-export namespace MENU {
-  export const HOME = '/home'
+export enum MENU {
+  HOME = '/home',
+  STORY = '/story',
+  ABOUT = '/about',
 }

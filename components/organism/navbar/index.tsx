@@ -1,7 +1,5 @@
 import { PiSmileyMelting } from 'react-icons/pi'
 import { MENU as MENU_CONSTANT } from '@/constant/app'
-import Link from 'next/link'
-import { useSelectedLayoutSegment } from 'next/navigation'
 
 export const MENU = [
   {
@@ -42,25 +40,23 @@ export const Sidebar = ({
   className?: string
   children?: React.ReactNode
 }) => {
-  const segment = useSelectedLayoutSegment()
+  // const segment = useSelectedLayoutSegment()
   return (
     <div className={`flex grow ${className}`}>
       <div className="flex grow justify-center gap-10">
-        {MENU.map((i, index) => {
+        {/* {MENU.map((i) => {
           return (
-            <>
-              <Link
-                key={index}
-                href={i.href}
-                className={`flex items-center justify-center hover:underline ${
-                  segment === i.href.replace('/', '') ? 'underline' : ''
-                }`}
-              >
-                {i.title}
-              </Link>
-            </>
+            <Link
+              key={i.title}
+              href={i.href}
+              className={`flex items-center justify-center hover:underline ${
+                segment === i.href.replace('/', '') ? 'underline' : ''
+              }`}
+            >
+              {i.title}
+            </Link>
           )
-        })}
+        })} */}
       </div>
 
       <div className="flex items-center gap-4">{children}</div>

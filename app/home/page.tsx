@@ -1,8 +1,11 @@
-'use client'
-import { useSession } from 'next-auth/react'
+import { delay } from '@/utils'
 
-export default function Home() {
-  const session = useSession()
+export default async function Home() {
+  await delay(5000)
+  const url = `${process.env.NEXT_PUBLIC_API}/products`
+  const products = await fetch(url)
+  const data = await products.json()
+  const { data: productsData } = data
 
-  return <>{JSON.stringify(session)}</>
+  return <></>
 }

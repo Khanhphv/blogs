@@ -21,12 +21,12 @@ export const dummy: IProduct[] = [
 export const social: Social[] = [
   {
     title: 'Instagram',
-    thumbnail: '/Image.png',
-    description: 'Description 1',
+    thumbnail: '/socials/instagram.png',
+    href: 'https://www.instagram.com/khanhphamviet_/',
   },
   {
     title: 'Facebook',
-    thumbnail: '/Image.png',
-    description: 'Description 2',
+    thumbnail: '/socials/facebook.jpg',
+    href: 'https://www.facebook.com/khanh.phamviet',
   },
 ]
