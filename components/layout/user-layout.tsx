@@ -19,7 +19,9 @@ export const UserLayout = (props: Props) => {
         <div
           className={`mt-[60px] flex w-full justify-center sm:container max-sm:mb-[50px] sm:min-h-full sm:pl-[70px]`}
         >
-          <div className="container w-full pb-[60px]">{props.children}</div>
+          <div className="container w-full max-w-[935px] pb-[60px]">
+            {props.children}
+          </div>
         </div>
       </div>
     </div>

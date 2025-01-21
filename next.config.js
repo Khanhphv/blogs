@@ -11,6 +11,18 @@ const nextConfig = {
   env: {
     DOMAIN_URL: process.env.NEXT_PUBLIC_DOMAIN_URL,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'unsplash.com',
+      },
+    ],
+  },
   transpilePackages: ['lucide-react'],
   webpack(config) {
     // Grab the existing rule that handles SVG imports
