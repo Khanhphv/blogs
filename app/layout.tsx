@@ -2,7 +2,7 @@
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 import { Suspense, useState } from 'react'
-import { SessionProvider } from 'next-auth/react'
+// import { SessionProvider } from 'next-auth/react'
 import { AuthContext } from '@/components/authorize'
 import { Analytics } from '@vercel/analytics/react'
 import Loading from '@/components/atoms/loading'
@@ -27,18 +27,18 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
-        <SessionProvider>
-          <ThemeProvider attribute="class" defaultTheme="white">
-            <Suspense fallback={<Loading />}>
-              <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
-                <Analytics />
-                <div className="webkit-gap"></div>
-                {/* {children} */}
-                <UserLayout>{children}</UserLayout>
-              </AuthContext.Provider>
-            </Suspense>
-          </ThemeProvider>
-        </SessionProvider>
+        {/* <SessionProvider> */}
+        <ThemeProvider attribute="class" defaultTheme="white">
+          <Suspense fallback={<Loading />}>
+            <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
+              <Analytics />
+              <div className="webkit-gap"></div>
+              {/* {children} */}
+              <UserLayout>{children}</UserLayout>
+            </AuthContext.Provider>
+          </Suspense>
+        </ThemeProvider>
+        {/* </SessionProvider> */}
       </body>
     </html>
   )
