@@ -4,12 +4,13 @@ import Image from 'next/image'
 export default async function Home() {
   const url = `${process.env.NEXT_PUBLIC_API}/post`
   const res = await fetch(url)
+  if (!res.ok) return
+
   const data = await res.json()
   const { data: post } = data
 
   const formatData = []
   const step = 3
-
   for (let i = 0; i < post.length; i += step) {
     const group = post.slice(i, i + step)
     while (group.length < step) {
