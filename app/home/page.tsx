@@ -24,18 +24,23 @@ export default async function Home() {
         return (
           <div className="flex gap-2" key={index}>
             {j.map((p: Post, index: number) => (
-              <div key={index} className="flex-1">
-                {p?.thumbnail ? (
-                  <Image
-                    className="h-full w-full rounded object-cover"
-                    src={p?.thumbnail}
-                    width={200}
-                    height={200}
-                    alt={p?.description}
-                  />
-                ) : (
-                  <></>
-                )}
+              <div key={index} className="relative block flex-1 bg-slate-300">
+                <div
+                  className="relative overflow-hidden"
+                  style={{ paddingBottom: '100%' }}
+                >
+                  {p?.thumbnail ? (
+                    <Image
+                      className="absolute left-0 top-0 h-full w-full object-cover"
+                      src={p?.thumbnail}
+                      width={200}
+                      height={200}
+                      alt={p?.description}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </div>
               </div>
             ))}
           </div>
