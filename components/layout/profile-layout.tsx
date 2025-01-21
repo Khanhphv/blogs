@@ -36,7 +36,7 @@ export const ProfileLayout = (props: Props) => {
         />
         <div className="flex flex-col">
           <h1 className="text-2xl">{app.name}</h1>
-          <h2>{app.nickname}</h2>
+          <h2>@{app.nickname}</h2>
           <SocialIcons />
         </div>
       </div>

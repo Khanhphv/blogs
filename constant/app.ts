@@ -1,7 +1,7 @@
 export const app = {
   version: 1.0,
   name: 'Khazh',
-  nickname: '@khanhphamviet',
+  nickname: 'khanhphamviet',
   instagram: 'https://www.instagram.com/khanhphamviet_/',
   facebook: 'https://www.facebook.com/khanh.phamviet',
 }
