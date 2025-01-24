@@ -23,6 +23,18 @@ const MENU = [
 export const ProfileLayout = (props: Props) => {
   const segment = usePathname()
 
+  const uploadFIle = async (e: any) => {
+    console.log(e.target.files)
+    const formData = new FormData()
+    formData.append('file', e.target.files[0])
+    const url = `${process.env.NEXT_PUBLIC_API}/upload`
+    const res = await fetch(url, {
+      method: 'POST',
+      body: formData,
+    })
+    console.log(res)
+  }
+
   return (
     <div>
       <div className="flex gap-4">
@@ -38,6 +50,9 @@ export const ProfileLayout = (props: Props) => {
           <h1 className="text-2xl">{app.name}</h1>
           <h2>@{app.nickname}</h2>
           <SocialIcons />
+          <div>
+            <input type="file" onChange={uploadFIle} />
+          </div>
         </div>
       </div>
       <div className="mt-6 grid grid-flow-col justify-stretch border-t">
