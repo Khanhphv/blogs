@@ -5,6 +5,7 @@ import './globals.css'
 import { SessionProvider } from 'next-auth/react'
 import { Analytics } from '@vercel/analytics/react'
 import { UserLayout } from '@/components/layout/user-layout'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -105,6 +106,7 @@ export default function RootLayout({
         </ThemeProvider>
         {/* </SessionProvider> */}
       </body>
+      <GoogleAnalytics gaId="GTM-N7TBW7X5" />
     </html>
   )
 }
