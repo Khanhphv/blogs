@@ -11,10 +11,11 @@ async function getProduct(id: string) {
 }
 
 export default async function Page({
-  params: { slug },
+  params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
+  const { slug } = await params
   const { data } = await getProduct(slug)
   return (
     <div className="flex grow flex-col justify-center">

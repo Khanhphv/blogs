@@ -11,8 +11,11 @@ import { delay } from '@/utils'
 //   return {}
 // }
 
-export default async function Product({ params }: { params: { id: string } }) {
-  const { id } = params
+export default async function Product({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
   // const { data: product }: { data: IProduct } = await getProduct(id)
 
   return <>{/* <ProductDetail product={product} /> */}</>

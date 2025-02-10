@@ -3,9 +3,9 @@ import { dummy } from '../dummy'
 
 export async function GET(
   rq: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params
+  const { id } = await params
 
   const data = dummy.find((p) => p.id === Number(id))
 
