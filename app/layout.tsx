@@ -106,7 +106,7 @@ export default function RootLayout({
         </ThemeProvider>
         {/* </SessionProvider> */}
       </body>
-      <GoogleAnalytics gaId="G-7GRSTNCXBX" />
+      <GoogleAnalytics gaId="GTM-N7TBW7X5" />
     </html>
   )
 }
