@@ -10,7 +10,7 @@ const siteMetadata = {
     'valorant skin changer,valorant skin changer 2024,skin changer valorant 2024,skin changer valorant,free valorant skins,how to get valorant skin changer,skin changer for valorant,valorant skin changer free,free valorant skin changer,valorant skin changer legit,free valorant swapper,valorant skin swapper,valorant skinchanger,how to download skin changer for valorant,valorant skin hack,valorant skin changer free download,valorant skin changer download,skin swapper',
   language: 'en-us',
   theme: 'dark', // system, dark or light
-  siteRepo: 'https://www.skydevs.wtf',
+  siteRepo: 'https://www.vsharp.net',
   siteLogo: `${process.env.BASE_PATH || ''}/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/banner.png`,
   mastodon: '',

@@ -77,7 +77,7 @@ const contentArray = [
   {
     title: 'Superior Quality',
     content:
-      'Skydevs stands for quality. We offer top-tier game modifications, always prioritizing the safety and satisfaction of our users, to ensure a premium gaming experience with our Valorant Skin Changer and other mods.',
+      'Vsharp stands for quality. We offer top-tier game modifications, always prioritizing the safety and satisfaction of our users, to ensure a premium gaming experience with our Valorant Skin Changer and other mods.',
   },
   {
     title: 'Premier Source',
