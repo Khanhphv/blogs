@@ -1,9 +1,5 @@
-export default async function Checkout({
-  params,
-}: {
-  params: Promise<{ id: string }>
-}) {
-  const { id } = await params
+export default function Checkout({ params }: { params: { id: string } }) {
+  const { id } = params
   return (
     <>
       <h1>Checkout {id}</h1>
