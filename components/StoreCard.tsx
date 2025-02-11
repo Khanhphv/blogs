@@ -12,7 +12,7 @@ const StoreCard = (product: IProduct) => {
   }
   return (
     <div
-      className={`${imgSrc} flex h-[330px] flex-col justify-between overflow-hidden rounded-md border-2 hover:scale-105 hover:bg-slate-900`}
+      className={`${imgSrc} flex flex-col justify-between overflow-hidden rounded-md border-2 hover:scale-105 hover:bg-slate-900`}
     >
       <>
         <Image

@@ -18,7 +18,7 @@ export default async function Page({
   const { data } = await getProduct(slug)
   return (
     <div className="flex grow flex-col justify-center">
-      <h2 className="text-center text-2xl font-bold uppercase">{slug}</h2>
+      <h2 className="mb-4 text-center text-2xl font-bold uppercase">{slug}</h2>
       <div className="flex flex-wrap items-center justify-center gap-4">
         {data.map((e: IProduct, index: number) => {
           return <StoreCard key={index} {...e}></StoreCard>
