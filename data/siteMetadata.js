@@ -11,8 +11,8 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'dark', // system, dark or light
   siteRepo: 'https://www.vsharp.net',
-  siteLogo: `${process.env.BASE_PATH || ''}/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/banner.png`,
+  siteLogo: `${process.env.DOMAIN_URL || ''}/logo.png`,
+  socialBanner: `${process.env.DOMAIN_URL || ''}/banner.png`,
   mastodon: '',
   email: 'address@yoursite.com',
   github: 'https://github.com',

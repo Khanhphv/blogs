@@ -1,6 +1,8 @@
 import StoreCard from '@/components/StoreCard'
 import siteMetadata from '@/data/siteMetadata'
 import { IProduct } from '@/types/product'
+import type { Metadata } from 'next'
+import { metadata as rootMetaData } from '@/app/layout'
 
 async function getProduct(id: string) {
   const product = await fetch(`${siteMetadata.siteUrl}/api/products`, {
@@ -10,6 +12,18 @@ async function getProduct(id: string) {
   return []
 }
 
+type Props = {
+  params: { slug: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = params.slug
+
+  return {
+    ...rootMetaData,
+    title: slug,
+  }
+}
 export default async function Page({
   params: { slug },
 }: {
