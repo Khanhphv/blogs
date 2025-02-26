@@ -1,7 +1,5 @@
 import { Navbar, Sidebar } from '../organism/navbar'
-import LoginButton from '../molecules/login-button'
 import Logo from '../atoms/logo'
-import { Cart } from '../organism/cart'
 interface Props {
   children: React.ReactNode
   direction?: 'horizontal' | 'vertical'
@@ -9,17 +7,9 @@ interface Props {
 export const UserLayout = (props: Props) => {
   return (
     <div className="mx-auto h-full w-full">
-      {/* <div className="flex w-full flex-col"> */}
       <Navbar className="z-10 border-b p-2">
         <Logo />
-        <Sidebar>
-          <>
-            <Cart></Cart>
-            {/* <div style={{ minWidth: '50px' }}>
-              <LoginButton>Login</LoginButton>
-            </div> */}
-          </>
-        </Sidebar>
+        <Sidebar></Sidebar>
       </Navbar>
       <div
         className={`mt-[60px] flex w-full justify-center sm:container max-sm:mb-[50px] sm:min-h-full sm:pl-[70px]`}
