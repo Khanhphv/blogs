@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default async function Applications() {
   const { data: applications } = await getApplication()
   return (
-    <div className="-m-4 flex grow flex-wrap items-center justify-center">
+    <div className="xs:grid-cols-1 grid justify-center gap-4 sm:grid-cols-2 md:grid-cols-4">
       {applications?.map((app: IApplication, index: number) => {
         return <Card key={index} {...app}></Card>
       })}

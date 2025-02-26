@@ -154,23 +154,6 @@ export const HomePage = () => {
           />
         </div>
       </div>
-      <div className="my-[70px] w-full text-center font-bold">
-        <div className="my-6 text-3xl">Featured in amazing magazines</div>
-        <div className="flex w-full flex-wrap justify-between">
-          {['1.webp', '2.svg', '3.svg', '4.png'].map((e, index) => (
-            <Image
-              key={index}
-              src={`/${e}`}
-              alt={''}
-              width={300}
-              height={200}
-              style={{
-                height: '50px',
-              }}
-            />
-          ))}
-        </div>
-      </div>
       {line}
       <div className="my-[70px] w-full text-center font-bold">
         <div className="my-6 text-3xl">

@@ -17,12 +17,6 @@ export const MENU = [
     href: '/applications',
     icon: <PiSmileyMelting size={30} />,
   },
-
-  {
-    title: 'Product',
-    href: '/store/valorant',
-    icon: <PiSmileyMelting size={30} />,
-  },
 ]
 
 export const Navbar = ({

@@ -21,6 +21,9 @@ const StoreCard = (product: IProduct) => {
           className="w-full bg-transparent object-cover"
           width={250}
           height={250}
+          style={{
+            width: 250,
+          }}
         />
         <div>
           <div className="flex justify-between p-2">
