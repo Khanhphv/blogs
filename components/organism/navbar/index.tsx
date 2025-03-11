@@ -11,10 +11,14 @@ export const MENU = [
     href: MENU_CONSTANT.HOME,
     icon: <PiSmileyMelting size={30} />,
   },
-
   {
     title: 'Applications',
     href: '/applications',
+    icon: <PiSmileyMelting size={30} />,
+  },
+  {
+    title: 'News',
+    href: '/news',
     icon: <PiSmileyMelting size={30} />,
   },
 ]
