@@ -5,9 +5,9 @@ const siteMetadata = {
   author: 'Vsharpers',
   headerTitle: 'Vsharp',
   description:
-    'Vsharp is your top source for Valorant Skin Changer & Counter-Strike 2 SkinChanger in 2024. Discover the best gaming mods today.',
+    'Vsharp is your top source for Valorant Cheats & Counter-Strike 2 SkinChanger in 2024. Discover the best gaming mods today.',
   keyword:
-    'valorant skin changer,valorant skin changer 2024,skin changer valorant 2024,skin changer valorant,free valorant skins,how to get valorant skin changer,skin changer for valorant,valorant skin changer free,free valorant skin changer,valorant skin changer legit,free valorant swapper,valorant skin swapper,valorant skinchanger,how to download skin changer for valorant,valorant skin hack,valorant skin changer free download,valorant skin changer download,skin swapper',
+    'valorant Cheats,valorant Cheats 2024,Cheats valorant 2024,Cheats valorant,free valorant skins,how to get valorant Cheats,Cheats for valorant,valorant Cheats free,free valorant Cheats,valorant Cheats legit,free valorant swapper,valorant skin swapper,valorant skinchanger,how to download Cheats for valorant,valorant skin hack,valorant Cheats free download,valorant Cheats download,skin swapper',
   language: 'en-us',
   theme: 'dark', // system, dark or light
   siteRepo: 'https://www.vsharp.net',

@@ -72,22 +72,22 @@ const contentArray = [
   {
     title: 'Huge Selection',
     content:
-      "Explore 2024's Premier Selection of Undetected Skin Changers for Valorant, Counter-Strike 2, and more - Your Ultimate Source for Safe and Innovative Game Modifications.",
+      "Explore 2024's Premier Selection of Undetected Cheatss for Valorant, Counter-Strike 2, and more - Your Ultimate Source for Safe and Innovative Game Modifications.",
   },
   {
     title: 'Superior Quality',
     content:
-      'Vsharp stands for quality. We offer top-tier game modifications, always prioritizing the safety and satisfaction of our users, to ensure a premium gaming experience with our Valorant Skin Changer and other mods.',
+      'Vsharp stands for quality. We offer top-tier game modifications, always prioritizing the safety and satisfaction of our users, to ensure a premium gaming experience with our Valorant Cheats and other mods.',
   },
   {
     title: 'Premier Source',
     content:
-      "Since 2019, we've established ourselves as the leading provider of game modification applications, including the popular Valorant Skin Changer and Counter-Strike 2 Skin Changer. Our comprehensive selection is not just about variety; it's about delivering the highest standard of safety and security.",
+      "Since 2019, we've established ourselves as the leading provider of game modification applications, including the popular Valorant Cheats and Counter-Strike 2 Cheats. Our comprehensive selection is not just about variety; it's about delivering the highest standard of safety and security.",
   },
   {
     title: 'Vibrant Community',
     content:
-      'Step into our lively community of over 4 million users that has been steadily growing since 2019. Our YouTube channel boasts over 100,000 subscribers, a testament to our engaged and enthusiastic user base. Join us and enjoy the best Valorant Skin Changer experience.',
+      'Step into our lively community of over 4 million users that has been steadily growing since 2019. Our YouTube channel boasts over 100,000 subscribers, a testament to our engaged and enthusiastic user base. Join us and enjoy the best Valorant Cheats experience.',
   },
 ]
 const gradient = {
