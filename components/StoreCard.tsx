@@ -15,7 +15,7 @@ const StoreCard = (product: IProduct) => {
       className={`${imgSrc} flex flex-col justify-between overflow-hidden rounded-md border-2 hover:scale-105 hover:bg-slate-900`}
     >
       <>
-        <Image
+        <img
           alt={title}
           src={imgSrc}
           className="w-full bg-transparent object-cover"
