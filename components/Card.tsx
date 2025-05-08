@@ -15,7 +15,7 @@ const Card = ({ title = '', imgSrc = ' ', href = '' }) => {
             height: '80%',
           }}
         >
-          <Image
+          <img
             alt={title}
             src={imgSrc}
             className="h-full w-full bg-transparent object-cover"
