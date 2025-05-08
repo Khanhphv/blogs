@@ -18,7 +18,7 @@ const Card = ({ title = '', imgSrc = ' ', href = '' }) => {
           <Image
             alt={title}
             src={imgSrc}
-            className="h-full w-full bg-transparent object-contain"
+            className="h-full w-full bg-transparent object-cover"
             width={250}
             height={250}
             style={{

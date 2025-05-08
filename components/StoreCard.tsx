@@ -22,7 +22,8 @@ const StoreCard = (product: IProduct) => {
           width={250}
           height={250}
           style={{
-            width: 250,
+            width: 300,
+            height: 250,
           }}
         />
         <div>
