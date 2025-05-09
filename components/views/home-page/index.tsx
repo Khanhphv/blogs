@@ -104,9 +104,9 @@ export const HomePage = () => {
   })
   return (
     <>
-      <div className="gap-4 lg:grid lg:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         <div className="flex flex-col justify-center">
-          <div className="text-7xl font-bold">
+          <div className="text-5xl font-bold">
             Your Nr. 1{' '}
             <span
               style={{
