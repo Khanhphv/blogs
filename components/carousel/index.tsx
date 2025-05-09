@@ -21,9 +21,7 @@ export default function Carroussel(props: any) {
   }, [props.offset, props.showArrows])
 
   return (
-    <div
-      style={{ width: props.width, height: props.height, margin: props.margin }}
-    >
+    <div style={{ width: 500, height: props.height, margin: props.margin }}>
       <Carousel
         slides={cards}
         goToSlide={goToSlide || 0}
