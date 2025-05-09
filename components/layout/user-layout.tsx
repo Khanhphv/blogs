@@ -34,7 +34,7 @@ export const UserLayout = (props: Props) => {
         {/* Right Ad Column */}
         <div className="hidden min-w-[160px] max-w-[200px] lg:block lg:w-1/6">
           <div className="sticky top-[80px] p-4">
-            <LeftAdComponent />
+            {/* <LeftAdComponent /> */}
           </div>
         </div>
       </div>
