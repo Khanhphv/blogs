@@ -22,7 +22,7 @@ export const UserLayout = (props: Props) => {
         className={`mt-[60px] flex w-full justify-center max-sm:mb-[50px] sm:min-h-full sm:px-4`}
       >
         {/* Left Ad Column */}
-        <div className="hidden min-w-[160px] lg:block lg:w-1/6">
+        <div className="hidden min-w-[160px] max-w-[200px] lg:block lg:w-1/6">
           <div className="sticky top-[80px] p-4"></div>
         </div>
 
@@ -32,7 +32,7 @@ export const UserLayout = (props: Props) => {
         </div>
 
         {/* Right Ad Column */}
-        <div className="hidden min-w-[160px] lg:block lg:w-1/6">
+        <div className="hidden min-w-[160px] max-w-[200px] lg:block lg:w-1/6">
           <div className="sticky top-[80px] p-4">
             <LeftAdComponent />
           </div>
