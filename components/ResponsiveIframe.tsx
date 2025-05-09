@@ -6,6 +6,7 @@ interface ResponsiveIframeProps {
   className?: string
   style?: React.CSSProperties
   scrolling?: 'yes' | 'no' | 'auto'
+  onError?: () => void
 }
 
 export default function ResponsiveIframe({
@@ -14,6 +15,7 @@ export default function ResponsiveIframe({
   className = '',
   style = {},
   scrolling = 'no',
+  onError,
 }: ResponsiveIframeProps) {
   return (
     <div className="relative w-full">
@@ -23,6 +25,7 @@ export default function ResponsiveIframe({
         scrolling={scrolling}
         className={`w-full ${className}`}
         style={{ border: 'none', ...style }}
+        onError={onError}
       />
     </div>
   )
