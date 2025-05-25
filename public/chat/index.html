@@ -8,18 +8,26 @@
     ></script>
 
     <script>
-      var socket = io("https://api.skydevs.wtf");
-      // var socket = io("http://127.0.0.1:5001");
+      var roomId = "54eb6e49-1d02-4cf9-ace5-5820a9f5774d";
+
+      var socket = io("https://others.atwship.net", {
+        withCredentials: false,
+        cors: {
+          origin: "*",
+        },
+      });
 
       /**
        * Listen `connect` event to show check connection status
        * After that, fire event `join room` with room id
        *
        */
+      console.log("Connect...");
+
       socket.on("connect", function () {
         console.log("Connected");
         socket.emit("join_room", {
-          room: "khanh",
+          room: roomId,
         });
       });
 
@@ -67,12 +75,12 @@
          * Send data through room_event
          * With data is string and room is room id
          */
-        socket.emit("room_event", { data: points, room: "khanh" });
+        socket.emit("room_event", { data: points, room: roomId });
       };
 
       const close_room = () => {
         socket.emit("close_room", {
-          room: "khanh",
+          room: roomId,
         });
       };
 
@@ -85,6 +93,7 @@
 
   <body>
     <input name="message" type="text" />
+
     <button onclick="onMessage()">Send</button>
     <button onclick="disconnect()">Disconnect</button>
   </body>
