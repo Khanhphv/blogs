@@ -9,6 +9,9 @@ export const metadata: Metadata = {
 const getData = async (id: string) => {
   const data = await fetch(`${process.env.DOMAIN_URL}/api/room/get?id=${id}`, {
     cache: "no-store",
+    headers: {
+      Accept: "application/json",
+    },
   });
 
   const res = await data.json();

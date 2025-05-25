@@ -10,7 +10,7 @@ import Radar from "./radar";
 import { io, Socket } from "socket.io-client";
 
 const Room = ({ room }: { room: string }) => {
-  const URL = process.env.NEXT_PUBLIC_API_URL as string;
+  const URL = "https://others.atwship.net";
   const socketObj = io(URL, {
     autoConnect: true,
   });
