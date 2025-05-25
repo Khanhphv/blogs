@@ -70,7 +70,7 @@ export default function Radar({ room }: { room: string }) {
   useEffect(() => {
     if (!socket?.active) return;
     socket.emit("join_room", {
-      room: "khanh",
+      room: room,
     });
     socket.on("my_response", function (data, callback) {
       console.log(data);

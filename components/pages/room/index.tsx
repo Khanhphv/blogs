@@ -17,7 +17,7 @@ const Room = ({ room }: { room: string }) => {
   const [socket, setSocket] = useState<Socket>(socketObj);
   useEffect(() => {
     socket.on("connect", () => {
-      console.log("connect");
+      console.log("connectedddd");
     });
   }, [socket]);
 
