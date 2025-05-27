@@ -1,10 +1,5 @@
 import { Navbar, Sidebar } from '../organism/navbar'
 import Logo from '../atoms/logo'
-import dynamic from 'next/dynamic'
-
-const AdComponent = dynamic(() => import('../AdComponent'), {
-  ssr: false,
-})
 
 interface Props {
   children: React.ReactNode

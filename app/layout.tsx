@@ -104,10 +104,6 @@ export default function RootLayout({
         </ThemeProvider>
         {/* </SessionProvider> */}
         <Script
-          strategy="afterInteractive"
-          src="//pl26599530.profitableratecpm.com/ea/1d/2c/ea1d2cf26d3584161eec50704669ca8c.js"
-        />
-        <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
         />
